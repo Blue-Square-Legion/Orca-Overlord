@@ -12,6 +12,11 @@ public class MousePosition : MonoBehaviour
     //[SerializeField] Transform target;
     public GameObject Player;
     float moveSpeed = 5f;
+
+    private void Start()
+    {
+        Player = GameObject.FindGameObjectWithTag("Player");
+    }
     void Update()
 
     {
@@ -42,14 +47,7 @@ public class MousePosition : MonoBehaviour
         {
             Player.transform.Translate(Vector3.down * moveSpeed * Time.deltaTime);
         }
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hitInfo;
-            if (Physics.Raycast(ray, out hitInfo, Mathf.Infinity))
-                Player.transform.LookAt(hitInfo.point);
-
-        }
+       
     }
 
 }

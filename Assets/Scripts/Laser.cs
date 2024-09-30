@@ -9,7 +9,8 @@ using UnityEngine.UI;
 using UnityEngine.UIElements;
 public class Laser : MonoBehaviour
 {
-    [SerializeField] public Swing swing;
+    public GameObject Sphere;
+   // [SerializeField] public Swing swing;
     public Camera mainCamera;
     public LineRenderer laserline;
     //  public LineRenderer lineRenderer;
@@ -23,8 +24,22 @@ public class Laser : MonoBehaviour
         laserline = GetComponent<LineRenderer>();
         // StartCoroutine(DrawLine());
     }
+    public void OnColliderEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("food") && UnityEngine.Input.GetKey(KeyCode.Mouse0))
+        {
+            Sphere.transform.position = UnityEngine.Vector3.MoveTowards(Sphere.transform.position, hand.transform.position, 5000f * Time.deltaTime);
+        }
+    }
 
-    void Update()
+
+
+
+
+
+
+
+            void Update()
     {
         if (Input.GetKey(KeyCode.W))
             hand.transform.Rotate(-.2f, 0f, 0f);
@@ -34,20 +49,30 @@ public class Laser : MonoBehaviour
             hand.transform.Rotate(0f, .2f, 0f);
         if (Input.GetKey(KeyCode.A))
             hand.transform.Rotate(0f, -.2f, 0f);
+        RaycastHit hit;
+      //  GameObject[] gameObject = GameObject.FindGameObjectsWithTag("food");
+        if (Physics.Raycast(transform.position, transform.TransformDirection(UnityEngine.Vector3.forward), out hit, Mathf.Infinity)&&UnityEngine.Input.GetKey(KeyCode.Mouse0))
+          Sphere.transform.position  = UnityEngine.Vector3.MoveTowards(Sphere.transform.position, hand.transform.position, 50f * Time.deltaTime);
 
-       // RaycastHit hit;
+       
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hitInfo;
+            if (Physics.Raycast(ray, out hitInfo, Mathf.Infinity))
+                hand.transform.LookAt(hitInfo.point);
+       
+
         laserline.positionCount = 2;
-        laserline.SetPosition(0, hand.transform.position);
-        if (!Swing._noPivot)
-        {
+            laserline.SetPosition(0, hand.transform.position);
+            if (!Swing._noPivot)
+            {
 
-            laserline.SetPosition(1, hand.transform.forward * 10000);
-        }
-        else
-        {
-            laserline.SetPosition(1, swing.predictionPoint.transform.position);
+                laserline.SetPosition(1, hand.transform.forward * 10000);
+            }
+         //   else
+          //  {
+             //   laserline.SetPosition(1, swing.predictionPoint.transform.position);
 
 
+           // }
         }
     }
-}

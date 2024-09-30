@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 
 using System.Diagnostics.Contracts;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Windows;
 using UnityEngine.XR;
 
 public class Swing : MonoBehaviour
@@ -42,12 +44,12 @@ public class Swing : MonoBehaviour
 
 
         GetSwingPoint();
-        if (Input.GetKey(KeyCode.Mouse0))
+        if (UnityEngine.Input.GetKey(KeyCode.P))
         {
             StartSwing();
             _pull = true;
         }
-        else if (Input.GetKey(KeyCode.Mouse1))
+        else if (UnityEngine.Input.GetKey(KeyCode.O))
             StopSwing();
         DrawRope();
         PullRope();
@@ -67,6 +69,7 @@ public class Swing : MonoBehaviour
             joint.massScale = 4.5f;
         }
     }
+ 
     public void PullRope()
     {
         if (!joint)
@@ -109,6 +112,13 @@ public class Swing : MonoBehaviour
     }
     public void DrawRope()
     {
+        
+       
+            Ray ray = Camera.main.ScreenPointToRay(UnityEngine.Input.mousePosition);
+            RaycastHit hitInfo;
+            if (Physics.Raycast(ray, out hitInfo, Mathf.Infinity))
+                startSwingHand.transform.LookAt(hitInfo.point);
+        
         if (!joint)
         {
             lineRenderer.enabled = false;

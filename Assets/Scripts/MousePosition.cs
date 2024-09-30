@@ -6,16 +6,16 @@ using System.Diagnostics.Contracts;
 
 public class MousePosition : MonoBehaviour
 {
-    public Vector3 screenPosition;
-    public Vector3 worldPosition;
-    public LayerMask layerMask;
+   // public Vector3 screenPosition;
+ //   public Vector3 worldPosition;
+   // public LayerMask layerMask;
     //[SerializeField] Transform target;
     public GameObject Player;
     float moveSpeed = 5f;
 
     private void Start()
     {
-        Player = GameObject.FindGameObjectWithTag("Player");
+        //Player = GameObject.FindGameObjectWithTag("Player");
     }
     void Update()
 

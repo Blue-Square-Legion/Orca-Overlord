@@ -128,7 +128,7 @@ public class Swing : MonoBehaviour
             lineRenderer.enabled = true;
             lineRenderer.positionCount = 2;
             lineRenderer.SetPosition(0, startSwingHand.position);
-            lineRenderer.SetPosition(1, swingPoint * gunRange);
+            lineRenderer.SetPosition(1, hitInfo.point);
 
         }
       

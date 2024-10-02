@@ -14,9 +14,11 @@ public class Floater : MonoBehaviour
 
     void FixedUpdate()
     {
-       // rigidBody.AddForceAtPosition(Physics.gravity / floatCount, transform.position, ForceMode.Acceleration);
+        rigidBody.AddForceAtPosition(Physics.gravity / floatCount, transform.position, ForceMode.Acceleration);
         float waveHeight = WaveManager.instance.GetWaveHeight(transform.position.x);
-        if (transform.position.y < waveHeight)
+        
+       // rigidBody.transform.position = new UnityEngine.Vector3(transform.position.x,(transform.position.y)-Mathf.Sin(1*Time.deltaTime),transform.position.z);
+        if (transform.position.y <= waveHeight)
         {
             float displacementMultiplier = Mathf.Clamp01((waveHeight - transform.position.y) / depthBeforeSubmerged) * displacementAmount;
             rigidBody.AddForceAtPosition(new Vector3(0f, Mathf.Abs(Physics.gravity.y) * displacementMultiplier, 0f), transform.position, ForceMode.Acceleration);

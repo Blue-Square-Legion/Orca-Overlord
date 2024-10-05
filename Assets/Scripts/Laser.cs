@@ -9,7 +9,6 @@ using UnityEngine.UI;
 using UnityEngine.UIElements;
 public class Laser : MonoBehaviour
 {
-    UnityEngine.Vector3 mousePos;
     public GameObject Sphere;
    // [SerializeField] public Swing swing;
     public Camera mainCamera;
@@ -25,9 +24,6 @@ public class Laser : MonoBehaviour
         laserline = GetComponent<LineRenderer>();
         // StartCoroutine(DrawLine());
     }
-   
-
-
 
 
 
@@ -46,15 +42,10 @@ public class Laser : MonoBehaviour
             player.transform.Rotate(0f, -.2f, 0f);
         RaycastHit hit;
       //  GameObject[] gameObject = GameObject.FindGameObjectsWithTag("food");
-        if (Physics.Raycast(player.transform.position, player.transform.TransformDirection(UnityEngine.Vector3.forward), out hit, Mathf.Infinity)&&UnityEngine.Input.GetKey(KeyCode.Mouse0))
-          Sphere.transform.position  = UnityEngine.Vector3.MoveTowards(Sphere.transform.position, player.transform.position, 50f * Time.deltaTime);
-        UnityEngine.Vector3 mousePos = Input.mousePosition;
-       
-        Ray ray =mainCamera.ScreenPointToRay(mousePos);
-        
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
-                player.transform.LookAt(hit.point);
-       
+
+                RaycastHit hitInfo;
+            if (Physics.Raycast(ray, out hitInfo, Mathf.Infinity))
+              
 
         laserline.positionCount = 2;
             laserline.SetPosition(0, player.transform.position);
@@ -63,11 +54,11 @@ public class Laser : MonoBehaviour
 
                 laserline.SetPosition(1, player.transform.forward * 10000);
             }
-         //   else
-          //  {
-             //   laserline.SetPosition(1, swing.predictionPoint.transform.position);
+   //    else
+       //   {
+           //   laserline.SetPosition(1, swing.predictionPoint.transform.position);
 
 
-           // }
+   //   }
         }
     }

@@ -11,7 +11,7 @@ public class MousePosition : MonoBehaviour
    // public LayerMask layerMask;
     //[SerializeField] Transform target;
     public GameObject Player;
-    float moveSpeed = 5f;
+    float moveSpeed = 25f;
 
     private void Start()
     {

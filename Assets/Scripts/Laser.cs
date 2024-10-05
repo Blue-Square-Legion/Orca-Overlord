@@ -35,14 +35,9 @@ public class Laser : MonoBehaviour
 
             void Update()
     {
-        if (Input.GetKey(KeyCode.W))
-            player.transform.Rotate(-.2f, 0f, 0f);
-        if (Input.GetKey(KeyCode.S))
-            player.transform.Rotate(.2f, 0f, 0f);
-        if (Input.GetKey(KeyCode.D))
-            player.transform.Rotate(0f, .2f, 0f);
-        if (Input.GetKey(KeyCode.A))
-            player.transform.Rotate(0f, -.2f, 0f);
+        if (Input.GetKey(KeyCode.E))
+            player.transform.Rotate(0f, .3f, 0f);
+        
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hitInfo;
         if (Physics.Raycast(ray, out hitInfo, Mathf.Infinity))

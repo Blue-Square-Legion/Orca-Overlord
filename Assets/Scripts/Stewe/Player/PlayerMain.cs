@@ -15,15 +15,18 @@ public class PlayerMain : MonoBehaviour,IHealth
     public float jumpForce;
     public float jumpCooldown;
     public float airMultiplier;
+    public float waterMultiplier;
     public float rotationSpeed;
 
     bool isReadyToJump = true;
+    bool isSwimming = false;
     bool isGrounded;
 
     public LayerMask groundLayer;
 
     public Transform gun;
     public Transform cam;
+    public Transform waterSurface;
 
     public Rigidbody rb;
 
@@ -50,6 +53,17 @@ public class PlayerMain : MonoBehaviour,IHealth
         LimitSpeed();
 
         isGrounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.5f, groundLayer);
+
+        if(transform.position.y <= waterSurface.position.y)
+        {
+            isSwimming = true;
+            rb.useGravity = false;
+        }
+        else
+        {
+            isSwimming = false;
+            rb.useGravity = true;
+        }
 
         if (isGrounded)
         {
@@ -84,21 +98,36 @@ public class PlayerMain : MonoBehaviour,IHealth
         forward = cam.forward;
         right = cam.right;
 
-        forward.y = 0;
-        right.y = 0;
         forward.Normalize();
         right.Normalize();
 
-        direction = forward * verticalInput + right * horizontalInput;
-
-        if (isGrounded)
-            rb.AddForce(direction.normalized * speed, ForceMode.Force);
-        else if (!isGrounded)
-            rb.AddForce(direction.normalized * speed * airMultiplier, ForceMode.Force);
-
-
         //player rotation
-        rotDir = Quaternion.Euler(0, cam.transform.eulerAngles.y, 0);
+        if (!isSwimming)
+        {
+
+            forward.y = 0;
+            right.y = 0;
+
+            direction = forward * verticalInput + right * horizontalInput;
+
+            if (isGrounded)
+                rb.AddForce(direction.normalized * speed, ForceMode.Force);
+            else if (!isGrounded)
+                rb.AddForce(direction.normalized * speed * airMultiplier, ForceMode.Force);
+
+
+            rotDir = Quaternion.Euler(0, cam.transform.eulerAngles.y, 0);
+        }
+        else
+        {
+            direction = forward * verticalInput + right * horizontalInput;
+
+            rb.AddForce(direction.normalized * speed * waterMultiplier, ForceMode.Force);
+
+            rotDir = Quaternion.Euler(cam.transform.eulerAngles.x, cam.transform.eulerAngles.y, 0);
+            rb.velocity *= direction.normalized.magnitude;
+        }
+
         transform.rotation = Quaternion.Slerp(transform.rotation, rotDir, rotationSpeed);
 
         //gun rotation

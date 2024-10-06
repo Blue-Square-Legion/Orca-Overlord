@@ -1457,6 +1457,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &878423020 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4109495137913321097, guid: 43746352c5483864cb03405777ffbf18,
+    type: 3}
+  m_PrefabInstance: {fileID: 1895087528}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &972706085
 GameObject:
   m_ObjectHideFlags: 3
@@ -2317,6 +2323,16 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 330585546}
+    - target: {fileID: 5284611083363207729, guid: 971ddaec0af1f1144bea014548013c4b,
+        type: 3}
+      propertyPath: waterSurface
+      value: 
+      objectReference: {fileID: 878423020}
+    - target: {fileID: 5284611083363207729, guid: 971ddaec0af1f1144bea014548013c4b,
+        type: 3}
+      propertyPath: waterMultiplier
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 6152170537379415014, guid: 971ddaec0af1f1144bea014548013c4b,
         type: 3}
       propertyPath: m_Name

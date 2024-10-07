@@ -7,14 +7,17 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
+using UnityEngine.XR;
 public class Laser : MonoBehaviour
 {
+
+    public GameObject hut;
     public GameObject Sphere;
    // [SerializeField] public Swing swing;
     public Camera mainCamera;
     public LineRenderer laserline;
     //  public LineRenderer lineRenderer;
-    public Transform hand;
+    public Transform player;
     //   public GameObject Sphere1, Sphere2, Sphere3, Sphere4, Sphere5, Sphere6;
     float animDuration = 2f;
     float gunRange = 100f;
@@ -24,15 +27,6 @@ public class Laser : MonoBehaviour
         laserline = GetComponent<LineRenderer>();
         // StartCoroutine(DrawLine());
     }
-    public void OnColliderEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("food") && UnityEngine.Input.GetKey(KeyCode.Mouse0))
-        {
-            Sphere.transform.position = UnityEngine.Vector3.MoveTowards(Sphere.transform.position, hand.transform.position, 5000f * Time.deltaTime);
-        }
-    }
-
-
 
 
 
@@ -41,38 +35,45 @@ public class Laser : MonoBehaviour
 
             void Update()
     {
-        if (Input.GetKey(KeyCode.W))
-            hand.transform.Rotate(-.2f, 0f, 0f);
-        if (Input.GetKey(KeyCode.S))
-            hand.transform.Rotate(.2f, 0f, 0f);
-        if (Input.GetKey(KeyCode.D))
-            hand.transform.Rotate(0f, .2f, 0f);
-        if (Input.GetKey(KeyCode.A))
-            hand.transform.Rotate(0f, -.2f, 0f);
-        RaycastHit hit;
-      //  GameObject[] gameObject = GameObject.FindGameObjectsWithTag("food");
-        if (Physics.Raycast(transform.position, transform.TransformDirection(UnityEngine.Vector3.forward), out hit, Mathf.Infinity)&&UnityEngine.Input.GetKey(KeyCode.Mouse0))
-          Sphere.transform.position  = UnityEngine.Vector3.MoveTowards(Sphere.transform.position, hand.transform.position, 50f * Time.deltaTime);
-
-       
+        if (Input.GetKey(KeyCode.E))
+            player.transform.Rotate(0f, .3f, 0f);
+        
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hitInfo;
-            if (Physics.Raycast(ray, out hitInfo, Mathf.Infinity))
-                hand.transform.LookAt(hitInfo.point);
-       
+        RaycastHit hitInfo;
+        if (Physics.Raycast(ray, out hitInfo, Mathf.Infinity))
+           player.transform.LookAt(hitInfo.point);
+
+
+        UnityEngine.Vector3 fwd = player.transform.TransformDirection(UnityEngine.Vector3.forward);
+
+        if (Physics.Raycast(player.transform.position, fwd, 1000) && Input.GetKey(KeyCode.Mouse0))
+        {
+
+            Sphere.transform.position = UnityEngine.Vector3.MoveTowards(Sphere.transform.position, player.transform.position, 110f * Time.deltaTime);
+        }
+        if (Physics.Raycast(player.transform.position, fwd, 1000) && Input.GetKey(KeyCode.Mouse1))
+        {
+
+            player.transform.position = UnityEngine.Vector3.MoveTowards(player.transform.position, hut.transform.position, 150f * Time.deltaTime);
+
+        }
+
+
+
+
 
         laserline.positionCount = 2;
-            laserline.SetPosition(0, hand.transform.position);
+            laserline.SetPosition(0, player.transform.position);
             if (!Swing._noPivot)
             {
 
-                laserline.SetPosition(1, hand.transform.forward * 10000);
+                laserline.SetPosition(1, player.transform.forward * 10000);
             }
-         //   else
-          //  {
-             //   laserline.SetPosition(1, swing.predictionPoint.transform.position);
+   //    else
+       //   {
+           //   laserline.SetPosition(1, swing.predictionPoint.transform.position);
 
 
-           // }
+   //   }
         }
     }

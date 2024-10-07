@@ -34,11 +34,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _MainNormal:
         m_Texture: {fileID: 2800000, guid: 6084e6ea2ddea754bb1e34eda26b0414, type: 3}
-        m_Scale: {x: 0.1, y: 0.1}
+        m_Scale: {x: 2, y: 2}
         m_Offset: {x: 1, y: 1}
     - _SecondNormal:
         m_Texture: {fileID: 2800000, guid: 6084e6ea2ddea754bb1e34eda26b0414, type: 3}
-        m_Scale: {x: 0.2, y: 0.2}
+        m_Scale: {x: 2, y: 2}
         m_Offset: {x: 1, y: 1}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
@@ -55,19 +55,18 @@ Material:
     m_Ints: []
     m_Floats:
     - Normal_Blend: 0.5
-    - _BackwardSpeed: -2.5
+    - _BackwardSpeed: -30
     - _DecalMeshBiasType: 0
     - _DecalMeshDepthBias: 0
     - _DecalMeshViewBias: 0
     - _Depth: 1
     - _Displacement: 0.01
     - _DrawOrder: 0
-    - _ForwardSpeed: 5
-    - _NormalStrength: 0
+    - _ForwardSpeed: 50
+    - _NormalStrength: 0.023
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Smoothness: 0.847
-    - _Strength: 0.04
+
     m_Colors:
     - _DeepWaterColor: {r: 0.5267853, g: 0.90943396, b: 0.66478974, a: 0}
     - _ShallowWaterColor: {r: 0.5137984, g: 0.6377357, b: 0.5932156, a: 1}

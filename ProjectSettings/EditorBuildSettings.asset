@@ -4,8 +4,5 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/Prototyping Scene - EDITOR ONLY/SampleScene/whale.unity
-    guid: 78bf34b26ff18ed4d84527d01b3c9ec5
+
   m_configObjects: {}

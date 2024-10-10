@@ -8,6 +8,7 @@ using UnityEngine;
 /// </summary>
 public class ThrowSpear : MonoBehaviour
 {
+    public GameObject player;
     public Transform cam;
     public Transform attachPoint;
     public GameObject objectToThrow;
@@ -39,7 +40,7 @@ public class ThrowSpear : MonoBehaviour
         //calculate direction
         Vector3 forceDirection = cam.transform.forward;
         RaycastHit hit;
-        if (Physics.Raycast(cam.position, cam.forward, out hit, 500f)) ;
+        if (Physics.Raycast(cam.position, cam.forward, out hit, 500f)) 
         {
             forceDirection = (hit.point - attackPoint.transform.position).normalized;
         }

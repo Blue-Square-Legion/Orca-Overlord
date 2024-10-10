@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UnderWater : MonoBehaviour
 {
-    [SerializeField] int depth = -1787;
+    [SerializeField] int depth = 42;
     [SerializeField] Transform mainCamera;
     [SerializeField] Volume postProcessingVolume;
     [SerializeField] VolumeProfile surfacePostProcessing;

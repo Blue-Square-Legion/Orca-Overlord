@@ -8,7 +8,7 @@ using UnityEngine;
 /// </summary>
 public class ThrowSpear : MonoBehaviour
 {
-   // public GameObject player;
+    public GameObject player;
     public Transform cam;
     public Transform attachPoint;
     public GameObject objectToThrow;
@@ -24,6 +24,8 @@ public class ThrowSpear : MonoBehaviour
 
     void Start()
     {
+
+       player.transform.LookAt(enemy.transform);
         readyToThrow = true;
     }
     void Update()
@@ -33,6 +35,8 @@ public class ThrowSpear : MonoBehaviour
     }
     public void Throw()
     {
+
+   
         readyToThrow = false;
         //instantiate object
         GameObject projectile = Instantiate(objectToThrow, attackPoint.transform.position, cam.rotation);
@@ -42,10 +46,10 @@ public class ThrowSpear : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, 500f)) 
         {
-            forceDirection = (hit.point - attackPoint.transform.position).normalized;
+            forceDirection = (hit.point - attachPoint.transform.position).normalized;
 
         }
-        Debug.DrawRay(transform.position,forceDirection,Color.red,50);   
+        //Debug.DrawRay(transform.position,forceDirection,Color.red,50);   
          
         //add force
         Vector3 forceToAdd = forceDirection * throwForce + transform.up * throwUpwardForce;

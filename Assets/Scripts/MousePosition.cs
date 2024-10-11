@@ -47,7 +47,10 @@ public class MousePosition : MonoBehaviour
         {
             Player.transform.Translate(Vector3.down * moveSpeed * Time.deltaTime);
         }
-       
+        if (Input.GetKey(KeyCode.E))
+            Player.transform.Rotate(0f, .3f, 0f);
+
+
     }
 
 }

@@ -54,15 +54,15 @@ public class PlayerMain : MonoBehaviour,IHealth
 
         isGrounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.5f, groundLayer);
 
-        {
-            isSwimming = true;
-            rb.useGravity = false;
-        }
-        else
-        {
-            isSwimming = false;
-            rb.useGravity = true;
-        }
+    //    {
+       //     isSwimming = true;
+       //     rb.useGravity = false;
+      //  }
+    //    else
+    //   {
+      //      isSwimming = false;
+       //     rb.useGravity = true;
+      //  }
 
         if (isGrounded)
         {

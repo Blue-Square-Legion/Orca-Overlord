@@ -1,13 +1,12 @@
-using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class GrapplingGun : MonoBehaviour
+public class Rope : MonoBehaviour
 {
     private SpringJoint joint;
 
     private LineRenderer lineRenderer;
-
-    private Vector3 grapplePoint;
 
     public LayerMask grappableLayer;
 
@@ -20,28 +19,33 @@ public class GrapplingGun : MonoBehaviour
 
 
     public Transform cam;
-    public Transform gun;
+    public Transform waist;
     public Transform player;
+
+    private Transform ancorPoint;
 
     void Awake()
     {
         lineRenderer = GetComponent<LineRenderer>();
     }
 
- 
+
     void Update()
     {
         playerInput();
+
+        if(ancorPoint)
+        joint.connectedAnchor = ancorPoint.position;
     }
 
     private void playerInput()
     {
         //grappling
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
         {
             StartGraple();
         }
-        else if (Input.GetMouseButtonUp(0))
+        else if (Input.GetKeyDown(KeyCode.Space))
         {
             StopGraple();
         }
@@ -55,6 +59,7 @@ public class GrapplingGun : MonoBehaviour
 
     private void StopGraple()
     {
+        ancorPoint.gameObject.GetComponent<Dolphin>().isConnected = true;
         GameObject.Destroy(joint);
         lineRenderer.positionCount = 0;
     }
@@ -65,12 +70,13 @@ public class GrapplingGun : MonoBehaviour
 
         if (Physics.Raycast(cam.position, cam.forward, out hit, maxDistance, grappableLayer))
         {
-            grapplePoint = hit.point;
+            ancorPoint = hit.collider.gameObject.transform;
+            ancorPoint.gameObject.GetComponent<Dolphin>().isConnected = true;
             joint = player.gameObject.AddComponent<SpringJoint>();
             joint.autoConfigureConnectedAnchor = false;
-            joint.connectedAnchor = grapplePoint;
+            joint.connectedAnchor = ancorPoint.position;
 
-            float distanceFromPoint = Vector3.Distance(player.position, grapplePoint);
+            float distanceFromPoint = Vector3.Distance(player.position, ancorPoint.position);
 
             joint.maxDistance = distanceFromPoint * maxJointLength;
             joint.minDistance = distanceFromPoint * minJointLength;
@@ -88,7 +94,7 @@ public class GrapplingGun : MonoBehaviour
     {
         if (!joint) return;
 
-        lineRenderer.SetPosition(0, gun.position);
-        lineRenderer.SetPosition(1, grapplePoint);
+        lineRenderer.SetPosition(0, waist.position);
+        lineRenderer.SetPosition(1, ancorPoint.position);
     }
 }

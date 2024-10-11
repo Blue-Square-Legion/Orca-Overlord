@@ -53,15 +53,7 @@ public class PlayerMain : MonoBehaviour,IHealth
         LimitSpeed();
 
         isGrounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.5f, groundLayer);
-        if (Input.GetKey(KeyCode.M))
-        {
-            this.transform.Translate(Vector3.up * speed * Time.deltaTime* 10);
-        }
-        if (Input.GetKey(KeyCode.N))
-        {
-            this.transform.Translate(Vector3.down * speed * Time.deltaTime * 10);
-        }
-        if (transform.position.y <= waterSurface.position.y)
+
         {
             isSwimming = true;
             rb.useGravity = false;
@@ -121,7 +113,6 @@ public class PlayerMain : MonoBehaviour,IHealth
                 rb.AddForce(direction.normalized * speed, ForceMode.Force);
             else if (!isGrounded)
                 rb.AddForce(direction.normalized * speed * airMultiplier, ForceMode.Force);
-
 
             rotDir = Quaternion.Euler(0, cam.transform.eulerAngles.y, 0);
         }

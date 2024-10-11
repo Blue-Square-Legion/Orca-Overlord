@@ -8,14 +8,14 @@ using UnityEngine;
 /// </summary>
 public class ThrowSpear : MonoBehaviour
 {
-    public GameObject player;
+   // public GameObject player;
     public Transform cam;
     public Transform attachPoint;
     public GameObject objectToThrow;
     public GameObject attackPoint;
     public int totalThrows;
     public float throwCooldown;
-
+    public GameObject enemy;
     public KeyCode throwKey = KeyCode.Mouse2;
     public float throwForce;
     public float throwUpwardForce;
@@ -40,11 +40,13 @@ public class ThrowSpear : MonoBehaviour
         //calculate direction
         Vector3 forceDirection = cam.transform.forward;
         RaycastHit hit;
-        if (Physics.Raycast(cam.position, cam.forward, out hit, 500f)) 
+        if (Physics.Raycast(transform.position, transform.forward, out hit, 500f)) 
         {
             forceDirection = (hit.point - attackPoint.transform.position).normalized;
-        }
 
+        }
+        Debug.DrawRay(transform.position,forceDirection,Color.red,50);   
+         
         //add force
         Vector3 forceToAdd = forceDirection * throwForce + transform.up * throwUpwardForce;
         projectileRb.AddForce(forceToAdd, ForceMode.Impulse);

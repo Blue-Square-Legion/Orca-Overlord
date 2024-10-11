@@ -25,7 +25,7 @@ public class Spear : MonoBehaviour
     
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.T))
         {
             GameObject spear = Instantiate(spearPrefab, spearSpawnPt.position, spearSpawnPt.rotation);
             spear.GetComponent<Rigidbody>().velocity = spearSpawnPt.forward * spearSpeed;

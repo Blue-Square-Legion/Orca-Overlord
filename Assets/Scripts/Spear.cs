@@ -29,6 +29,8 @@ public class Spear : MonoBehaviour
     }
     public void ShootMe()
     {
+        enemy.transform.LookAt(player.transform.position);
+
         spear = Instantiate(spearPrefab, spearSpawnPt.position, spearSpawnPt.rotation);
 
         spear.GetComponent<Rigidbody>();

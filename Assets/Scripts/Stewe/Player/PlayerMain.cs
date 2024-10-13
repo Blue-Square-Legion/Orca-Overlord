@@ -53,16 +53,15 @@ public class PlayerMain : MonoBehaviour,IHealth
         LimitSpeed();
 
         isGrounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.5f, groundLayer);
-
-        if(transform.position.y - playerHeight *.2f <= waterSurface.position.y)
-        {
-            isSwimming = true;
+        if(!isGrounded)
+       {
+           isSwimming = true;
             rb.useGravity = false;
-        }
+       }
         else
-        {
-            isSwimming = false;
-            rb.useGravity = true;
+      {
+           isSwimming = false;
+          rb.useGravity = true;
         }
 
         if (isGrounded)

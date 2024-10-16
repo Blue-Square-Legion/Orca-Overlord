@@ -615,7 +615,8 @@ MonoBehaviour:
     clan of sea devils. Collaborating with the inhabitants of this land, you must
     travel from island to island, liberating each of these islands from the sea devils,
     engaging in surfing, island exploration, and combat both on land and sea in order
-    to save this world and find your way back home.\r\n\n\n\n\n"
+    to save this world and find your way back home.\r\n\nThe purpose of this game
+    is to get across the water to the hut. (hitch  a dolphin ride with the mouse)\n\n\n\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

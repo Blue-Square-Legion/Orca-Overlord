@@ -34,7 +34,7 @@ public class Rope : MonoBehaviour
     {
         playerInput();
 
-        if(ancorPoint)
+        if(joint)
         joint.connectedAnchor = ancorPoint.position;
     }
 
@@ -59,7 +59,7 @@ public class Rope : MonoBehaviour
 
     private void StopGraple()
     {
-        ancorPoint.gameObject.GetComponent<Dolphin>().isConnected = true;
+        ancorPoint.gameObject.GetComponent<Dolphin>().isConnected = false;
         GameObject.Destroy(joint);
         lineRenderer.positionCount = 0;
     }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - food
   - GoTowards
+  - Water
   layers:
   - Default
   - TransparentFX

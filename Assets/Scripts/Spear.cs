@@ -11,26 +11,43 @@ public class Spear : MonoBehaviour
     public GameObject enemy;
     public Transform spearSpawnPt;
     public GameObject spearPrefab;
+    public Transform waterSurface;
+    public float attackRange;
+    public float attackCoolDown;
     public float spearSpeed = 100;
     private float duration = 200;
     private float speed = .02f;
-    private void Start()
+    private bool canAttack = true;
+
+    private void Awake()
     {
-        enemy.transform.LookAt(player.transform.position);
-       
+        player = GameObject.FindGameObjectWithTag("Player");
+        transform.SetParent(null);
     }
 
-           
-        
-    
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
+        if(transform.position.y <= waterSurface.position.y)
         {
+            Destroy(gameObject);
+        }
+
+        if (Vector3.Distance(transform.position,player.transform.position) <= attackRange && canAttack)
+        {
+            StartCoroutine(StartCoolDown());
             GameObject spear = Instantiate(spearPrefab, spearSpawnPt.position, spearSpawnPt.rotation);
             spear.GetComponent<Rigidbody>().velocity = spearSpawnPt.forward * spearSpeed;
+            spear.GetComponent<Buoyancy>().waterSurface = waterSurface;
         }
-    enemy.transform.position = Vector3.MoveTowards(enemy.transform.position, player.transform.position, speed);
-}
+
+        enemy.transform.LookAt(player.transform.position);
+    }
+
+    private IEnumerator StartCoolDown()
+    {
+        canAttack = false;
+        yield return new WaitForSeconds(attackCoolDown);
+        canAttack = true;
+    }
 }
     

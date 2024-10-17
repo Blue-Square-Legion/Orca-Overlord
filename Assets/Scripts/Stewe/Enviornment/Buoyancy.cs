@@ -11,15 +11,26 @@ public class Buoyancy : MonoBehaviour
     public float airAngularDrag;
     public float floatingPower;
 
+    public bool randomness = false;
+
     public Transform waterSurface;
 
     private bool underWater = false;
     private int floatersUnderWater;
+    private float randomnessVal = 1f;
     private Rigidbody rb;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+    }
+
+    private void Start()
+    {
+        if (randomness)
+        {
+            StartCoroutine(SetRandomness());
+        }
     }
 
     private void FixedUpdate()
@@ -32,7 +43,7 @@ public class Buoyancy : MonoBehaviour
 
             if (difference < 0)
             {
-                rb.AddForceAtPosition(Vector3.up * floatingPower, floater.position);
+                rb.AddForceAtPosition(Vector3.up * floatingPower * randomnessVal, floater.position);
                 floatersUnderWater++;
                 if (!underWater)
                 {
@@ -62,5 +73,12 @@ public class Buoyancy : MonoBehaviour
             rb.drag = airDrag;
             rb.angularDrag = airAngularDrag;
         }
+    }
+
+    private IEnumerator SetRandomness()
+    {
+        yield return new WaitForSeconds(.2f);
+        StartCoroutine(SetRandomness());
+        randomnessVal = Random.Range(.5f, 2f);
     }
 }

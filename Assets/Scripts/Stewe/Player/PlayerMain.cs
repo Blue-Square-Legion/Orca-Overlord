@@ -168,6 +168,7 @@ public class PlayerMain : MonoBehaviour,IHealth
 
         if(healthPoints - dmg <= 0)
         {
+            healthPoints -= dmg;
             OnHealthOver();
         }
         else

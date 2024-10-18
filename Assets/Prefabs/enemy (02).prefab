@@ -161,10 +161,10 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 90
   m_CollisionDetection: 0
 --- !u!114 &8229996213619502891
 MonoBehaviour:
@@ -183,4 +183,7 @@ MonoBehaviour:
   spearSpawnPt: {fileID: 274986313551373630}
   spearPrefab: {fileID: 1001017442370121016, guid: 9cf4d58e0a0c88641a5d21b54d0e5a3f,
     type: 3}
+  waterSurface: {fileID: 0}
+  attackRange: 40
+  attackCoolDown: 2
   spearSpeed: 90

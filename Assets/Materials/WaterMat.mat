@@ -54,22 +54,24 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - <noninit>: 0
     - Normal_Blend: 0.5
     - _BackwardSpeed: -30
     - _DecalMeshBiasType: 0
     - _DecalMeshDepthBias: 0
     - _DecalMeshViewBias: 0
     - _Depth: 1
-    - _Displacement: 0.01
+    - _Displacement: 0.5
     - _DrawOrder: 0
     - _ForwardSpeed: 50
-    - _NormalStrength: 0.023
+    - _NormalStrength: 0.163
     - _QueueControl: 0
     - _QueueOffset: 0
-
+    - _Smoothness: 0.378
+    - _Strength: 0
     m_Colors:
-    - _DeepWaterColor: {r: 0.5267853, g: 0.90943396, b: 0.66478974, a: 0}
-    - _ShallowWaterColor: {r: 0.5137984, g: 0.6377357, b: 0.5932156, a: 1}
+    - _DeepWaterColor: {r: 0.052331768, g: 0.50452685, b: 0.5283019, a: 0}
+    - _ShallowWaterColor: {r: 0.5690637, g: 0.8532265, b: 0.8679245, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &6271875263247597016
 MonoBehaviour:

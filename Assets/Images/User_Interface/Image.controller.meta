@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Images/User_Interface/Image.controller.meta
 guid: 434d14431f2834f358b5dc4d743d8531
 NativeFormatImporter:
+========
+guid: e60f2a7230d75e24683eb6680b6fd2c3
+PrefabImporter:
+>>>>>>>> 47009d0037166a8d39d0fb47c9217c3c4eace0f6:Assets/Prefabs/Dolphin.prefab.meta
   externalObjects: {}
   mainObjectFileID: 9100000
   userData: 

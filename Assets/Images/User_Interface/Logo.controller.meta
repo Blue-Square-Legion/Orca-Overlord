@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Images/User_Interface/Logo.controller.meta
 guid: 1fc042e44e38d4491af797762ef0e152
 NativeFormatImporter:
+========
+guid: af9ccc896024e8c4abdb03f3795686c5
+PrefabImporter:
+>>>>>>>> 47009d0037166a8d39d0fb47c9217c3c4eace0f6:Assets/Prefabs/EnemiePlatform.prefab.meta
   externalObjects: {}
   mainObjectFileID: 9100000
   userData: 

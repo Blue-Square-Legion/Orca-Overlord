@@ -4,5 +4,6 @@ using UnityEngine;
 
 public interface IGrabbable
 {
-    void OnGetGrabbed(float grabForce, Transform playerPos);
+    void OnGetGrabbed();
+    void StopGrab();
 }

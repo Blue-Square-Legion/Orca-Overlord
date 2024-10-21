@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemieMain : MonoBehaviour,IGrabbable
+public class EnemieMain : MonoBehaviour
 {
     public Rigidbody rb;
 

@@ -504,7 +504,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c35a246823b37bb408a8c705a14750a6, type: 3}
   m_Name: 
@@ -5342,6 +5342,11 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 330585546}
+    - target: {fileID: 215126886461595232, guid: 971ddaec0af1f1144bea014548013c4b,
+        type: 3}
+      propertyPath: grabForce
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1603749438144455223, guid: 971ddaec0af1f1144bea014548013c4b,
         type: 3}
       propertyPath: m_Loop
@@ -5589,6 +5594,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3794651216687656914, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 3796174286854691396, guid: af9ccc896024e8c4abdb03f3795686c5,
         type: 3}

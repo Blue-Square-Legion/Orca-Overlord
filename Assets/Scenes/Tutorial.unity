@@ -186,9 +186,15 @@ MonoBehaviour:
     right mouse (dolphin
     ride)
 
+<<<<<<< Updated upstream
     left mouse attack
 
     space jump / disconnect'
+=======
+    left mouse attack (die)
+
+    Space bar (stop dolphin ride)'
+>>>>>>> Stashed changes
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

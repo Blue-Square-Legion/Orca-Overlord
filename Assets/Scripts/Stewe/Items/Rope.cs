@@ -21,7 +21,7 @@ public class Rope : MonoBehaviour
     public Transform cam;
     public Transform waist;
     public Transform player;
-
+   
     private Transform ancorPoint;
 
     void Awake()
@@ -55,6 +55,10 @@ public class Rope : MonoBehaviour
     private void LateUpdate()
     {
         drawLine();
+        if (Input.GetMouseButtonDown(0)) { 
+            lineRenderer.SetPosition(0, waist.position);
+        lineRenderer.SetPosition(1, waist.position);
+            }
     }
 
     private void StopGraple()

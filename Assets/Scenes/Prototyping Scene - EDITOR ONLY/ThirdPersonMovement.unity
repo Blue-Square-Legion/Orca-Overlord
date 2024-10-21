@@ -500,6 +500,7 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+<<<<<<< Updated upstream
 --- !u!1 &331095169
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,6 +537,8 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
+=======
+>>>>>>> Stashed changes
 --- !u!1 &354451874
 GameObject:
   m_ObjectHideFlags: 0
@@ -5228,6 +5231,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1354292649106426870}
   m_PrefabAsset: {fileID: 0}
+--- !u!54 &2126021679 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 7532032444186216863, guid: 971ddaec0af1f1144bea014548013c4b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1354292649106426870}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2147164778
 GameObject:
   m_ObjectHideFlags: 0
@@ -5509,6 +5518,11 @@ PrefabInstance:
       propertyPath: grappableLayer.m_Bits
       value: 256
       objectReference: {fileID: 0}
+    - target: {fileID: 5284611083363207729, guid: 971ddaec0af1f1144bea014548013c4b,
+        type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 2126021679}
     - target: {fileID: 5284611083363207729, guid: 971ddaec0af1f1144bea014548013c4b,
         type: 3}
       propertyPath: cam

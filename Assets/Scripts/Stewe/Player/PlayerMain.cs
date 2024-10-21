@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 using UnityEngine.Events;
 
 
@@ -22,6 +23,9 @@ public class PlayerMain : MonoBehaviour,IHealth
     bool isSwimming = false;
     bool isGrounded;
 
+    public TextMeshProUGUI text;
+    public ChangeScene3 change;
+
     public LayerMask groundLayer;
 
     public Transform gun;
@@ -41,7 +45,7 @@ public class PlayerMain : MonoBehaviour,IHealth
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = true;
+        Cursor.visible = false;
 
         rb = this.gameObject.GetComponent<Rigidbody>();
         maxHp = healthPoints;
@@ -169,19 +173,32 @@ public class PlayerMain : MonoBehaviour,IHealth
         if(healthPoints - dmg <= 0)
         {
             healthPoints -= dmg;
+            text.text = ("Hp : " + healthPoints);
             OnHealthOver();
         }
         else
         {
             healthPoints -= dmg;
+            text.text = ("Hp : " + healthPoints);
             Debug.Log("player damaged : " + healthPoints);
         }
     }
 
     public void OnHealthOver()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        change.OnGameOver();
         Debug.Log("player dead !");
         /* basically Game Over so anything related that concerns the player
            and maybe even a unity event that comunicates with the game controller must be added here*/
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Finish"))
+        {
+            change.OnFinish();
+        }
     }
 }

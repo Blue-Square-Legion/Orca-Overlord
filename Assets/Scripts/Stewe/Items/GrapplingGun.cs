@@ -17,11 +17,14 @@ public class GrapplingGun : MonoBehaviour
     public float jointSpring;
     public float jointDamper;
     public float jointScale;
+    public float grabForce;
 
 
     public Transform cam;
     public Transform gun;
     public Transform player;
+
+    private GameObject target;
 
     void Awake()
     {
@@ -55,6 +58,8 @@ public class GrapplingGun : MonoBehaviour
 
     private void StopGraple()
     {
+        target.GetComponent<IGrabbable>().StopGrab();
+        Destroy(target);//Temporary
         GameObject.Destroy(joint);
         lineRenderer.positionCount = 0;
     }
@@ -65,19 +70,28 @@ public class GrapplingGun : MonoBehaviour
 
         if (Physics.Raycast(cam.position, cam.forward, out hit, maxDistance, grappableLayer))
         {
-            grapplePoint = hit.point;
-            joint = player.gameObject.AddComponent<SpringJoint>();
-            joint.autoConfigureConnectedAnchor = false;
-            joint.connectedAnchor = grapplePoint;
 
-            float distanceFromPoint = Vector3.Distance(player.position, grapplePoint);
+            if (hit.collider.CompareTag("Enemy"))
+            {
+                target = hit.collider.gameObject;
+                target.GetComponent<IGrabbable>().OnGetGrabbed();
+            }
+            else
+            {
+                grapplePoint = hit.point;
+                joint = player.gameObject.AddComponent<SpringJoint>();
+                joint.autoConfigureConnectedAnchor = false;
+                joint.connectedAnchor = grapplePoint;
 
-            joint.maxDistance = distanceFromPoint * maxJointLength;
-            joint.minDistance = distanceFromPoint * minJointLength;
+                float distanceFromPoint = Vector3.Distance(player.position, grapplePoint);
 
-            joint.spring = jointSpring;
-            joint.damper = jointDamper;
-            joint.massScale = jointScale;
+                joint.maxDistance = distanceFromPoint * maxJointLength;
+                joint.minDistance = distanceFromPoint * minJointLength;
+
+                joint.spring = jointSpring;
+                joint.damper = jointDamper;
+                joint.massScale = jointScale;
+            }
 
             lineRenderer.positionCount = 2;
 
@@ -86,9 +100,16 @@ public class GrapplingGun : MonoBehaviour
 
     private void drawLine()
     {
-        if (!joint) return;
-
-        lineRenderer.SetPosition(0, gun.position);
-        lineRenderer.SetPosition(1, grapplePoint);
+        if(joint != null)
+        {
+            lineRenderer.SetPosition(0, gun.position);
+            lineRenderer.SetPosition(1, grapplePoint);
+        }
+        else if(target != null)
+        {
+            lineRenderer.SetPosition(0, gun.position);
+            lineRenderer.SetPosition(1, target.transform.position);
+        }
+  
     }
 }

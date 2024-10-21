@@ -1,11 +1,6 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Images/User_Interface/LogoFloat.anim.meta
-guid: 4a074c392ee4b4bea8314b5fa64d223d
-NativeFormatImporter:
-========
 guid: 3d2d5a8d514734c4281a9b2947ee204f
 PrefabImporter:
->>>>>>>> 47009d0037166a8d39d0fb47c9217c3c4eace0f6:Assets/Prefabs/Obstacle.prefab.meta
   externalObjects: {}
   mainObjectFileID: 7400000
   userData: 

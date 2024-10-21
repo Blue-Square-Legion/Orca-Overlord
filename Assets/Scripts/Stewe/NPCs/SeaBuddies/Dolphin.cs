@@ -4,7 +4,7 @@ public class Dolphin : MonoBehaviour
 {
     public Transform island;
     public float speed;
-    public bool isConnected;
+    public  bool isConnected;
    
     void Update()
     {
@@ -12,6 +12,10 @@ public class Dolphin : MonoBehaviour
         {
             this.transform.position -= (Vector3.MoveTowards(this.transform.position, island.position, 5f) * speed * Time.deltaTime)
                 / Vector3.Distance(transform.position,island.transform.position);
+        }
+        else  {
+         isConnected = false;
+
         }
     }
 

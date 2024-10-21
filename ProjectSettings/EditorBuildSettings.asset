@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Prototyping Scene - EDITOR ONLY/SampleScene/whale.unity
-    guid: 78bf34b26ff18ed4d84527d01b3c9ec5
+    path: Assets/Scenes/Title.unity
+    guid: 289281b6ce0918c47be14b49fadfcd93
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 8e69f16e787975d4ba5db5fe57daae3a
+  - enabled: 1
+    path: Assets/Scenes/Prototyping Scene - EDITOR ONLY/ThirdPersonMovement.unity
+    guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Finish.unity
+    guid: 2a11316574a2425408b73a23ae2ab452
   m_configObjects: {}

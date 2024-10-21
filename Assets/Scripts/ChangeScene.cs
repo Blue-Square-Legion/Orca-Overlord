@@ -9,15 +9,21 @@ public class ChangeScene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timer = 20f;
+        timer = 100f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (timer < 11)
-            SceneManager.LoadScene("Tutorial");
-       
+        if (timer <= 0)
+            DoChangeScene();
+
         timer -=  1*Time.deltaTime;
+    }
+
+    public void DoChangeScene()
+    {
+        SceneManager.LoadScene("Tutorial");
+
     }
 }

@@ -6,19 +6,23 @@ using UnityEngine.SceneManagement;
 
 public class ChangeScene3 : MonoBehaviour
 {
-    private float timer3 = 20f;
-    // Start is called before the first frame update
-    void Start()
+    public void OnExit()
     {
-        timer3 = 20f;
+        Application.Quit();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnRetry()
     {
-        if (timer3 < 11)
-            SceneManager.LoadScene("Finish");
+        SceneManager.LoadScene("ThirdPersonMovement");
+    }
 
-        timer3 -= 1 * Time.deltaTime;
+    public void OnGameOver()
+    {
+        SceneManager.LoadScene("GameOver");
+    }
+
+    public void OnFinish()
+    {
+        SceneManager.LoadScene("Finish");
     }
 }

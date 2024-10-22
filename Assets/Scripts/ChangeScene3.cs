@@ -13,6 +13,15 @@ public class ChangeScene3 : MonoBehaviour
 
     public void OnRetry()
     {
+        SceneManager.LoadScene("Title");
+    }
+    
+    public void OpenStory()
+    {
+        SceneManager.LoadScene("Movie");
+    }
+    
+    public void StartGame(){
         SceneManager.LoadScene("ThirdPersonMovement");
     }
 
@@ -23,6 +32,6 @@ public class ChangeScene3 : MonoBehaviour
 
     public void OnFinish()
     {
-        SceneManager.LoadScene("Finish");
+        SceneManager.LoadScene("End");
     }
 }

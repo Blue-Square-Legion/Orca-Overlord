@@ -122,6 +122,74 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &86805043
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 475647454580020984, guid: 2a88dd21a48af4de3be9a990ad6b0b4e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1184.7062
+      objectReference: {fileID: 0}
+    - target: {fileID: 475647454580020984, guid: 2a88dd21a48af4de3be9a990ad6b0b4e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -10.000061
+      objectReference: {fileID: 0}
+    - target: {fileID: 475647454580020984, guid: 2a88dd21a48af4de3be9a990ad6b0b4e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -526.7174
+      objectReference: {fileID: 0}
+    - target: {fileID: 475647454580020984, guid: 2a88dd21a48af4de3be9a990ad6b0b4e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 475647454580020984, guid: 2a88dd21a48af4de3be9a990ad6b0b4e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 475647454580020984, guid: 2a88dd21a48af4de3be9a990ad6b0b4e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 475647454580020984, guid: 2a88dd21a48af4de3be9a990ad6b0b4e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 475647454580020984, guid: 2a88dd21a48af4de3be9a990ad6b0b4e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 475647454580020984, guid: 2a88dd21a48af4de3be9a990ad6b0b4e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 475647454580020984, guid: 2a88dd21a48af4de3be9a990ad6b0b4e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1792386217993352179, guid: 2a88dd21a48af4de3be9a990ad6b0b4e,
+        type: 3}
+      propertyPath: m_Name
+      value: Waves
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2a88dd21a48af4de3be9a990ad6b0b4e, type: 3}
 --- !u!1 &151937126
 GameObject:
   m_ObjectHideFlags: 0
@@ -1550,6 +1618,74 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d2d5a8d514734c4281a9b2947ee204f, type: 3}
+--- !u!1001 &537207192
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1446797491412695760, guid: 7a172d6dc059a4453967807f31dae0d9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -374.65637
+      objectReference: {fileID: 0}
+    - target: {fileID: 1446797491412695760, guid: 7a172d6dc059a4453967807f31dae0d9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1446797491412695760, guid: 7a172d6dc059a4453967807f31dae0d9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -890.8565
+      objectReference: {fileID: 0}
+    - target: {fileID: 1446797491412695760, guid: 7a172d6dc059a4453967807f31dae0d9,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1446797491412695760, guid: 7a172d6dc059a4453967807f31dae0d9,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1446797491412695760, guid: 7a172d6dc059a4453967807f31dae0d9,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1446797491412695760, guid: 7a172d6dc059a4453967807f31dae0d9,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1446797491412695760, guid: 7a172d6dc059a4453967807f31dae0d9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1446797491412695760, guid: 7a172d6dc059a4453967807f31dae0d9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1446797491412695760, guid: 7a172d6dc059a4453967807f31dae0d9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8509859865013523648, guid: 7a172d6dc059a4453967807f31dae0d9,
+        type: 3}
+      propertyPath: m_Name
+      value: Music
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7a172d6dc059a4453967807f31dae0d9, type: 3}
 --- !u!1001 &538330790
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1598,10 +1734,60 @@ PrefabInstance:
       propertyPath: waterSurface
       value: 
       objectReference: {fileID: 878423020}
+    - target: {fileID: 1282917245511474149, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1282917245511474149, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1919574572346163166, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1919574572346163166, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2073089342356731778, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2073089342356731778, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2075753793406774034, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2075753793406774034, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2134132604740750653, guid: af9ccc896024e8c4abdb03f3795686c5,
         type: 3}
       propertyPath: m_Mass
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3209008528087573046, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3209008528087573046, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3761516981011755247, guid: af9ccc896024e8c4abdb03f3795686c5,
         type: 3}
@@ -2915,10 +3101,60 @@ PrefabInstance:
       propertyPath: waterSurface
       value: 
       objectReference: {fileID: 878423020}
+    - target: {fileID: 1282917245511474149, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1282917245511474149, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1919574572346163166, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1919574572346163166, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2073089342356731778, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2073089342356731778, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2075753793406774034, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2075753793406774034, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2134132604740750653, guid: af9ccc896024e8c4abdb03f3795686c5,
         type: 3}
       propertyPath: m_Mass
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3209008528087573046, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3209008528087573046, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3761516981011755247, guid: af9ccc896024e8c4abdb03f3795686c5,
         type: 3}
@@ -4565,10 +4801,60 @@ PrefabInstance:
       propertyPath: waterSurface
       value: 
       objectReference: {fileID: 878423020}
+    - target: {fileID: 1282917245511474149, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1282917245511474149, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1919574572346163166, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1919574572346163166, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2073089342356731778, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2073089342356731778, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2075753793406774034, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2075753793406774034, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2134132604740750653, guid: af9ccc896024e8c4abdb03f3795686c5,
         type: 3}
       propertyPath: m_Mass
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3209008528087573046, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3209008528087573046, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3761516981011755247, guid: af9ccc896024e8c4abdb03f3795686c5,
         type: 3}
@@ -5121,10 +5407,60 @@ PrefabInstance:
       propertyPath: waterSurface
       value: 
       objectReference: {fileID: 878423020}
+    - target: {fileID: 1282917245511474149, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1282917245511474149, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1919574572346163166, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1919574572346163166, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2073089342356731778, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2073089342356731778, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2075753793406774034, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2075753793406774034, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2134132604740750653, guid: af9ccc896024e8c4abdb03f3795686c5,
         type: 3}
       propertyPath: m_Mass
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3209008528087573046, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3209008528087573046, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3761516981011755247, guid: af9ccc896024e8c4abdb03f3795686c5,
         type: 3}
@@ -5644,10 +5980,60 @@ PrefabInstance:
       propertyPath: waterSurface
       value: 
       objectReference: {fileID: 878423020}
+    - target: {fileID: 1282917245511474149, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1282917245511474149, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1919574572346163166, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1919574572346163166, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2073089342356731778, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2073089342356731778, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2075753793406774034, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2075753793406774034, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2134132604740750653, guid: af9ccc896024e8c4abdb03f3795686c5,
         type: 3}
       propertyPath: m_Mass
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3209008528087573046, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3209008528087573046, guid: af9ccc896024e8c4abdb03f3795686c5,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3761516981011755247, guid: af9ccc896024e8c4abdb03f3795686c5,
         type: 3}
@@ -5946,3 +6332,5 @@ SceneRoots:
   - {fileID: 1875257389}
   - {fileID: 331095170}
   - {fileID: 1478076686}
+  - {fileID: 537207192}
+  - {fileID: 86805043}

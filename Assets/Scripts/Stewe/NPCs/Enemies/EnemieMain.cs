@@ -1,11 +1,10 @@
-using UnityEngine;
+//using UnityEngine;
+//public class EnemieMain : MonoBehaviour
+//{
+  //  public Rigidbody rb;
 
-public class EnemieMain : MonoBehaviour
-{
-    public Rigidbody rb;
-
-    public void OnGetGrabbed(float grabForce, Transform playerPos)
-    {
+  //  public void OnGetGrabbed(float grabForce, Transform playerPos)
+ //   {
        //nothing yet
-    }
-}
+  //  }
+//}

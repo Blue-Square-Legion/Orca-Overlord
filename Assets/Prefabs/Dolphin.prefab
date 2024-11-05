@@ -313,6 +313,7 @@ MonoBehaviour:
   airDrag: 0
   airAngularDrag: 0.05
   floatingPower: 10
+  randomness: 0
   waterSurface: {fileID: 0}
 --- !u!54 &2030538243059371240
 Rigidbody:

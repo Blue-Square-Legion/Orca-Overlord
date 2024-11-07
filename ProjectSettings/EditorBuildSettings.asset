@@ -15,9 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Prototyping Scene - EDITOR ONLY/ThirdPersonMovement.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Finish.unity
+    path: Assets/Scenes/Finish.unity
     guid: 2a11316574a2425408b73a23ae2ab452
   - enabled: 1
-    path: Assets/GameOver.unity
+    path: Assets/Scenes/GameOver.unity
     guid: 41fc97fa5dd341f46b548df2232b4d74
   m_configObjects: {}

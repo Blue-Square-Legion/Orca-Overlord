@@ -240,17 +240,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d48bad1cd0db622418654912ba829bd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 177593270}
-  cam: {fileID: 704393378}
-  attachPoint: {fileID: 1138777507}
-  objectToThrow: {fileID: 7355089261486621243, guid: fce0e1af55b5496469dd7523fc5f5632,
-    type: 3}
-  attackPoint: {fileID: 691628935}
-  totalThrows: 40
-  throwCooldown: 3
-  throwKey: 325
-  throwForce: 200
-  throwUpwardForce: 24
 --- !u!1 &186388336 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3909897763597415499, guid: 2be16683c31311844a0376849c424e75,
@@ -769,7 +758,7 @@ Transform:
   m_GameObject: {fileID: 691628935}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2474, y: 126, z: 2330}
+  m_LocalPosition: {x: 5248, y: 0, z: 7187}
   m_LocalScale: {x: 25, y: 25, z: 25}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -833,6 +822,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 691628935}
+  speed: 2
+  movementDirection: {x: 0, y: 0, z: 0}
 --- !u!120 &691628949
 LineRenderer:
   serializedVersion: 2
@@ -949,8 +940,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1942c8c2e06bc9648b00af91c9a292ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GreenSphere: {fileID: 691628935}
   hut: {fileID: 186388336}
-  Sphere: {fileID: 1913866070}
+  hand: {fileID: 0}
   mainCamera: {fileID: 704393377}
   laserline: {fileID: 691628949}
   player: {fileID: 691628943}
@@ -1140,7 +1132,6 @@ MonoBehaviour:
     type: 2}
   underwaterPostProcessing: {fileID: 11400000, guid: 4f83800c41d867344a9b64fb83f57a12,
     type: 2}
-  player: {fileID: 691628935}
 --- !u!114 &704393381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1921,6 +1912,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4363139134116189912, guid: ea5e0575bd1a18e469dcb1c97b8b6f63,
+        type: 3}
+      propertyPath: m_BackGroundColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4363139134116189912, guid: ea5e0575bd1a18e469dcb1c97b8b6f63,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4363139134116189912, guid: ea5e0575bd1a18e469dcb1c97b8b6f63,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4363139134116189912, guid: ea5e0575bd1a18e469dcb1c97b8b6f63,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6198617527591210787, guid: ea5e0575bd1a18e469dcb1c97b8b6f63,
         type: 3}
       propertyPath: m_Name

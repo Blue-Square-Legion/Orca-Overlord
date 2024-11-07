@@ -149,6 +149,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472d4922555a9c541b6a4eb26fcdd32f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grappableLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  maxDistance: 0
+  maxJointLength: 0
+  minJointLength: 0
+  jointSpring: 0
+  jointDamper: 0
+  jointScale: 0
+  cam: {fileID: 0}
+  waist: {fileID: 0}
+  player: {fileID: 0}
 --- !u!1 &6152170537379415014
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,7 +176,7 @@ GameObject:
   - component: {fileID: 3226813250041217894}
   - component: {fileID: 3437029275139244469}
   m_Layer: 0
-  m_Name: Player
+  m_Name: player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -179,7 +191,7 @@ Transform:
   m_GameObject: {fileID: 6152170537379415014}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.4772837, y: 5.53, z: -61.686108}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -236,6 +248,8 @@ MonoBehaviour:
   airMultiplier: 0.2
   waterMultiplier: 0
   rotationSpeed: 0.2
+  text: {fileID: 0}
+  change: {fileID: 0}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -420,6 +434,7 @@ MonoBehaviour:
   jointSpring: 2
   jointDamper: 5
   jointScale: 0
+  grabForce: 0
   cam: {fileID: 0}
   gun: {fileID: 7253842427567878344}
   player: {fileID: 6868768271353615038}

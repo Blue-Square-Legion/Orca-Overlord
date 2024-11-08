@@ -7,6 +7,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
+    public PlayerController playerController;
+    
     [SerializeField] private CountdownTimerContainer[] countdownTimers;
 
     [Header("UI Components")] 
@@ -24,11 +26,14 @@ public class GameManager : MonoBehaviour
             return _instance;
         }
     }
+    
 
     private void Awake()
     {
         _instance = this;
 
+        playerController = FindObjectOfType<PlayerController>();
+        
         if (countdownTimers.Length > 0)
         {
             foreach (CountdownTimerContainer timer in countdownTimers)
@@ -42,7 +47,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (!countdownTimers[0].countdownTimer.IsCountingDown)
+        if (countdownTimers.Length> 0 && !countdownTimers[0].countdownTimer.IsCountingDown)
         {
             countdownTimers[0].countdownTimer.StartTimer();
         }

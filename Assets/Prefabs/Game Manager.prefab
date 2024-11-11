@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8415989723202417739}
   - component: {fileID: 4978956855361325075}
+  - component: {fileID: 2004370768395262743}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -45,3 +46,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countdownTimers: []
+  timerText: {fileID: 0}
+--- !u!114 &2004370768395262743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1305311330994515463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8494e4f8e2fe7044986139a1c686935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fishPrefab: {fileID: 4743052802435059046, guid: d6b9700d01896c640a56c1c34c662fa6,
+    type: 3}

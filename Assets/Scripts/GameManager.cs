@@ -7,7 +7,10 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
-    public PlayerController playerController;
+    private static PlayerManager _playerManager;
+
+    public static PlayerManager PlayerManager => _playerManager;
+    
     
     [SerializeField] private CountdownTimerContainer[] countdownTimers;
 
@@ -32,7 +35,15 @@ public class GameManager : MonoBehaviour
     {
         _instance = this;
 
-        playerController = FindObjectOfType<PlayerController>();
+        if (!TryGetComponent<PlayerManager>(out  _playerManager))
+        {
+            Debug.LogError("Player Manager not found.");
+        }
+
+        if (!TryGetComponent<FishSchoolManager>(out FishSchoolManager fishSchoolManager))
+        {
+            Debug.LogError("Fish School Manager is Missing.");
+        }
         
         if (countdownTimers.Length > 0)
         {

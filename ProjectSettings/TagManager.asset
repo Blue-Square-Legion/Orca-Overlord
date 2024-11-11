@@ -4,10 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - food
   - GoTowards
   - Water
   - Enemy
+  - FishManager
+  - Food
   layers:
   - Default
   - TransparentFX

@@ -8,11 +8,12 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
     private static PlayerManager _playerManager;
-
-    public static PlayerManager PlayerManager => _playerManager;
-    
+    private static FishManager _fishManager;
     
     [SerializeField] private CountdownTimerContainer[] countdownTimers;
+    
+    public static PlayerManager PlayerManager => _playerManager;
+    public static FishManager FishManager => _fishManager;
 
     [Header("UI Components")] 
     [SerializeField]public TextMeshProUGUI timerText;
@@ -35,14 +36,14 @@ public class GameManager : MonoBehaviour
     {
         _instance = this;
 
-        if (!TryGetComponent<PlayerManager>(out  _playerManager))
+        if (!GameObject.FindGameObjectWithTag("Player").TryGetComponent(out _playerManager))
         {
-            Debug.LogError("Player Manager not found.");
+            Debug.LogError("Player Manager not Found.");
         }
 
-        if (!TryGetComponent<FishSchoolManager>(out FishSchoolManager fishSchoolManager))
+        if (!GameObject.FindGameObjectWithTag("FishManager").TryGetComponent(out _fishManager))
         {
-            Debug.LogError("Fish School Manager is Missing.");
+            Debug.LogError("Fish Manager is Missing.");
         }
         
         if (countdownTimers.Length > 0)

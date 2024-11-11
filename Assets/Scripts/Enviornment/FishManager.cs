@@ -1,20 +1,30 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class FishSchoolManager : MonoBehaviour
+public class FishManager : MonoBehaviour
 {
     [Tooltip("Reference to Fish Prefab to create a school.")]
     public GameObject fishPrefab;
-    public static int fishSpawnOffset = 5;
-    public static int goalPositionOffset = 20;
-    public static int numFish = 10;
-    public static GameObject[] allFish = new GameObject[numFish];
-    public static Vector3 GoalPosition;
+    public int fishSpawnOffset = 5;
+    public int effectiveRadius = 30;
+    public int goalPositionOffset = 20;
+    public int numFish = 10;
+    [HideInInspector] public GameObject[] allFish;
+    [HideInInspector] public Vector3 GoalPosition;
 
     private Vector3 _position;
+    private GameObject _water;
+    
+    private void Awake()
+    {
+        allFish = new GameObject[numFish];
+        _water = GameObject.FindGameObjectWithTag("Water");
+    }
+
     // Start is called before the first frame update
     void Start()
     {

@@ -591,6 +591,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1844694373}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1452558357 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5434892500046972734, guid: d2f6ee246d726f046a362c7ec9b174cf,
+    type: 3}
+  m_PrefabInstance: {fileID: 5735525604412978419}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1576690729 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4962220412519530214, guid: 93dfd788856170643813f62aafa709ed,
@@ -1619,10 +1625,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1640037141163182528, guid: d2f6ee246d726f046a362c7ec9b174cf,
+        type: 3}
+      propertyPath: numFish
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1640037141163182528, guid: d2f6ee246d726f046a362c7ec9b174cf,
+        type: 3}
+      propertyPath: spawnPoint
+      value: 
+      objectReference: {fileID: 1452558357}
     - target: {fileID: 4500022779010605342, guid: d2f6ee246d726f046a362c7ec9b174cf,
         type: 3}
       propertyPath: m_Name
       value: Fish Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721234380470304829, guid: d2f6ee246d726f046a362c7ec9b174cf,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -27.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

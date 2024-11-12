@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
    private Vector3 playerVelocity;
    private bool _isInWater;
 
-   [SerializeField] private float playerSpeed = 2.0f;
+   [SerializeField] private float playerSpeed = .5f;
    [SerializeField] private float boostMultiplier = 1.5f;
    [SerializeField] private float jumpHeight = 1.0f;
    private float _speed;

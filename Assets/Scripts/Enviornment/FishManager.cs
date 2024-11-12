@@ -7,6 +7,7 @@ using Random = UnityEngine.Random;
 
 public class FishManager : MonoBehaviour
 {
+    [Header("Setup")]
     [Tooltip("Reference to Fish Prefab to create a school.")]
     public GameObject fishPrefab;
     public GameObject spawnPoint;
@@ -14,6 +15,8 @@ public class FishManager : MonoBehaviour
     public int effectiveRadius = 30;
     public int goalPositionOffset = 20;
     public int numFish = 10;
+    
+    
     [HideInInspector] public GameObject[] allFish;
     [HideInInspector] public Vector3 GoalPosition;
 
@@ -30,11 +33,12 @@ public class FishManager : MonoBehaviour
     void Start()
     {
         _position = PlayerManager.GetPlayerPosition();
+        
         GoalPosition = PlayerManager.GetPlayerPosition();
         
         for (int i = 0; i < numFish; i++)
         {
-            RandomizePosition(ref _position, fishSpawnOffset);
+            RandomizePosition(ref _position, fishSpawnOffset, (int)_water.transform.position.y);
             allFish[i] = Instantiate(fishPrefab, _position, quaternion.identity);
         }
     }
@@ -44,14 +48,14 @@ public class FishManager : MonoBehaviour
     {
         if (Random.Range(0, 10000) < 50)
         {
-            RandomizePosition(ref GoalPosition, goalPositionOffset);
+            RandomizePosition(ref GoalPosition, goalPositionOffset, (int)_water.transform.position.y);
         }
     }
 
-    private void RandomizePosition(ref Vector3 pos, int range)
+    private void RandomizePosition(ref Vector3 pos, int range, int limit)
     {
         pos.x += Random.Range(-range, range);
-        pos.y += Random.Range(-range, range);
+        pos.y = (pos.y + Random.Range(-range, range) > limit) ? pos.y = limit : (pos.y + Random.Range(-range, range));
         pos.z += Random.Range(-range, range);
     }
 }

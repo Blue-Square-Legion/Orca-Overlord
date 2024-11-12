@@ -24,4 +24,14 @@ public class PlayerManager : MonoBehaviour
     {
         return _playerController.transform.position;
     }
+
+    public static bool IsPlayerInWater()
+    {
+        return _playerController.IsInWater;
+    }
+
+    public static bool IsPlayerAtSurface()
+    {
+        return _playerController.IsAtSurface;
+    }
 }

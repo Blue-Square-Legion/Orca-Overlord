@@ -13,7 +13,16 @@ public class MouseLookAround : MonoBehaviour
     {
         _turn.x += Input.GetAxis("Mouse X");
         _turn.y += Input.GetAxis("Mouse Y");
-
+     
+        if (_turn.y > 80)
+        {
+            _turn.y = 80;
+        }
+        else if (_turn.y < -80)
+        {
+            _turn.y = -80;
+        }
+        
         transform.localRotation = Quaternion.Euler(-_turn.y, _turn.x, 0);
     }
 }

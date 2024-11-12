@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - FishManager
   - Food
+  - WaterSurface
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Grappable
   - SeaBuddies
   - Player
-  - 
+  - Underwater Post-Processing Effect
   - 
   - 
   - 

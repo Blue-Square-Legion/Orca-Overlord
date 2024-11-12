@@ -10,8 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5211466543795402061}
   - component: {fileID: 5196985066602376934}
-  - component: {fileID: 4836240487364704682}
-  - component: {fileID: 4189318014984832053}
+  - component: {fileID: 3390804529667254958}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -46,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4836240487364704682
+--- !u!114 &3390804529667254958
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -55,32 +54,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 22975734646076244}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4c41ac9245b87c4192012080077d830, type: 3}
+  m_Script: {fileID: 11500000, guid: bd6043bde05a7fc4cba197d06915c1e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Damping: 0
---- !u!114 &4189318014984832053
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 22975734646076244}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa7155796051b734daa718462081dc5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_BindingMode: 1
-  m_FollowOffset: {x: 0, y: 0, z: -10}
-  m_XDamping: 0.1
-  m_YDamping: 0.1
-  m_ZDamping: 0.1
-  m_AngularDampingMode: 0
-  m_PitchDamping: 0
-  m_YawDamping: 0
-  m_RollDamping: 0
-  m_AngularDamping: 0
+  Damping: {x: 0.1, y: 0.1, z: 0.1}
+  ShoulderOffset: {x: 0.5, y: 0.67, z: 0}
+  VerticalArmLength: 0.4
+  CameraSide: 1
+  CameraDistance: 10.07
+  CameraCollisionFilter:
+    serializedVersion: 2
+    m_Bits: 0
+  IgnoreTag: 
+  CameraRadius: 0.2
+  DampingIntoCollision: 0
+  DampingFromCollision: 2
 --- !u!1 &2316740354138766927
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,7 +123,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 60
+    FieldOfView: 40
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -169,7 +157,7 @@ GameObject:
   - component: {fileID: 2330443460581494152}
   m_Layer: 0
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -224,7 +212,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 60
+  field of view: 40
   orthographic: 0
   orthographic size: 10
   m_Depth: 0

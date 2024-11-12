@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,10 +12,11 @@ public class GameManager : MonoBehaviour
     private static FishManager _fishManager;
     
     [SerializeField] private CountdownTimerContainer[] countdownTimers;
+    [SerializeField] private GameObject mainCamera;
     
     public static PlayerManager PlayerManager => _playerManager;
     public static FishManager FishManager => _fishManager;
-
+    
     [Header("UI Components")] 
     [SerializeField]public TextMeshProUGUI timerText;
     
@@ -59,6 +61,16 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if (PlayerManager.IsPlayerInWater())
+        {
+            mainCamera.GetComponent<Volume>().enabled = true;
+        }
+        
+        if(!PlayerManager.IsPlayerInWater() || PlayerManager.IsPlayerAtSurface())
+        {
+            mainCamera.GetComponent<Volume>().enabled = false;
+        }
+        
         if (countdownTimers.Length> 0 && !countdownTimers[0].countdownTimer.IsCountingDown)
         {
             countdownTimers[0].countdownTimer.StartTimer();

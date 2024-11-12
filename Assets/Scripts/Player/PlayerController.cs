@@ -7,14 +7,19 @@ public class PlayerController : MonoBehaviour
 {
    //Basic Movement
    private CharacterController _controller;
-   private Vector3 playerVelocity;
+   private Vector3 _playerVelocity;
    private bool _isInWater;
-
+   private bool _isAtSurface;
+   
+   public bool IsInWater => _isInWater;
+   public bool IsAtSurface => _isAtSurface;
+   
    [SerializeField] private float playerSpeed = .5f;
    [SerializeField] private float boostMultiplier = 1.5f;
    [SerializeField] private float jumpHeight = 1.0f;
-   private float _speed;
+   [SerializeField] private float gravityBoost = 1.0f;
 
+   private float _speed;
    private void Start()
    {
       if (!TryGetComponent<CharacterController>(out _controller))
@@ -29,6 +34,11 @@ public class PlayerController : MonoBehaviour
       {
          _isInWater = true;
       }
+      
+      if (other.CompareTag("WaterSurface"))
+      {
+         _isAtSurface = true;
+      }
    }
 
    private void OnTriggerExit(Collider other)
@@ -36,6 +46,11 @@ public class PlayerController : MonoBehaviour
       if (other.CompareTag("Water"))
       {
          _isInWater = false;
+      }
+
+      if (other.CompareTag("WaterSurface"))
+      {
+         _isAtSurface = false;
       }
    }
 
@@ -55,7 +70,7 @@ public class PlayerController : MonoBehaviour
       {
          Vector3 move = Move();
 
-         move.y += -9.18f * Time.deltaTime;
+         move.y += -9.18f * gravityBoost * Time.deltaTime;
          
          _controller.Move(move);
          

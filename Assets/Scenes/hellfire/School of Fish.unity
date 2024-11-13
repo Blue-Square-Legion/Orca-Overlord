@@ -338,23 +338,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 546593610428914604}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1378607844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1378607831}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IsGlobal: 1
-  priority: 0
-  blendDistance: 0
-  weight: 1
-  sharedProfile: {fileID: 11400000, guid: 93c6a23d989cbb740b6482a71fea2e1e, type: 2}
 --- !u!1 &1429918211
 GameObject:
   m_ObjectHideFlags: 0
@@ -755,45 +738,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2330443460581494152, guid: 330b0018f719e6a4ebbf8a21edccfc39,
-        type: 3}
-      propertyPath: depth
-      value: 46
-      objectReference: {fileID: 0}
-    - target: {fileID: 2330443460581494152, guid: 330b0018f719e6a4ebbf8a21edccfc39,
-        type: 3}
-      propertyPath: underWaterVolume
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2330443460581494152, guid: 330b0018f719e6a4ebbf8a21edccfc39,
-        type: 3}
-      propertyPath: postProcessingVolume
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 2374902051519132034, guid: 330b0018f719e6a4ebbf8a21edccfc39,
         type: 3}
       propertyPath: m_Name
       value: Camera
-      objectReference: {fileID: 0}
-    - target: {fileID: 2375021374380700813, guid: 330b0018f719e6a4ebbf8a21edccfc39,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2375021374380700813, guid: 330b0018f719e6a4ebbf8a21edccfc39,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2375021374380700813, guid: 330b0018f719e6a4ebbf8a21edccfc39,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3390804529667254958, guid: 330b0018f719e6a4ebbf8a21edccfc39,
-        type: 3}
-      propertyPath: CameraCollisionFilter.m_Bits
-      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 6188672381201262873, guid: 330b0018f719e6a4ebbf8a21edccfc39,
         type: 3}
@@ -860,15 +808,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2330443460581494152, guid: 330b0018f719e6a4ebbf8a21edccfc39, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2374902051519132034, guid: 330b0018f719e6a4ebbf8a21edccfc39,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1378607844}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 330b0018f719e6a4ebbf8a21edccfc39, type: 3}
 --- !u!1001 &713354096376040341
 PrefabInstance:

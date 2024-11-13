@@ -64,7 +64,7 @@ MonoBehaviour:
   CameraDistance: 10.07
   CameraCollisionFilter:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 16
   IgnoreTag: 
   CameraRadius: 0.2
   DampingIntoCollision: 0
@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 1234404876022804751}
   - component: {fileID: 6188672381201262873}
   - component: {fileID: 8834801622754349585}
-  - component: {fileID: 2330443460581494152}
+  - component: {fileID: 7290668450780093141}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -316,25 +316,23 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!114 &2330443460581494152
+--- !u!114 &7290668450780093141
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2374902051519132034}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c75f37baacff7e041b96bc26a5316d52, type: 3}
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  depth: -1787
-  mainCamera: {fileID: 7856073025644185276}
-  postProcessingVolume: {fileID: 0}
-  surfacePostProcessing: {fileID: 11400000, guid: 38ddfb90a4fe2c346810bbd6191401d9,
-    type: 2}
-  underwaterPostProcessing: {fileID: 11400000, guid: 4f83800c41d867344a9b64fb83f57a12,
-    type: 2}
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 93c6a23d989cbb740b6482a71fea2e1e, type: 2}
 --- !u!1 &5404465562944968288
 GameObject:
   m_ObjectHideFlags: 0

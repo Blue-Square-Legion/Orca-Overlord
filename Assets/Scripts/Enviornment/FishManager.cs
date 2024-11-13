@@ -9,6 +9,7 @@ public class FishManager : MonoBehaviour
 {
     [Tooltip("Reference to Fish Prefab to create a school.")]
     public GameObject fishPrefab;
+    public GameObject spawnPoint;
     public int fishSpawnOffset = 5;
     public int effectiveRadius = 30;
     public int goalPositionOffset = 20;

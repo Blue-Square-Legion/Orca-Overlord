@@ -34,7 +34,7 @@ public class Fish : MonoBehaviour
     void Start()
     {
         _speed = Random.Range(minSpeed, maxSpeed);
-        _center = PlayerManager.GetPlayerPosition();
+        _center = _fishManager.spawnPoint.transform.position;
     }
 
     /// <summary>

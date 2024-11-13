@@ -10,12 +10,15 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance;
     private static PlayerManager _playerManager;
     private static FishManager _fishManager;
+
+    private float _waterLevel;
     
     [SerializeField] private CountdownTimerContainer[] countdownTimers;
     [SerializeField] private GameObject mainCamera;
     
     public static PlayerManager PlayerManager => _playerManager;
     public static FishManager FishManager => _fishManager;
+    public float WaterLevel => _waterLevel;
     
     [Header("UI Components")] 
     [SerializeField]public TextMeshProUGUI timerText;
@@ -38,6 +41,16 @@ public class GameManager : MonoBehaviour
     {
         _instance = this;
 
+        GameObject water = GameObject.FindGameObjectWithTag("Water");
+        if (water)
+        {
+            _waterLevel = water.transform.position.y;
+        }
+        else
+        {
+            Debug.LogError("Water not found.");
+        }
+        
         if (!GameObject.FindGameObjectWithTag("Player").TryGetComponent(out _playerManager))
         {
             Debug.LogError("Player Manager not Found.");

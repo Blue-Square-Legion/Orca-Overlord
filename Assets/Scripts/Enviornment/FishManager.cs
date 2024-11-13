@@ -13,6 +13,7 @@ public class FishManager : MonoBehaviour
     public GameObject spawnPoint;
     public int fishSpawnOffset = 5;
     public int effectiveRadius = 30;
+    public int waterSurfaceOffset = 10;
     public int goalPositionOffset = 20;
     public int numFish = 10;
     
@@ -21,12 +22,10 @@ public class FishManager : MonoBehaviour
     [HideInInspector] public Vector3 GoalPosition;
 
     private Vector3 _position;
-    private GameObject _water;
     
     private void Awake()
     {
         allFish = new GameObject[numFish];
-        _water = GameObject.FindGameObjectWithTag("Water");
     }
 
     // Start is called before the first frame update
@@ -38,7 +37,7 @@ public class FishManager : MonoBehaviour
         
         for (int i = 0; i < numFish; i++)
         {
-            RandomizePosition(ref _position, fishSpawnOffset, (int)_water.transform.position.y);
+            RandomizePosition(ref _position, fishSpawnOffset, (int) GameManager.Instance.WaterLevel - waterSurfaceOffset);
             allFish[i] = Instantiate(fishPrefab, _position, quaternion.identity);
         }
     }
@@ -48,7 +47,7 @@ public class FishManager : MonoBehaviour
     {
         if (Random.Range(0, 10000) < 50)
         {
-            RandomizePosition(ref GoalPosition, goalPositionOffset, (int)_water.transform.position.y);
+            RandomizePosition(ref GoalPosition, goalPositionOffset, (int) GameManager.Instance.WaterLevel);
         }
     }
 

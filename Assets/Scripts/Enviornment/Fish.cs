@@ -15,7 +15,6 @@ public class Fish : MonoBehaviour
     
     private FishManager _fishManager;
     private float _speed;
-    private GameObject _water;
     private Vector3 _center;
     private Vector3 _averageHeading;
     private Vector3 _averagePosition;
@@ -62,13 +61,17 @@ public class Fish : MonoBehaviour
             }
             else
             {
-                if (Random.Range(0, 5) < 1)
+                if (Random.Range(0, 5) < 3)
                 {
                     ApplyRules();
                 }    
             }
         
-            transform.Translate(Time.deltaTime * _speed, 0, 0);    
+            transform.Translate(Time.deltaTime * _speed, 0, 0);
+            if (transform.position.y > GameManager.Instance.WaterLevel - 10)
+            {
+                transform.Translate(Time.deltaTime * _speed, GameObject.FindGameObjectWithTag("Water").transform.position.y - 10, 0);
+            }
         }
     }
 

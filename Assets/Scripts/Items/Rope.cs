@@ -63,7 +63,7 @@ public class Rope : MonoBehaviour
 
     private void StopGraple()
     {
-        ancorPoint.gameObject.GetComponent<Dolphin>().isConnected = false;
+        //ancorPoint.gameObject.GetComponent<Dolphin>().isConnected = false;
         GameObject.Destroy(joint);
         lineRenderer.positionCount = 0;
     }
@@ -75,7 +75,7 @@ public class Rope : MonoBehaviour
         if (Physics.Raycast(cam.position, cam.forward, out hit, maxDistance, grappableLayer))
         {
             ancorPoint = hit.collider.gameObject.transform;
-            ancorPoint.gameObject.GetComponent<Dolphin>().isConnected = true;
+            //ancorPoint.gameObject.GetComponent<Dolphin>().isConnected = true;
             joint = player.gameObject.AddComponent<SpringJoint>();
             joint.autoConfigureConnectedAnchor = false;
             joint.connectedAnchor = ancorPoint.position;

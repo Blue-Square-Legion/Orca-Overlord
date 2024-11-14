@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
     private static PlayerManager _playerManager;
-    private static FishManager _fishManager;
+    private static FishSpawner _fishSpawner;
 
     private float _waterLevel;
     
@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject mainCamera;
     
     public static PlayerManager PlayerManager => _playerManager;
-    public static FishManager FishManager => _fishManager;
+    public static FishSpawner FishSpawner => _fishSpawner;
     public float WaterLevel => _waterLevel;
     
     [Header("UI Components")] 
@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
             Debug.LogError("Player Manager not Found.");
         }
 
-        if (!GameObject.FindGameObjectWithTag("FishManager").TryGetComponent(out _fishManager))
+        if (!GameObject.FindGameObjectWithTag("FishSpawner").TryGetComponent(out _fishSpawner))
         {
             Debug.LogError("Fish Manager is Missing.");
         }

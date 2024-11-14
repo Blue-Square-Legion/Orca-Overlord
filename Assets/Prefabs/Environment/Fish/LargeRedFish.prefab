@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6786232541724694742
+--- !u!1 &4926226233062323719
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,49 +8,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3807504812117940480}
-  - component: {fileID: 3182630468837208119}
-  - component: {fileID: 1260487098755138592}
-  - component: {fileID: -5775119896453783242}
-  - component: {fileID: 2345552099237945683}
+  - component: {fileID: 7881093796170309119}
+  - component: {fileID: 7922875352108442960}
+  - component: {fileID: 5007832583190754182}
+  - component: {fileID: 6277156801821698764}
+  - component: {fileID: 4785864613190627146}
   m_Layer: 0
-  m_Name: LargeRedFish
+  m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3807504812117940480
+--- !u!4 &7881093796170309119
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6786232541724694742}
+  m_GameObject: {fileID: 4926226233062323719}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: -0.7071068}
+  m_LocalRotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalScale: {x: 100, y: -100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2680759449626746409}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 270, y: 0, z: 0}
---- !u!33 &3182630468837208119
+  - {fileID: 2255683595786144859}
+  m_Father: {fileID: 6287964339265188264}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: -90}
+--- !u!33 &7922875352108442960
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6786232541724694742}
+  m_GameObject: {fileID: 4926226233062323719}
   m_Mesh: {fileID: -4748273795454731917, guid: 772f3b0d4d193df419637cd655959be8, type: 3}
---- !u!23 &1260487098755138592
+--- !u!23 &5007832583190754182
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6786232541724694742}
+  m_GameObject: {fileID: 4926226233062323719}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -89,14 +89,14 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!95 &-5775119896453783242
+--- !u!95 &6277156801821698764
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6786232541724694742}
+  m_GameObject: {fileID: 4926226233062323719}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 3ee82a1cb97cb3e46b61c0c22df9703f, type: 2}
@@ -110,13 +110,13 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2345552099237945683
+--- !u!114 &4785864613190627146
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6786232541724694742}
+  m_GameObject: {fileID: 4926226233062323719}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d93795ec8b948c140bb4e2717216e36f, type: 3}
@@ -126,8 +126,7 @@ MonoBehaviour:
   maxSpeed: 5
   rotationSpeed: 4
   neighborDistance: 3
-  correctedForward: {fileID: 7325641168177570655}
---- !u!1 &7325641168177570655
+--- !u!1 &7240767005954350451
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,7 +134,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2680759449626746409}
+  - component: {fileID: 2255683595786144859}
   m_Layer: 0
   m_Name: Forward Offset
   m_TagString: Untagged
@@ -143,18 +142,50 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2680759449626746409
+--- !u!4 &2255683595786144859
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7325641168177570655}
+  m_GameObject: {fileID: 7240767005954350451}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -4.5250244, y: -3.092442, z: -0.8463132}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3807504812117940480}
+  m_Father: {fileID: 7881093796170309119}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1 &7419688360450002024
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6287964339265188264}
+  m_Layer: 0
+  m_Name: LargeRedFish
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6287964339265188264
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7419688360450002024}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1925.2385, y: 47.763042, z: 1035.042}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7881093796170309119}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

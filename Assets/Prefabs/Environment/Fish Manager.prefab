@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1329852322431565301}
   - component: {fileID: 1640037141163182528}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Fish Manager
   m_TagString: FishManager
   m_Icon: {fileID: 0}
@@ -45,13 +45,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8494e4f8e2fe7044986139a1c686935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fishPrefab: {fileID: 4743052802435059046, guid: d6b9700d01896c640a56c1c34c662fa6,
+  fishPrefab: {fileID: 5197063187477666254, guid: 1849284a2565fca43a6f3d4ed548ce11,
     type: 3}
   spawnPoint: {fileID: 5434892500046972734}
-  fishSpawnOffset: 5
-  effectiveRadius: 30
+  fishSpawnOffset: 21
+  effectiveRadius: 50
+  waterSurfaceOffset: 10
   goalPositionOffset: 20
-  numFish: 0
+  numFish: 10
   allFish: []
   GoalPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &5434892500046972734
@@ -63,7 +64,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5721234380470304829}
-  m_Layer: 0
+  - component: {fileID: 6771525760738995802}
+  - component: {fileID: 2422142927836887409}
+  m_Layer: 4
   m_Name: Spawn Reference
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,9 +82,59 @@ Transform:
   m_GameObject: {fileID: 5434892500046972734}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2034.2, y: 30, z: 1005}
+  m_LocalPosition: {x: -1937.2, y: 37.1, z: 1063.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1329852322431565301}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!23 &6771525760738995802
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5434892500046972734}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &2422142927836887409
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5434892500046972734}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}

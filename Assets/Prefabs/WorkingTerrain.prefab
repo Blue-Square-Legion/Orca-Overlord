@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6930453652311760720}
   - component: {fileID: 4380153117955629911}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: WorkingTerrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 6478538511693049346}
   - component: {fileID: 8826792052083941959}
   - component: {fileID: 8711450000696667774}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Terrain_0_0_67ea5320-9a5e-4112-b142-faf4532a9e7f
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,6 +97,7 @@ Terrain:
   m_DetailObjectDensity: 1
   m_HeightmapPixelError: 60
   m_SplatMapDistance: 1000
+  m_HeightmapMinimumLODSimplification: 0
   m_HeightmapMaximumLOD: 0
   m_ShadowCastingMode: 2
   m_DrawHeightmap: 1

@@ -164,6 +164,7 @@ MonoBehaviour:
   playerSpeed: 30
   boostMultiplier: 5
   jumpHeight: 1
+  gravityBoost: 2
 --- !u!114 &1679771290728905324
 MonoBehaviour:
   m_ObjectHideFlags: 0

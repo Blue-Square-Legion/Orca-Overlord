@@ -1001,20 +1001,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3855413273680335208, guid: d2f6ee246d726f046a362c7ec9b174cf,
+        type: 3}
+      propertyPath: numFish
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3855413273680335208, guid: d2f6ee246d726f046a362c7ec9b174cf,
+        type: 3}
+      propertyPath: effectiveRadius
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 3855413273680335208, guid: d2f6ee246d726f046a362c7ec9b174cf,
+        type: 3}
+      propertyPath: goalPositionRange
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 4500022779010605342, guid: d2f6ee246d726f046a362c7ec9b174cf,
         type: 3}
       propertyPath: m_Name
-      value: Fish Manager
-      objectReference: {fileID: 0}
-    - target: {fileID: 4500022779010605342, guid: d2f6ee246d726f046a362c7ec9b174cf,
-        type: 3}
-      propertyPath: m_Layer
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5434892500046972734, guid: d2f6ee246d726f046a362c7ec9b174cf,
-        type: 3}
-      propertyPath: m_Layer
-      value: 4
+      value: Fish Spawner
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

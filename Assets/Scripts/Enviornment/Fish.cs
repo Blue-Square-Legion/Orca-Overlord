@@ -4,27 +4,35 @@ using Random = UnityEngine.Random;
 
 
 /// <summary>
-/// Handles movement of fish spawned by GlobalFlock script.
+/// Handles movement of fish spawned by FishSpawner script.
 /// </summary>
 public class Fish : MonoBehaviour
 {
+    [Tooltip("Minimum speed of the Fish.")]
     [SerializeField] private float minSpeed = 1.0f;
+    
+    [Tooltip("Maximum speed of the Fish.")]
     [SerializeField] private float maxSpeed = 5.0f;
+    
+    [Tooltip("Rotation speed for the Fish.")]
     [SerializeField] private float rotationSpeed = 4.0f;
+
+    [Tooltip("Minimum distance from the neighbor in a school.")]
     [SerializeField] private float neighborDistance = 3.0f;
     
-    private FishManager _fishManager;
+    private FishSpawner _fishSpawner;
     private float _speed;
-    private GameObject _water;
     private Vector3 _center;
     private Vector3 _averageHeading;
     private Vector3 _averagePosition;
     
     private bool _turn = false;
-
+    private float tempDist;
+    
+    
     private void Awake()
     {
-        _fishManager = GameManager.FishManager;
+        _fishSpawner = GameManager.FishSpawner;
     }
 
     /// <summary>
@@ -33,7 +41,7 @@ public class Fish : MonoBehaviour
     void Start()
     {
         _speed = Random.Range(minSpeed, maxSpeed);
-        _center = _fishManager.spawnPoint.transform.position;
+        _center = _fishSpawner.spawnPoint.transform.position;
     }
 
     /// <summary>
@@ -41,10 +49,15 @@ public class Fish : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (_fishManager)
+        _center = _fishSpawner.spawnPoint.transform.position;
+        
+        if (_fishSpawner)
         {
-            if (Vector3.Distance(transform.position, _center) >= _fishManager.effectiveRadius)
+            tempDist = Vector3.Distance(transform.position, _center);
+            
+            if (Vector3.Distance(transform.position, _center) >= _fishSpawner.effectiveRadius)
             {
+                Debug.Log("Distance: " + tempDist);
                 _turn = true;
             }
             else
@@ -62,26 +75,25 @@ public class Fish : MonoBehaviour
             }
             else
             {
-                if (Random.Range(0, 5) < 1)
+                if (Random.Range(0, 5) < 2)
                 {
-                    ApplyRules();
-                }    
+                    ApplyRules();       
+                }
             }
-        
-            transform.Translate(Time.deltaTime * _speed, 0, 0);    
+
+            transform.Translate(Time.deltaTime * _speed, 0, 0);
         }
     }
 
     void ApplyRules()
     {
-        GameObject[] school;
-        school = _fishManager.allFish;
+        GameObject[] school = _fishSpawner.allFish;
 
         Vector3 vcenter =_center;
         Vector3 vavoid = _center;
         float gSpeed = 0.1f;
 
-        Vector3 goalPosition = _fishManager.GoalPosition;
+        Vector3 goalPosition = _fishSpawner.goalPosition;
 
         float distance;
 
@@ -91,7 +103,7 @@ public class Fish : MonoBehaviour
         {
             if (fish != this.gameObject)
             {
-                distance = Vector3.Distance(fish.transform.position, this.transform.position);
+                distance = Vector3.Distance(fish.transform.position, transform.position);
 
                 if (distance <= neighborDistance)
                 {
@@ -111,7 +123,7 @@ public class Fish : MonoBehaviour
 
         if (groupSize > 0)
         {
-            vcenter = vcenter / groupSize + (goalPosition - this.transform.position);
+            vcenter = vcenter / groupSize + (goalPosition - transform.position);
             _speed = gSpeed / groupSize;
 
             Vector3 direction = (vcenter + vavoid) - transform.position;

@@ -7,9 +7,9 @@ TagManager:
   - GoTowards
   - Water
   - Enemy
-  - FishManager
   - Food
   - WaterSurface
+  - FishSpawner
   layers:
   - Default
   - TransparentFX

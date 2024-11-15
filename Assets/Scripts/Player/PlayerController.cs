@@ -22,10 +22,10 @@ public class PlayerController : MonoBehaviour
    private float _speed;
    private void Start()
    {
-    //  if (!TryGetComponent<CharacterController>(out _controller))
-     // {
-    //     Debug.LogError("Character Controller Component is Missing.");
-    //  }
+      if (!TryGetComponent<CharacterController>(out _controller))
+      {
+         Debug.LogError("Character Controller Component is Missing.");
+      }
    }
 
    private void OnTriggerEnter(Collider other)
@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour
 
          move.y += -9.18f * gravityBoost * Time.deltaTime;
          
-         _controller.Move(Move());
+         transform.Translate(move);
          
       }
    }

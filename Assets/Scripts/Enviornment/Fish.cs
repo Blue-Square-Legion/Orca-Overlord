@@ -57,7 +57,6 @@ public class Fish : MonoBehaviour
             
             if (Vector3.Distance(transform.position, _center) >= _fishSpawner.effectiveRadius)
             {
-                Debug.Log("Distance: " + tempDist);
                 _turn = true;
             }
             else

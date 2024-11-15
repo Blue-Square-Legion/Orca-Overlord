@@ -679,6 +679,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4978956855361325075, guid: 9dec5cb2a96a19342af9a854c9709993,
         type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 2085165948}
+    - target: {fileID: 4978956855361325075, guid: 9dec5cb2a96a19342af9a854c9709993,
+        type: 3}
       propertyPath: playerController
       value: 
       objectReference: {fileID: 466063572}
@@ -890,13 +895,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c75f37baacff7e041b96bc26a5316d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  depth: -1787
-  mainCamera: {fileID: 2085165952}
-  postProcessingVolume: {fileID: 1327186419}
-  surfacePostProcessing: {fileID: 11400000, guid: 38ddfb90a4fe2c346810bbd6191401d9,
-    type: 2}
-  underwaterPostProcessing: {fileID: 11400000, guid: 4f83800c41d867344a9b64fb83f57a12,
-    type: 2}
 --- !u!114 &2085165954
 MonoBehaviour:
   m_ObjectHideFlags: 0

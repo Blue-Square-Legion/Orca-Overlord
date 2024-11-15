@@ -1998,11 +1998,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Manager
       objectReference: {fileID: 0}
-    - target: {fileID: 1305311330994515463, guid: 9dec5cb2a96a19342af9a854c9709993,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
     - target: {fileID: 4978956855361325075, guid: 9dec5cb2a96a19342af9a854c9709993,
         type: 3}
       propertyPath: timerText
@@ -2113,95 +2108,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2316740354138766927, guid: 330b0018f719e6a4ebbf8a21edccfc39,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2330443460581494152, guid: 330b0018f719e6a4ebbf8a21edccfc39,
-        type: 3}
-      propertyPath: postProcessingVolume
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 2374902051519132034, guid: 330b0018f719e6a4ebbf8a21edccfc39,
         type: 3}
       propertyPath: m_Name
       value: Camera
-      objectReference: {fileID: 0}
-    - target: {fileID: 2375021374380700813, guid: 330b0018f719e6a4ebbf8a21edccfc39,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2375021374380700813, guid: 330b0018f719e6a4ebbf8a21edccfc39,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2375021374380700813, guid: 330b0018f719e6a4ebbf8a21edccfc39,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2375021374380700813, guid: 330b0018f719e6a4ebbf8a21edccfc39,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2375021374380700813, guid: 330b0018f719e6a4ebbf8a21edccfc39,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2375021374380700813, guid: 330b0018f719e6a4ebbf8a21edccfc39,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2375021374380700813, guid: 330b0018f719e6a4ebbf8a21edccfc39,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2375021374380700813, guid: 330b0018f719e6a4ebbf8a21edccfc39,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0.59
-      objectReference: {fileID: 0}
-    - target: {fileID: 2375021374380700813, guid: 330b0018f719e6a4ebbf8a21edccfc39,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0.256
-      objectReference: {fileID: 0}
-    - target: {fileID: 2375021374380700813, guid: 330b0018f719e6a4ebbf8a21edccfc39,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -0.79
-      objectReference: {fileID: 0}
-    - target: {fileID: 3390804529667254958, guid: 330b0018f719e6a4ebbf8a21edccfc39,
-        type: 3}
-      propertyPath: ShoulderOffset.z
-      value: -8.48
-      objectReference: {fileID: 0}
-    - target: {fileID: 4189318014984832053, guid: 330b0018f719e6a4ebbf8a21edccfc39,
-        type: 3}
-      propertyPath: m_ZDamping
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4189318014984832053, guid: 330b0018f719e6a4ebbf8a21edccfc39,
-        type: 3}
-      propertyPath: m_FollowOffset.y
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4189318014984832053, guid: 330b0018f719e6a4ebbf8a21edccfc39,
-        type: 3}
-      propertyPath: m_FollowOffset.z
-      value: -35
-      objectReference: {fileID: 0}
-    - target: {fileID: 5404465562944968288, guid: 330b0018f719e6a4ebbf8a21edccfc39,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6692433210694984665, guid: 330b0018f719e6a4ebbf8a21edccfc39,
         type: 3}

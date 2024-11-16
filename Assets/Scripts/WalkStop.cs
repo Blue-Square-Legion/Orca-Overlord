@@ -20,7 +20,7 @@ public class WalkStop : MonoBehaviour
         }
         if (isWalking && MoveFace.movementDirection != Vector3.zero)
             animator.enabled = true;
-        if(!isWalking &&MoveFace.movementDirection != Vector3.zero)
+        else
             animator.enabled = false;    
     }
 }

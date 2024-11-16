@@ -36,7 +36,7 @@ public class MousePosition : MonoBehaviour
 
         if (Input.GetKey(KeyCode.UpArrow))
         {
-           Player.transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+           Player.transform.Translate(Vector3.forward * -moveSpeed * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.DownArrow))
         { 

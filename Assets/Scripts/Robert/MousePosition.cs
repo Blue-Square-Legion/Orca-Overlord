@@ -19,7 +19,7 @@ public class MousePosition : MonoBehaviour
     public Vector3 movementDirection;
     public GameObject cube1;
     public GameObject cube2;
-
+    float zee=0f;
 
     private void Start()
     {
@@ -65,7 +65,7 @@ public class MousePosition : MonoBehaviour
             timer1 -= Time.deltaTime;   
             // transform.position = Vector3.MoveTowards(transform.position, cube1.transform.position, speed);
             if (timer1 < 1)
-            {
+            { Player.transform.position= new Vector3(transform.position.x, transform.position.y, transform.position.z+zee);
                 Player.transform.Rotate(new Vector3(0, 180, 0), Space.World);
                 _now = false;
                 timer2 = 8f;
@@ -82,7 +82,9 @@ public class MousePosition : MonoBehaviour
                 timer1 = 8f;
 
                     Player.transform.Rotate(new Vector3(0, 180, 0), Space.World);
+              zee=  UnityEngine.Random.Range(1f, 4f);
                 }
+
             }
 
         }

@@ -7,20 +7,14 @@ public class WalkStop : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        animator.enabled=false;
     }
 
     void Update()
     {
-        if (animator != null)
-        {
-           if(MoveFace.movementDirection != Vector3.zero)
+      
                 isWalking = true;
-           else animator.enabled = false;
-        }
-        if (isWalking && MoveFace.movementDirection != Vector3.zero)
+         
             animator.enabled = true;
-        else
-            animator.enabled = false;    
+       
     }
 }

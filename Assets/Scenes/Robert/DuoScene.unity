@@ -481,8 +481,8 @@ Transform:
   m_GameObject: {fileID: 286020229}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1960.89, y: 59.1, z: 1030}
-  m_LocalScale: {x: 3, y: 7, z: 3}
+  m_LocalPosition: {x: -1960.89, y: 58, z: 1030.5}
+  m_LocalScale: {x: 3, y: 8, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1698899408}
@@ -627,12 +627,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c878b34aea17a9946a68bc6e538bee8d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.52
+      value: 0.67
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c878b34aea17a9946a68bc6e538bee8d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c878b34aea17a9946a68bc6e538bee8d,
         type: 3}
@@ -673,6 +673,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MayaCharacter3RiggingWalking2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c878b34aea17a9946a68bc6e538bee8d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -1377,7 +1382,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1790,7 +1795,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: d3571d501d2842546a32b244ff823374, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -2029,6 +2034,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4962220412519530214, guid: 93dfd788856170643813f62aafa709ed,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

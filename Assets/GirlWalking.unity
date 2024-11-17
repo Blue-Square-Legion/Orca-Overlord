@@ -509,7 +509,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c878b34aea17a9946a68bc6e538bee8d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -165.9
+      value: -165.6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c878b34aea17a9946a68bc6e538bee8d,
         type: 3}
@@ -519,7 +519,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c878b34aea17a9946a68bc6e538bee8d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.5
+      value: 9.9
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c878b34aea17a9946a68bc6e538bee8d,
         type: 3}
@@ -634,8 +634,6 @@ MonoBehaviour:
   Player: {fileID: 1425023905}
   speed: 0.02
   movementDirection: {x: 0, y: 0, z: 0}
-  cube1: {fileID: 0}
-  cube2: {fileID: 0}
 --- !u!1001 &1726920504
 PrefabInstance:
   m_ObjectHideFlags: 0

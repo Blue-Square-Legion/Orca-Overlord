@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 using System.Diagnostics.Contracts;
+using Unity.VisualScripting;
 
 public class MousePosition : MonoBehaviour
 {
@@ -17,17 +18,19 @@ public class MousePosition : MonoBehaviour
     private float timer2 = 8f;
     bool _now = true;
     public Vector3 movementDirection;
-    public GameObject cube1;
-    public GameObject cube2;
+  
+   
     float zee=0f;
-
+        int count = 0;
     private void Start()
     {
+
         //Player = GameObject.FindGameObjectWithTag("Player");
     }
     void Update()
 
     {
+      //  temp = Player.transform.position;
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
         if (Input.GetKey(KeyCode.RightArrow))
@@ -59,32 +62,41 @@ public class MousePosition : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.E))
             Player.transform.Rotate(0f, .3f, 0f);
+
         if (timer1 > 0 && _now)
         {
             Player.transform.Translate(Vector3.back * moveSpeed * Time.deltaTime);
-            timer1 -= Time.deltaTime;   
+            timer1 -= Time.deltaTime;
+            if (Player.transform.position.z >= 32.0f)
+                Player.transform.position=new Vector3 (Player.transform.position.x, Player.transform.position.y, -7f);
             // transform.position = Vector3.MoveTowards(transform.position, cube1.transform.position, speed);
             if (timer1 < 1)
-            { Player.transform.position= new Vector3(transform.position.x, transform.position.y, transform.position.z+zee);
+            {
+              
+                Player.transform.position= new Vector3(transform.position.x, transform.position.y, transform.position.z+zee);
                 Player.transform.Rotate(new Vector3(0, 180, 0), Space.World);
                 _now = false;
                 timer2 = 8f;
-
+                
             }
         }
             if (timer2 > 0 && !_now)
             {
                 Player.transform.Translate(Vector3.back * moveSpeed * Time.deltaTime);
             timer2 -= Time.deltaTime;
+            zee = UnityEngine.Random.Range(1f, 4f);
+            count++;
+            if (count == 4)
+                Player.transform.position = new UnityEngine.Vector3(Player.transform.position.x, Player.transform.position.y, Player.transform.position.z - 7f);
             if (timer2<1)
                 {
                     _now = true;
                 timer1 = 8f;
 
                     Player.transform.Rotate(new Vector3(0, 180, 0), Space.World);
-              zee=  UnityEngine.Random.Range(1f, 4f);
+            
                 }
-
+           
             }
 
         }

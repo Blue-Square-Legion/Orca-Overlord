@@ -72,12 +72,12 @@ public class PlayerController : MonoBehaviour
 
          move.y += -9.18f * gravityBoost * Time.deltaTime;
          
-         _controller.Move(move);
+         transform.Translate(move);
          
       }
    }
 
-   private Vector3 Move()
+   public Vector3 Move()
    {
       return transform.right * Input.GetAxisRaw("Horizontal") * _speed * Time.deltaTime +
              transform.forward * Input.GetAxisRaw("Vertical") * _speed * Time.deltaTime;

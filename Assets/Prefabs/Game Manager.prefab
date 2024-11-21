@@ -45,4 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countdownTimers: []
+  mainCamera: {fileID: 0}
   timerText: {fileID: 0}

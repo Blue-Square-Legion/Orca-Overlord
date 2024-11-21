@@ -22,12 +22,13 @@ public class MoveFace : MonoBehaviour
 
         movementDirection = new Vector3(horizontalInput, 0, verticalInput);
         movementDirection.Normalize();
+        
         transform.Translate(movementDirection * speed * Time.deltaTime, Space.World);
-
+ 
         if (movementDirection != Vector3.zero)
         
           
        
-        transform.forward = -movementDirection;//(in above if)
+        transform.forward=(-movementDirection);//(in above if)
     }
 }

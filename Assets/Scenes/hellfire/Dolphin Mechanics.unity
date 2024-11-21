@@ -374,7 +374,7 @@ PrefabInstance:
     - target: {fileID: 3923386495727671255, guid: e60f2a7230d75e24683eb6680b6fd2c3,
         type: 3}
       propertyPath: distanceThreshold
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4071792578079306826, guid: e60f2a7230d75e24683eb6680b6fd2c3,
         type: 3}
@@ -955,21 +955,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1363796946141191112, guid: 93dfd788856170643813f62aafa709ed,
-        type: 3}
-      propertyPath: m_Height
-      value: 3.13
-      objectReference: {fileID: 0}
-    - target: {fileID: 1363796946141191112, guid: 93dfd788856170643813f62aafa709ed,
-        type: 3}
-      propertyPath: m_Radius
-      value: 1.66
-      objectReference: {fileID: 0}
-    - target: {fileID: 1363796946141191112, guid: 93dfd788856170643813f62aafa709ed,
-        type: 3}
-      propertyPath: m_Center.z
-      value: 3.64
-      objectReference: {fileID: 0}
     - target: {fileID: 2488250277953478998, guid: 93dfd788856170643813f62aafa709ed,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1019,36 +1004,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3708582295433284187, guid: 93dfd788856170643813f62aafa709ed,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-    - target: {fileID: 4185110076260712869, guid: 93dfd788856170643813f62aafa709ed,
-        type: 3}
-      propertyPath: m_Height
-      value: 10.922485
-      objectReference: {fileID: 0}
-    - target: {fileID: 4185110076260712869, guid: 93dfd788856170643813f62aafa709ed,
-        type: 3}
-      propertyPath: m_Radius
-      value: 1.42
-      objectReference: {fileID: 0}
-    - target: {fileID: 4185110076260712869, guid: 93dfd788856170643813f62aafa709ed,
-        type: 3}
-      propertyPath: m_Center.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4185110076260712869, guid: 93dfd788856170643813f62aafa709ed,
-        type: 3}
-      propertyPath: m_Center.z
-      value: 4.256897
-      objectReference: {fileID: 0}
-    - target: {fileID: 4185110076260712869, guid: 93dfd788856170643813f62aafa709ed,
-        type: 3}
-      propertyPath: m_Direction
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4962220412519530214, guid: 93dfd788856170643813f62aafa709ed,
         type: 3}

@@ -153,6 +153,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countdownTimers:
   - {fileID: 11400000, guid: 7cd7e9ccf4a3ff949a33cd84262c4d62, type: 2}
+  mainCamera: {fileID: 0}
+  timerText: {fileID: 0}
 --- !u!4 &1710265004
 Transform:
   m_ObjectHideFlags: 0

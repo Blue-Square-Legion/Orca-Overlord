@@ -1,24 +1,24 @@
 ﻿using UnityEngine;
 
-public class LookAt : State
+public class LookAt : Idle
 {
-    private GameObject _thisEnemy;
-    private GameObject _player;
+    protected GameObject ThisEnemy;
+    protected GameObject Player;
     
     public LookAt(GameObject thisEnemy, GameObject player)
     {
-        _thisEnemy = thisEnemy;
-        _player = player;
+        ThisEnemy = thisEnemy;
+        Player = player;
     }
     
     public override void Enter()
     {
-        Debug.Log("LookAt State Enter.");
+        
     }
 
     public override void Update()
     {
-        _thisEnemy.transform.LookAt(_player.transform);
+        ThisEnemy.transform.LookAt(Player.transform);
     }
 
     public override void Exit()

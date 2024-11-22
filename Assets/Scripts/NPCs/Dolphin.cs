@@ -7,9 +7,10 @@ public class Dolphin : MonoBehaviour
     [SerializeField] private float followDistanceThreshold;
     [SerializeField] private float closenessToPlayer;
     [SerializeField] private float lookAtDistanceThreshold;
-    [SerializeField] private float attackPower;
-    [SerializeField] private float timeBetweenAttacks;
-    
+    [SerializeField] private float knockbackPower;
+    [SerializeField] private float damage;
+    [SerializeField] private float attackCooldown;
+    [SerializeField] private float attackRange;
     [SerializeField] private float _distanceFromPlayer;
     
     private GameObject _player;
@@ -31,60 +32,29 @@ public class Dolphin : MonoBehaviour
     {
         _idle = new Idle();
         _lookAt = new LookAt(this.GameObject(), _player);
-        _follow = new Follow(this.GameObject(), _player, moveSpeed);
-        _attack = new Attack(this.GameObject(), _player, attackPower, timeBetweenAttacks);
+        _follow = new Follow(this.GameObject(), _player, closenessToPlayer, moveSpeed);
+        _attack = new Attack(this.GameObject(), _player, knockbackPower, damage, attackRange, attackCooldown, closenessToPlayer, moveSpeed);
         
         SwitchState(_idle);
     }
 
     private void Update()
     {
-        
-        _currentState.Update();
+        _currentState?.Update();
         
         _distanceFromPlayer = Vector3.Distance(transform.position, _player.transform.position);
 
-
-        if (_currentState == _idle)
+        if(_distanceFromPlayer <= attackRange)
         {
-            if (_distanceFromPlayer < lookAtDistanceThreshold)
-            {
-                SwitchState(_lookAt);
-            }
+            SwitchState(_attack);
         }
-
-        if (_currentState == _lookAt)
+        else if (_distanceFromPlayer < lookAtDistanceThreshold)
         {
-            if (_distanceFromPlayer > lookAtDistanceThreshold)
-            {
-                SwitchState(_idle);
-            }
-            
-            if (_distanceFromPlayer < followDistanceThreshold && _distanceFromPlayer > closenessToPlayer)
-            {
-                SwitchState(_follow);
-            }
+            SwitchState(_follow);
         }
-
-        if (_currentState == _follow)
+        else if (_distanceFromPlayer < followDistanceThreshold)
         {
-            if (_distanceFromPlayer > followDistanceThreshold)
-            {
-                SwitchState(_lookAt);
-            }
-            
-            if(_distanceFromPlayer <= closenessToPlayer)
-            {
-                SwitchState(_attack);
-            }
-        }
-
-        if (_currentState == _attack)
-        {
-            if (_distanceFromPlayer > closenessToPlayer)
-            {
-                SwitchState(_follow);
-            }
+            SwitchState(_lookAt);
         }
     }
 

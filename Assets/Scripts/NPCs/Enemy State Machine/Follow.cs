@@ -1,30 +1,34 @@
 ﻿using UnityEngine;
 
-public class Follow : State
+public class Follow : LookAt
 {
-    private GameObject _thisEnemy;
-    private GameObject _player;
     private Vector3 _direction;
-    private float _moveSpeed;
     
-    public Follow(GameObject thisEnemy, GameObject player, float moveSpeed)
+    protected float MoveSpeed;
+    protected float ClosenessToPlayer;
+    
+    public Follow(GameObject thisEnemy, GameObject player, float closenessToPlayer, float moveSpeed) : base(thisEnemy, player)
     {
-        _thisEnemy = thisEnemy;
-        _player = player;
-        _moveSpeed = moveSpeed;
+        MoveSpeed = moveSpeed;
+        ClosenessToPlayer = closenessToPlayer;
     }
     
     public override void Enter()
     {
-        Debug.Log("Follow State Enter.");
+        
     }
 
     public override void Update()
     {
-        _thisEnemy.transform.LookAt(_player.transform);
+        base.Update();
         
-        Vector3 direction = (_player.transform.position - _thisEnemy.transform.position).normalized;
-        _thisEnemy.transform.position += direction * _moveSpeed * Time.deltaTime;
+        Vector3 direction = (Player.transform.position - ThisEnemy.transform.position).normalized;
+        float distanceFromPlayer = Vector3.Distance(ThisEnemy.transform.position, Player.transform.position);
+        
+        if (distanceFromPlayer > ClosenessToPlayer)
+        {
+            ThisEnemy.transform.position += direction * MoveSpeed * Time.deltaTime;
+        }
     }
 
     public override void Exit()

@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
@@ -9,6 +6,8 @@ public class PlayerManager : MonoBehaviour
     
     private static PlayerController _playerController;
 
+    private Health _health;
+    
     public PlayerController PlayerController => _playerController;
     
     private void Awake()
@@ -18,7 +17,15 @@ public class PlayerManager : MonoBehaviour
             Instance = this;
         }
 
-        _playerController = GetComponent<PlayerController>();
+        if (!TryGetComponent(out _health))
+        {
+            Debug.LogError("Health component not found!");
+        }
+        
+        if (!TryGetComponent(out _playerController))
+        {
+            Debug.LogError("Character Controller not found!");
+        }
     }
 
     public static Vector3 GetPlayerPosition()

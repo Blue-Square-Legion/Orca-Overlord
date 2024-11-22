@@ -2,39 +2,55 @@
 using System.Threading;
 using UnityEngine;
 
-public class Attack : State
+public class Attack : Follow
 {
-    private GameObject _thisEnemy;
-    private GameObject _player;
-    private CharacterController _characterController;
-    private float _attackPower;
-    private float _timeBetweenAttacks;
-    
-    public Attack(GameObject thisEnemy, GameObject player, float attackPower, float timeBetweenAttacks)
+    private float _attackCooldown; // Time between attacks
+    private float _attackRange; // Distance to trigger attack
+    private float _knockbackPower = 10f; // Strength of knockback
+    private float _damage;
+    private float _nextAttackTime;
+
+    public Attack(GameObject thisEnemy, GameObject player, float knockbackPower, float damage, float attackRange, float attackCooldown, float closenessToPlayer, float moveSpeed) :
+        base(thisEnemy, player, closenessToPlayer, moveSpeed)
     {
-        _thisEnemy = thisEnemy;
-        _player = player;
-        _attackPower = attackPower;
-        _timeBetweenAttacks = timeBetweenAttacks;
+        _knockbackPower = knockbackPower;
+        _attackRange = attackRange;
+        _attackCooldown = attackCooldown;
+        _damage = damage;
     }
     
     public override void Enter()
     {
-        Debug.Log("Attack State Enter.");
+    }
+
+    public override void Update() 
+    {
+        base.Update();
         
-        if(!_player.TryGetComponent(out _characterController))
+        // Calculate distance to the player
+        float distance = Vector3.Distance(ThisEnemy.transform.position, Player.transform.position);
+
+        if (distance <= _attackRange && Time.time >= _nextAttackTime) 
         {
-            Debug.LogError("Player Character Controller not found!");
+            PerformAttack();
+            _nextAttackTime = Time.time + _attackCooldown;
         }
     }
 
-    public override void Update()
+    public override void Exit() 
     {
-        
     }
 
-    public override void Exit()
+    private void PerformAttack() 
     {
-        
+        // Apply knockback to the player
+        Vector3 knockbackDirection = (Player.transform.position - ThisEnemy.transform.position).normalized;
+        knockbackDirection.y = 0; // Ensure knockback is only horizontal
+
+        PlayerController playerController = Player.GetComponent<PlayerController>();
+        if (playerController != null) 
+        {
+            playerController.ApplyKnockback(knockbackDirection, _knockbackPower, _damage);
+        }
     }
 }

@@ -1,12 +1,23 @@
-using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Dolphin : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
-    [SerializeField] private float distanceThreshold;
-
+    [SerializeField] private float followDistanceThreshold;
+    [SerializeField] private float closenessToPlayer;
+    [SerializeField] private float lookAtDistanceThreshold;
+    [SerializeField] private float attackPower;
+    [SerializeField] private float timeBetweenAttacks;
+    
+    [SerializeField] private float _distanceFromPlayer;
+    
     private GameObject _player;
+    private State _currentState;
+    private State _idle;
+    private State _lookAt;
+    private State _follow;
+    private State _attack;
     private void Awake()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
@@ -16,18 +27,71 @@ public class Dolphin : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        _idle = new Idle();
+        _lookAt = new LookAt(this.GameObject(), _player);
+        _follow = new Follow(this.GameObject(), _player, moveSpeed);
+        _attack = new Attack(this.GameObject(), _player, attackPower, timeBetweenAttacks);
+        
+        SwitchState(_idle);
+    }
+
     private void Update()
     {
-        transform.LookAt(_player.transform);
         
-        float distance = Vector3.Distance(transform.position, _player.transform.position);
+        _currentState.Update();
+        
+        _distanceFromPlayer = Vector3.Distance(transform.position, _player.transform.position);
 
-        // Check if the object should move towards the player
-        if (distance > distanceThreshold)
+
+        if (_currentState == _idle)
         {
-            // Move towards the player's position
-            Vector3 direction = (_player.transform.position - transform.position).normalized;
-            transform.position += direction * moveSpeed * Time.deltaTime;
+            if (_distanceFromPlayer < lookAtDistanceThreshold)
+            {
+                SwitchState(_lookAt);
+            }
         }
+
+        if (_currentState == _lookAt)
+        {
+            if (_distanceFromPlayer > lookAtDistanceThreshold)
+            {
+                SwitchState(_idle);
+            }
+            
+            if (_distanceFromPlayer < followDistanceThreshold && _distanceFromPlayer > closenessToPlayer)
+            {
+                SwitchState(_follow);
+            }
+        }
+
+        if (_currentState == _follow)
+        {
+            if (_distanceFromPlayer > followDistanceThreshold)
+            {
+                SwitchState(_lookAt);
+            }
+            
+            if(_distanceFromPlayer <= closenessToPlayer)
+            {
+                SwitchState(_attack);
+            }
+        }
+
+        if (_currentState == _attack)
+        {
+            if (_distanceFromPlayer > closenessToPlayer)
+            {
+                SwitchState(_follow);
+            }
+        }
+    }
+
+    public void SwitchState(State newState)
+    {
+        _currentState?.Exit();
+        _currentState = newState;
+        _currentState.Enter();
     }
 }

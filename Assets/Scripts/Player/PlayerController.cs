@@ -10,7 +10,8 @@ public class PlayerController : MonoBehaviour
    private Vector3 _playerVelocity;
    private bool _isInWater;
    private bool _isAtSurface;
-   
+
+   public CharacterController Controller => _controller;
    public bool IsInWater => _isInWater;
    public bool IsAtSurface => _isAtSurface;
    

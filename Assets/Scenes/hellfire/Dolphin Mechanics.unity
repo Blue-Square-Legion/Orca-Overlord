@@ -364,7 +364,12 @@ PrefabInstance:
     - target: {fileID: 3923386495727671255, guid: e60f2a7230d75e24683eb6680b6fd2c3,
         type: 3}
       propertyPath: moveSpeed
-      value: 20
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3923386495727671255, guid: e60f2a7230d75e24683eb6680b6fd2c3,
+        type: 3}
+      propertyPath: attackPower
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3923386495727671255, guid: e60f2a7230d75e24683eb6680b6fd2c3,
         type: 3}
@@ -373,8 +378,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3923386495727671255, guid: e60f2a7230d75e24683eb6680b6fd2c3,
         type: 3}
+      propertyPath: closenessToPlayer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3923386495727671255, guid: e60f2a7230d75e24683eb6680b6fd2c3,
+        type: 3}
       propertyPath: distanceThreshold
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3923386495727671255, guid: e60f2a7230d75e24683eb6680b6fd2c3,
+        type: 3}
+      propertyPath: followDistanceThreshold
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 3923386495727671255, guid: e60f2a7230d75e24683eb6680b6fd2c3,
+        type: 3}
+      propertyPath: lookAtDistanceThreshold
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 4071792578079306826, guid: e60f2a7230d75e24683eb6680b6fd2c3,
         type: 3}

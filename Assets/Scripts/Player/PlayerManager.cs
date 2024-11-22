@@ -8,7 +8,8 @@ public class PlayerManager : MonoBehaviour
     public static PlayerManager Instance;
     
     private static PlayerController _playerController;
-    
+
+    public PlayerController PlayerController => _playerController;
     
     private void Awake()
     {

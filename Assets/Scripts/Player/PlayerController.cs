@@ -10,9 +10,16 @@ public class PlayerController : MonoBehaviour
    private bool _isAtSurface;
    private float _speed;
    
+   public CharacterController CharacterControllerController => _controller;
+   public bool IsInWater => _isInWater;
+   public bool IsAtSurface => _isAtSurface;
+   
    
    //Health
    private Health _health;
+
+   public Health Health => _health;
+   
    
    //Knockback
    [SerializeField] private GameObject damageEffect;
@@ -26,10 +33,8 @@ public class PlayerController : MonoBehaviour
    [SerializeField] private float jumpHeight = 1.0f;
    [SerializeField] private float gravityBoost = 1.0f;
    
-   public CharacterController Controller => _controller;
-   public bool IsInWater => _isInWater;
-   public bool IsAtSurface => _isAtSurface;
-
+   
+   
    private void Awake()
    {
       if (!TryGetComponent(out _health))
@@ -71,7 +76,13 @@ public class PlayerController : MonoBehaviour
 
    void Update()
    {
-      if (_isKnockedBack) {
+      if (_health.IsDead)
+      {
+         return;
+      }
+      
+      if (_isKnockedBack) 
+      {
          _knockbackTimer -= Time.deltaTime;
          if (_knockbackTimer <= 0) 
          {

@@ -5,20 +5,19 @@ using UnityEngine.Rendering;
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
-    private static PlayerManager _playerManager;
-    private static FishSpawner _fishSpawner;
 
+    private PlayerController _playerController;
+    private FishSpawner _fishSpawner;
     private float _waterLevel;
     
     [SerializeField] private CountdownTimerContainer[] countdownTimers;
     [SerializeField] private GameObject mainCamera;
     
-    public static PlayerManager PlayerManager => _playerManager;
-    public static FishSpawner FishSpawner => _fishSpawner;
+    public FishSpawner FishSpawner => _fishSpawner;
     public float WaterLevel => _waterLevel;
     
     [Header("UI Components")] 
-    [SerializeField]public TextMeshProUGUI timerText;
+    [SerializeField] private TextMeshProUGUI timerText;
     
     public static GameManager Instance
     {
@@ -38,6 +37,11 @@ public class GameManager : MonoBehaviour
     {
         _instance = this;
 
+        if (!GameObject.FindGameObjectWithTag("Player").TryGetComponent(out _playerController))
+        {
+            Debug.LogError("Player Controller Component not found!");
+        }
+        
         GameObject water = GameObject.FindGameObjectWithTag("Water");
         if (water)
         {
@@ -46,11 +50,6 @@ public class GameManager : MonoBehaviour
         else
         {
             Debug.LogError("Water not found.");
-        }
-        
-        if (!GameObject.FindGameObjectWithTag("Player").TryGetComponent(out _playerManager))
-        {
-            Debug.LogError("Player Manager not Found.");
         }
 
         if (!GameObject.FindGameObjectWithTag("FishSpawner").TryGetComponent(out _fishSpawner))
@@ -71,12 +70,14 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (PlayerManager.IsPlayerInWater())
+        
+        
+        if (_playerController.IsInWater)
         {
             mainCamera.GetComponent<Volume>().enabled = true;
         }
         
-        if(!PlayerManager.IsPlayerInWater() || PlayerManager.IsPlayerAtSurface())
+        if(!_playerController.IsInWater || _playerController.IsAtSurface)
         {
             mainCamera.GetComponent<Volume>().enabled = false;
         }

@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -134,5 +133,3 @@ public class PlayerController : MonoBehaviour
       _health.TakeDamage(damage);
    }
 }
-
-      

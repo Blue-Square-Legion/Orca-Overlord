@@ -15,9 +15,10 @@ public class PlayerController : MonoBehaviour
    private Health _health;
    
    //Knockback
+   [SerializeField] private GameObject damageEffect;
    private Vector3 _velocity;
    private bool _isKnockedBack;
-   private float _knockbackDuration = 0.5f;
+   private float _knockbackDuration = 0.2f;
    private float _knockbackTimer;
    
    [SerializeField] private float playerSpeed = .5f;
@@ -72,7 +73,10 @@ public class PlayerController : MonoBehaviour
    {
       if (_isKnockedBack) {
          _knockbackTimer -= Time.deltaTime;
-         if (_knockbackTimer <= 0) {
+         if (_knockbackTimer <= 0) 
+         {
+            damageEffect.SetActive(false);
+            
             _isKnockedBack = false;
             _velocity = Vector3.zero; // Stop knockback
          }
@@ -108,10 +112,13 @@ public class PlayerController : MonoBehaviour
    }
    
    
-   public void ApplyKnockback(Vector3 direction, float attackPower, float damage) {
+   public void ApplyKnockback(Vector3 direction, float attackPower, float damage) 
+   {
       _isKnockedBack = true;
       _knockbackTimer = _knockbackDuration;
       _velocity = direction * attackPower; // Set knockback velocity
+      
+      damageEffect.SetActive(true);
       
       _health.TakeDamage(damage);
    }

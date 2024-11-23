@@ -47,10 +47,6 @@ public class Attack : Follow
         Vector3 knockbackDirection = (Player.transform.position - ThisEnemy.transform.position).normalized;
         knockbackDirection.y = 0; // Ensure knockback is only horizontal
 
-        PlayerController playerController = Player.GetComponent<PlayerController>();
-        if (playerController != null) 
-        {
-            playerController.ApplyKnockback(knockbackDirection, _knockbackPower, _damage);
-        }
+        Player.GetComponent<PlayerController>()?.ApplyKnockback(knockbackDirection, _knockbackPower, _damage);
     }
 }

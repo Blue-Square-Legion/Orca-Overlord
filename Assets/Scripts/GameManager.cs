@@ -8,12 +8,14 @@ public class GameManager : MonoBehaviour
 
     private PlayerController _playerController;
     private FishSpawner _fishSpawner;
+    private DolphinSpawner _dolphinSpawner;
     private float _waterLevel;
     
     [SerializeField] private CountdownTimerContainer[] countdownTimers;
     [SerializeField] private GameObject mainCamera;
     
     public FishSpawner FishSpawner => _fishSpawner;
+    public DolphinSpawner DolphinSpawner => _dolphinSpawner;
     public float WaterLevel => _waterLevel;
     
     [Header("UI Components")] 
@@ -55,6 +57,11 @@ public class GameManager : MonoBehaviour
         if (!GameObject.FindGameObjectWithTag("FishSpawner").TryGetComponent(out _fishSpawner))
         {
             Debug.LogError("Fish Manager is Missing.");
+        }
+        
+        if (!GameObject.FindGameObjectWithTag("DolphinSpawner").TryGetComponent(out _dolphinSpawner))
+        {
+            Debug.LogError("Dolphin Spawner is Missing.");
         }
         
         if (countdownTimers.Length > 0)

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4185110076260712869}
   - component: {fileID: 1363796946141191112}
   - component: {fileID: 2835451735156231555}
-  - component: {fileID: 6442030952773551808}
   - component: {fileID: 5869336381065118069}
   - component: {fileID: 1679771290728905324}
   m_Layer: 9
@@ -101,18 +100,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 0}
   maxHealth: 100
---- !u!114 &6442030952773551808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4962220412519530214}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d53fa3cc0678a794380098ee8c694856, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5869336381065118069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,6 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab8beb95835804c4bb6586c0b939c471, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageEffect: {fileID: 0}
   playerSpeed: 30
   boostMultiplier: 5
   jumpHeight: 1
@@ -203,7 +191,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: f108f6102d5454c4b80d740014c52332, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

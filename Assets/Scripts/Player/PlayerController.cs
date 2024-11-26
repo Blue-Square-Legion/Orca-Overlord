@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+   [SerializeField] private bool canDie;
+   
+   
    //Basic Movement
    private CharacterController _controller;
    private Vector3 _playerVelocity;
@@ -75,7 +78,7 @@ public class PlayerController : MonoBehaviour
 
    void Update()
    {
-      if (_health.IsDead)
+      if (_health.IsDead && canDie)
       {
          return;
       }

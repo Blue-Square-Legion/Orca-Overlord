@@ -11,6 +11,7 @@ TagManager:
   - WaterSurface
   - FishSpawner
   - UI
+  - DolphinSpawner
   layers:
   - Default
   - TransparentFX

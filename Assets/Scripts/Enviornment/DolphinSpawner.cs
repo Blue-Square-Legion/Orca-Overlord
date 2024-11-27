@@ -1,13 +1,10 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 /// <summary>
-/// Spawns Fish according to assigned prefab and properties.
+/// Spawns Dolphins according to assigned prefab and properties.
 /// </summary>
 public class DolphinSpawner : MonoBehaviour
 {
@@ -92,9 +89,7 @@ public class DolphinSpawner : MonoBehaviour
             {
                 goalPosition.y = 5;
             }
-            goalPosition.z += Random.Range(-goalPositionRange, goalPositionRange);
-            
-            
+            goalPosition.z += Random.Range(-goalPositionRange, goalPositionRange); 
         }
         
         spawnPoint.transform.position = goalPosition;

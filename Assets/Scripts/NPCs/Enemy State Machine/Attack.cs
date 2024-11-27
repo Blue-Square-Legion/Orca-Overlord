@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Threading;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Attack : Follow
 {

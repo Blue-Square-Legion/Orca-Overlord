@@ -429,6 +429,32 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2127440363}
     m_Modifications:
+    - target: {fileID: -4795154617912166854, guid: 9e85c8235bcf5484aae76dad5be329a7,
+        type: 3}
+      propertyPath: spawnPoint
+      value: 
+      objectReference: {fileID: 2004067660}
+    - target: {fileID: -4795154617912166854, guid: 9e85c8235bcf5484aae76dad5be329a7,
+        type: 3}
+      propertyPath: numDolphins
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -4795154617912166854, guid: 9e85c8235bcf5484aae76dad5be329a7,
+        type: 3}
+      propertyPath: dolphinPrefab
+      value: 
+      objectReference: {fileID: 5501246347860676098, guid: e60f2a7230d75e24683eb6680b6fd2c3,
+        type: 3}
+    - target: {fileID: -4795154617912166854, guid: 9e85c8235bcf5484aae76dad5be329a7,
+        type: 3}
+      propertyPath: effectiveRadius
+      value: 230
+      objectReference: {fileID: 0}
+    - target: {fileID: -4795154617912166854, guid: 9e85c8235bcf5484aae76dad5be329a7,
+        type: 3}
+      propertyPath: goalPositionRange
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 1329852322431565301, guid: 9e85c8235bcf5484aae76dad5be329a7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -483,6 +509,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Dolphin Spawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721234380470304829, guid: 9e85c8235bcf5484aae76dad5be329a7,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1955.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721234380470304829, guid: 9e85c8235bcf5484aae76dad5be329a7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 44.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 5721234380470304829, guid: 9e85c8235bcf5484aae76dad5be329a7,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1420
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -903,6 +944,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2004067660 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5434892500046972734, guid: 9e85c8235bcf5484aae76dad5be329a7,
+    type: 3}
+  m_PrefabInstance: {fileID: 944456694}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2127440362
 GameObject:
   m_ObjectHideFlags: 0
@@ -1165,6 +1212,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3855413273680335208, guid: d2f6ee246d726f046a362c7ec9b174cf,
+        type: 3}
+      propertyPath: numFish
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4500022779010605342, guid: d2f6ee246d726f046a362c7ec9b174cf,
         type: 3}

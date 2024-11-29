@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
    //Basic Movement
    private CharacterController _controller;
    private Vector3 _playerVelocity;
-   private bool _isInWater;
+   [SerializeField]private bool _isInWater;
    private bool _isAtSurface;
    private float _speed;
    
@@ -94,27 +94,26 @@ public class PlayerController : MonoBehaviour
             _velocity = Vector3.zero; // Stop knockback
          }
       }
+      
+      if (_isInWater)
+      {
+         _speed = playerSpeed;
+   
+         if (Input.GetKey(KeyCode.LeftShift))
+         {
+            _speed = playerSpeed * boostMultiplier;
+         }
+         _controller.Move(Move());   
+      }
       else
       {
-         if (_isInWater)
-         {
-            _speed = playerSpeed;
-      
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
-               _speed = playerSpeed * boostMultiplier;
-            }
-            _controller.Move(Move());   
-         }
-         else
-         {
-            Vector3 move = Move();
+         Vector3 move = Move();
 
-            move.y += -9.18f * gravityBoost * Time.deltaTime;
-         
-            transform.Translate(move);
-         }
+         move.y += -9.18f * gravityBoost * Time.deltaTime;
+      
+         _controller.Move(move);
       }
+      
       _controller.Move(_velocity * Time.deltaTime);
    }
 

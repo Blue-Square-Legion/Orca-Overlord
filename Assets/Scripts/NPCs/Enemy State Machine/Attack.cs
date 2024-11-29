@@ -8,8 +8,8 @@ public class Attack : Follow
     private float _damage;
     private float _nextAttackTime;
 
-    public Attack(GameObject thisEnemy, GameObject player, float knockbackPower, float damage, float attackRange, float attackCooldown, float closenessToPlayer, float moveSpeed) :
-        base(thisEnemy, player, closenessToPlayer, moveSpeed)
+    public Attack(GameObject thisEnemy, GameObject player, float knockbackPower, float damage, float attackRange, float attackCooldown, float closenessToPlayer, float moveSpeed, float neighbourDistance, float rotationSpeed, DolphinSpawner dolphinSpawner) :
+        base(thisEnemy, player, closenessToPlayer, moveSpeed, neighbourDistance, rotationSpeed, dolphinSpawner)
     {
         _knockbackPower = knockbackPower;
         _attackRange = attackRange;

@@ -10,7 +10,7 @@ public class DolphinSpawner : MonoBehaviour
 {
     [Header("Setup")]
     
-    [Tooltip("Reference to Dolphin Prefab to create a school.")]
+    [Tooltip("Reference to Dolphin Prefab to create a pod.")]
     public GameObject dolphinPrefab;
     
     [Tooltip("Reference to the spawn center game object. This acts as the center for the School of Dolphin System.")]
@@ -42,6 +42,8 @@ public class DolphinSpawner : MonoBehaviour
     private void Awake()
     {
         allDolphins = new GameObject[numDolphins];
+        
+        Instantiate(new GameObject("Sphere"), spawnPoint.transform.position, Quaternion.identity);
     }
 
     // Start is called before the first frame update
@@ -68,14 +70,14 @@ public class DolphinSpawner : MonoBehaviour
         
             _position.z += Random.Range(-dolphinSpawnOffset, dolphinSpawnOffset);
             
-            allDolphins[i] = Instantiate(dolphinPrefab, _position, quaternion.identity);
+            allDolphins[i] = Instantiate(dolphinPrefab, _position, dolphinPrefab.transform.rotation);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Random.Range(0, 10000) < 50)
+        if (Random.Range(0, 1000000) < 50)
         {
             goalPosition.x += Random.Range(-goalPositionRange, goalPositionRange);
             goalPosition.y += Random.Range(-goalPositionRange, goalPositionRange);
@@ -91,7 +93,6 @@ public class DolphinSpawner : MonoBehaviour
             }
             goalPosition.z += Random.Range(-goalPositionRange, goalPositionRange); 
         }
-        
         spawnPoint.transform.position = goalPosition;
     }
 }

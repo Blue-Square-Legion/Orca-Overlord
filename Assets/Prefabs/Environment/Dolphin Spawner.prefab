@@ -48,11 +48,11 @@ MonoBehaviour:
   dolphinPrefab: {fileID: 5501246347860676098, guid: e60f2a7230d75e24683eb6680b6fd2c3,
     type: 3}
   spawnPoint: {fileID: 5434892500046972734}
-  dolphinSpawnOffset: 15
-  effectiveRadius: 50
+  dolphinSpawnOffset: 10
+  effectiveRadius: 5
   waterSurfaceOffset: 10
-  goalPositionRange: 30
-  numDolphins: 5
+  goalPositionRange: 50
+  numDolphins: 20
   allDolphins: []
   goalPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &5434892500046972734

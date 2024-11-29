@@ -4,12 +4,10 @@ public class Follow : LookAt
 {
     private Vector3 _direction;
     
-    protected float MoveSpeed;
     protected float ClosenessToPlayer;
     
-    public Follow(GameObject thisEnemy, GameObject player, float closenessToPlayer, float moveSpeed) : base(thisEnemy, player)
+    public Follow(GameObject thisEnemy, GameObject player, float closenessToPlayer, float moveSpeed, float neighbourDistance, float rotationSpeed, DolphinSpawner dolphinSpawner) : base(thisEnemy, player, neighbourDistance, moveSpeed, rotationSpeed, dolphinSpawner)
     {
-        MoveSpeed = moveSpeed;
         ClosenessToPlayer = closenessToPlayer;
     }
     

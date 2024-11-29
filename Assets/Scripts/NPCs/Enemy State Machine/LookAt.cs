@@ -2,13 +2,11 @@
 
 public class LookAt : Idle
 {
-    protected GameObject ThisEnemy;
-    protected GameObject Player;
+    private Vector3 _direction;
     
-    public LookAt(GameObject thisEnemy, GameObject player)
+    public LookAt(GameObject thisEnemy, GameObject player, float neighborDistance, float moveSpeed, float rotationSpeed, DolphinSpawner dolphinSpawner) : base(thisEnemy, player, neighborDistance, moveSpeed, rotationSpeed, dolphinSpawner)
     {
-        ThisEnemy = thisEnemy;
-        Player = player;
+        
     }
     
     public override void Enter()
@@ -18,7 +16,11 @@ public class LookAt : Idle
 
     public override void Update()
     {
-        ThisEnemy.transform.LookAt(Player.transform);
+        _direction = (Player.transform.position - ThisEnemy.transform.position).normalized;
+
+        Quaternion lookRotation = Quaternion.LookRotation(_direction);
+        
+        ThisEnemy.transform.rotation = Quaternion.Slerp(ThisEnemy.transform.rotation, lookRotation, RotationSpeed * Time.deltaTime);
     }
 
     public override void Exit()

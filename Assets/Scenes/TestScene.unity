@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 104099553}
   m_Layer: 0
   m_Name: BoatFlipTriggerRight
-  m_TagString: Untagged
+  m_TagString: BoatFlipTriggerRight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -446,7 +446,7 @@ GameObject:
   - component: {fileID: 307499413}
   m_Layer: 0
   m_Name: ShakeTrigger
-  m_TagString: Untagged
+  m_TagString: ShakeTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -485,8 +485,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 35.429073, y: 30.868637, z: 49.269035}
-  m_Center: {x: -3.3644404, y: 27.835459, z: 2.2514646}
+  m_Size: {x: 24.455563, y: 28.150574, z: 47.79907}
+  m_Center: {x: -2.564575, y: 29.19449, z: 2.98645}
 --- !u!1 &307819319
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,7 +501,7 @@ GameObject:
   - component: {fileID: 307819324}
   m_Layer: 0
   m_Name: BoatFlipTriggerLeft
-  m_TagString: Untagged
+  m_TagString: BoatFlipTriggerLeft
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -683,7 +683,7 @@ GameObject:
   - component: {fileID: 356391654}
   m_Layer: 0
   m_Name: BoatFlipTriggerRight
-  m_TagString: Untagged
+  m_TagString: BoatFlipTriggerRight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -775,7 +775,7 @@ GameObject:
   - component: {fileID: 506935341}
   m_Layer: 0
   m_Name: BoatFlipTriggerLeft
-  m_TagString: Untagged
+  m_TagString: BoatFlipTriggerLeft
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -995,8 +995,8 @@ GameObject:
   - component: {fileID: 1251997423}
   - component: {fileID: 1251997425}
   m_Layer: 0
-  m_Name: ShakeTirgger
-  m_TagString: Untagged
+  m_Name: ShakeTrigger
+  m_TagString: ShakeTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1035,8 +1035,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.39777339, y: 0.32964644, z: 0.71071285}
+  m_Center: {x: -0.02696289, y: 0.10119209, z: -0.0010742188}
 --- !u!1 &1327186418
 GameObject:
   m_ObjectHideFlags: 0
@@ -1104,7 +1104,7 @@ GameObject:
   - component: {fileID: 1510007128}
   m_Layer: 0
   m_Name: ShakeTrigger
-  m_TagString: Untagged
+  m_TagString: ShakeTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1143,8 +1143,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.2315686, y: 0.11069848, z: 0.31471777}
-  m_Center: {x: -0.029140005, y: -0.03986806, z: -0.030539965}
+  m_Size: {x: 0.101972625, y: 0.082893565, z: 0.16413221}
+  m_Center: {x: 0.018905014, y: -0.006798972, z: 0.0014123915}
 --- !u!1 &1576690729 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4962220412519530214, guid: 93dfd788856170643813f62aafa709ed,
@@ -1406,7 +1406,7 @@ GameObject:
   - component: {fileID: 1695289221}
   m_Layer: 0
   m_Name: BoatFlipTriggerLeft
-  m_TagString: Untagged
+  m_TagString: BoatFlipTriggerLeft
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2106,7 +2106,7 @@ GameObject:
   - component: {fileID: 2075490039}
   m_Layer: 0
   m_Name: BoatFlipTriggerRight
-  m_TagString: Untagged
+  m_TagString: BoatFlipTriggerRight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

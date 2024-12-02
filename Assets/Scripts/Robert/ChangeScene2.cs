@@ -5,18 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class ChangeScene2 : MonoBehaviour
 {
-    private float timer2 = 20f;
+    private float timer2 = 30f;
     // Start is called before the first frame update
     void Start()
     {
-        timer2 = 20f;
+        timer2 = 30f;
     }
 
     // Update is called once per frame
     void Update()
     {
         if (timer2 < 11)
-            SceneManager.LoadScene("ThirdPersonMovement");
+            SceneManager.LoadScene("BoatFlip");
 
         timer2 -= 1 * Time.deltaTime;
     }

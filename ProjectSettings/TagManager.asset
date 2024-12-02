@@ -10,8 +10,9 @@ TagManager:
   - Food
   - WaterSurface
   - FishSpawner
-  - UI
-  - DolphinSpawner
+  - BoatFlipTriggerRight
+  - BoatFlipTriggerLeft
+  - ShakeTrigger
   layers:
   - Default
   - TransparentFX

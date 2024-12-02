@@ -17,7 +17,7 @@ public class TimerScore : MonoBehaviour
     bool motor = true;
     bool fishing = true;
     float timer = 100f;
-    [SerializeField] TextMeshProUGUI scoreText, timerText;
+    [SerializeField] TextMeshProUGUI scoreText, timerText, NotifyText;
     /// <summary>
     /// Start is called before the first frame update
     /// </summary>
@@ -56,5 +56,13 @@ public class TimerScore : MonoBehaviour
             timer -= Time.deltaTime;
         scoreText.text = Mathf.RoundToInt(score).ToString();
         timerText.text = Mathf.RoundToInt(timer).ToString();
+        if (timer <= 0)
+        {
+            NotifyText.text = "GAME OVER";
+        Application.Quit();
+           
+            
+
+        }
     }
 }

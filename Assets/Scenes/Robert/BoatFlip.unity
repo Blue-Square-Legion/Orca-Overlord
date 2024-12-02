@@ -9212,11 +9212,23 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 26120747854570388, guid: 1760b888b94b3d44dbd37f0b7c573b32,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -8549156863361010301, guid: 772f3b0d4d193df419637cd655959be8,
+        type: 3}
     - target: {fileID: 890044579108246504, guid: 1760b888b94b3d44dbd37f0b7c573b32,
         type: 3}
       propertyPath: waterSurface
       value: 
       objectReference: {fileID: 1844694373}
+    - target: {fileID: 2823293687094134266, guid: 1760b888b94b3d44dbd37f0b7c573b32,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -6175689750291790833, guid: 772f3b0d4d193df419637cd655959be8,
+        type: 3}
     - target: {fileID: 4053008371889560764, guid: 1760b888b94b3d44dbd37f0b7c573b32,
         type: 3}
       propertyPath: m_Name
@@ -10495,11 +10507,23 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 140046936465467083, guid: 6c9485bba9fb4234982567072bf7b5a3,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 9003353085549565770, guid: 772f3b0d4d193df419637cd655959be8,
+        type: 3}
     - target: {fileID: 656978726152240336, guid: 6c9485bba9fb4234982567072bf7b5a3,
         type: 3}
       propertyPath: waterSurface
       value: 
       objectReference: {fileID: 1844694373}
+    - target: {fileID: 2885250761973199049, guid: 6c9485bba9fb4234982567072bf7b5a3,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -2653651044934150266, guid: 772f3b0d4d193df419637cd655959be8,
+        type: 3}
     - target: {fileID: 6072217610289321470, guid: 6c9485bba9fb4234982567072bf7b5a3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10555,6 +10579,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Patrol Boat
       objectReference: {fileID: 0}
+    - target: {fileID: 8032858455579095316, guid: 6c9485bba9fb4234982567072bf7b5a3,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cd15e87a72ea45447851319feff2671d, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11846,6 +11875,11 @@ PrefabInstance:
       propertyPath: waterSurface
       value: 
       objectReference: {fileID: 1844694373}
+    - target: {fileID: 4631687128597482202, guid: 254654825f1ea344f9c15f9652168ac2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cd15e87a72ea45447851319feff2671d, type: 2}
     - target: {fileID: 5048606518503547879, guid: 254654825f1ea344f9c15f9652168ac2,
         type: 3}
       propertyPath: m_Name
@@ -11901,6 +11935,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6483245279446929178, guid: 254654825f1ea344f9c15f9652168ac2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 93e450883a67c59419cf9b368a2a5201, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

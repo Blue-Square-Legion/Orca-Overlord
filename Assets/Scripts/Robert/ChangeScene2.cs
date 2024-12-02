@@ -15,8 +15,8 @@ public class ChangeScene2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timer2 < 11)
-            SceneManager.LoadScene("BoatFlip");
+        if (timer2 < 8)
+            SceneManager.LoadScene("Scenes/Robert/BoatFlip");
 
         timer2 -= 1 * Time.deltaTime;
     }

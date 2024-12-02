@@ -7,7 +7,6 @@ using UnityEngine.UI;
 [CreateAssetMenu(fileName = "NewCountdownTimerContainer", menuName = "CountdownTimerContainer")]
 public class CountdownTimerContainer : ScriptableObject
 {
-    public string timerName;
     public float timerDuration;
     [HideInInspector] public CountdownTimer countdownTimer;
 }

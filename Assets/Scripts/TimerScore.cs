@@ -54,6 +54,7 @@ public class TimerScore : MonoBehaviour
         }
         if (timer > 0)
             timer -= Time.deltaTime;
+        
         scoreText.text = Mathf.RoundToInt(score).ToString();
         timerText.text = Mathf.RoundToInt(timer).ToString();
     }

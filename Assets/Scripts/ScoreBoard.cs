@@ -8,7 +8,6 @@ using UnityEngine;
 public class ScoreBoard : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;
-    public TextMeshProUGUI timerText;
     public GameObject patrolBoatPrefab;
     public GameObject motorBoatPrefab;
     public GameObject fishingBoatPrefab;
@@ -16,7 +15,6 @@ public class ScoreBoard : MonoBehaviour
     private float maxPatroly = 57;
     private float maxMotory = 49;
     private float maxFishingy = 42;
-    private float timer = 100f;
     bool _five=false;
     bool _ten=false;
     bool _fifteen = false;
@@ -59,12 +57,12 @@ public class ScoreBoard : MonoBehaviour
     }
     void FixedUpdate()
     {
-      
-
-        if (timer > 0)
-            timer-=Time.deltaTime;
+        if (!GameManager.Instance.CountdownTimer.IsCountingDown)
+        {
+            GameManager.Instance.CountdownTimer.StartTimer();
+        }
+        
         checkOne();
-        timerText.text = timer.ToString();//$"{timer:02}";
         scoreText.text = Mathf.RoundToInt(score).ToString();
     }
 }

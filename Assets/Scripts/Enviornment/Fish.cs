@@ -32,7 +32,7 @@ public class Fish : MonoBehaviour
     
     private void Awake()
     {
-        _fishSpawner = GameManager.FishSpawner;
+        _fishSpawner = GameManager.Instance.FishSpawner;
     }
 
     /// <summary>

@@ -8,20 +8,15 @@ using UnityEngine.Rendering;
 public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
-    private static PlayerManager _playerManager;
-    private static FishSpawner _fishSpawner;
-
+    private FishSpawner _fishSpawner;
     private float _waterLevel;
     
-    [SerializeField] private CountdownTimerContainer[] countdownTimers;
     [SerializeField] private GameObject mainCamera;
+    [SerializeField] private CountdownTimer countdownTimer;
     
-    public static PlayerManager PlayerManager => _playerManager;
-    public static FishSpawner FishSpawner => _fishSpawner;
+    public CountdownTimer CountdownTimer => countdownTimer; 
+    public FishSpawner FishSpawner => _fishSpawner; 
     public float WaterLevel => _waterLevel;
-    
-    [Header("UI Components")] 
-    [SerializeField]public TextMeshProUGUI timerText;
     
     public static GameManager Instance
     {
@@ -50,18 +45,13 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogError("Water not found.");
         }
-        
-        if (!GameObject.FindGameObjectWithTag("Player").TryGetComponent(out _playerManager))
-        {
-            Debug.LogError("Player Manager not Found.");
-        }
 
         if (!GameObject.FindGameObjectWithTag("FishSpawner").TryGetComponent(out _fishSpawner))
         {
             Debug.LogError("Fish Manager is Missing.");
         }
         
-        if (countdownTimers.Length > 0)
+        /*if (countdownTimers.Length > 0)
         {
             foreach (CountdownTimerContainer timer in countdownTimers)
             {
@@ -69,7 +59,7 @@ public class GameManager : MonoBehaviour
                 timer.countdownTimer.SetTimerDuration(timer.timerDuration);
                 timer.countdownTimer.SetTimerText(timerText);
             }
-        }
+        }*/
     }
 
     private void Update()
@@ -82,11 +72,6 @@ public class GameManager : MonoBehaviour
         if(!PlayerManager.IsPlayerInWater() || PlayerManager.IsPlayerAtSurface())
         {
             mainCamera.GetComponent<Volume>().enabled = false;
-        }
-        
-        if (countdownTimers.Length> 0 && !countdownTimers[0].countdownTimer.IsCountingDown)
-        {
-            countdownTimers[0].countdownTimer.StartTimer();
         }
     }
 }

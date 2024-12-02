@@ -11,15 +11,13 @@ public class GameManager : MonoBehaviour
     private DolphinSpawner _dolphinSpawner;
     private float _waterLevel;
     
-    [SerializeField] private CountdownTimerContainer[] countdownTimers;
+    [SerializeField] private CountdownTimer countdownTimer;
     [SerializeField] private GameObject mainCamera;
-    
+
+    public CountdownTimer CountdownTimer => countdownTimer;
     public FishSpawner FishSpawner => _fishSpawner;
     public DolphinSpawner DolphinSpawner => _dolphinSpawner;
     public float WaterLevel => _waterLevel;
-    
-    [Header("UI Components")] 
-    [SerializeField] private TextMeshProUGUI timerText;
     
     public static GameManager Instance
     {
@@ -63,16 +61,6 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogError("Dolphin Spawner is Missing.");
         }
-        
-        if (countdownTimers.Length > 0)
-        {
-            foreach (CountdownTimerContainer timer in countdownTimers)
-            {
-                timer.countdownTimer = gameObject.AddComponent<CountdownTimer>();
-                timer.countdownTimer.SetTimerDuration(timer.timerDuration);
-                timer.countdownTimer.SetTimerText(timerText);
-            }
-        }
     }
 
     private void Update()
@@ -87,11 +75,6 @@ public class GameManager : MonoBehaviour
         if(!_playerController.IsInWater || _playerController.IsAtSurface)
         {
             mainCamera.GetComponent<Volume>().enabled = false;
-        }
-        
-        if (countdownTimers.Length> 0 && !countdownTimers[0].countdownTimer.IsCountingDown)
-        {
-            countdownTimers[0].countdownTimer.StartTimer();
         }
     }
 }

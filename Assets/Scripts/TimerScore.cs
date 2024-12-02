@@ -16,14 +16,12 @@ public class TimerScore : MonoBehaviour
     bool patrol = true;
     bool motor = true;
     bool fishing = true;
-    float timer = 100f;
-    [SerializeField] TextMeshProUGUI scoreText, timerText, NotifyText;
+    [SerializeField] TextMeshProUGUI scoreText;
     /// <summary>
     /// Start is called before the first frame update
     /// </summary>
     void Start()
     {
-        timer = 100f;
         score = 0f;
     }
 
@@ -32,38 +30,29 @@ public class TimerScore : MonoBehaviour
     /// </summary>
     void FixedUpdate()
     {
-        if(timer > 0)
-           
-  
         if (motorBoatPrefab.transform.rotation.z != 0 && patrol)
         {
             score += 5f;
-                patrol = false;
+            patrol = false;
         }
-
-       if (patrolBoatPrefab.transform.rotation.z != 0&&motor)
+        
+        if (patrolBoatPrefab.transform.rotation.z != 0 && motor)
         {
-            score += 10f; 
-            motor=false;  
-        }
-
-       if (fishingBoatPrefab.transform.rotation.z != 0&&fishing)
+           score += 10f;
+           motor=false;  
+        } 
+       
+        if (fishingBoatPrefab.transform.rotation.z != 0 && fishing) 
         {
             score += 15f;
             fishing=false;  
         }
-        if (timer > 0)
-            timer -= Time.deltaTime;
-        
+       
         scoreText.text = Mathf.RoundToInt(score).ToString();
-        timerText.text = Mathf.RoundToInt(timer).ToString();
-        if (timer <= 0)
-        {
-            NotifyText.text = "GAME OVER";
-        Application.Quit();
-           
-            
 
+        if (!GameManager.Instance.CountdownTimer.IsCountingDown)
+        { 
+           GameManager.Instance.CountdownTimer.StartTimer();
         }
     }
 }

@@ -11,9 +11,8 @@ public class CountdownTimer : MonoBehaviour
 {
     private bool _isCountingDown = false;
     private float _timeRemaining;
-    
-    [SerializeField] private float timerDuration;
-    [SerializeField] private TextMeshProUGUI timerText;
+    private float _timerDuration;
+    private TextMeshProUGUI _timerText;
 
     public bool IsCountingDown => _isCountingDown;
     
@@ -31,12 +30,12 @@ public class CountdownTimer : MonoBehaviour
     public void StartTimer()
     {
         _isCountingDown = true;
-        _timeRemaining = timerDuration;
+        _timeRemaining = _timerDuration;
     }
 
     void Countdown()
     {
-        timerText.text = (_timeRemaining).ToString("F2");
+        _timerText.text = (_timeRemaining).ToString("F2");
         _timeRemaining -= Time.deltaTime;
         
         if (_timeRemaining <= 0.0f)
@@ -53,11 +52,11 @@ public class CountdownTimer : MonoBehaviour
 
     public void SetTimerDuration(float timerDuration)
     {
-       this.timerDuration = timerDuration;
+       _timerDuration = timerDuration;
     }
 
     public void SetTimerText(TextMeshProUGUI timerText)
     {
-        this.timerText = timerText;
+        _timerText = timerText;
     }
 }

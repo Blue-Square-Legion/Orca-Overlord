@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damping: {x: 0.1, y: 0.1, z: 0.1}
-  ShoulderOffset: {x: 0.5, y: 0.67, z: -8.48}
+  ShoulderOffset: {x: 0.07, y: 3.1, z: -3.59}
   VerticalArmLength: 0.4
   CameraSide: 1
   CameraDistance: 10.07
@@ -66,7 +66,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 16
   IgnoreTag: 
-  CameraRadius: 0.2
+  CameraRadius: 0.244
   DampingIntoCollision: 0
   DampingFromCollision: 2
 --- !u!1 &2316740354138766927
@@ -101,7 +101,7 @@ Transform:
   m_Children:
   - {fileID: 5211466543795402061}
   m_Father: {fileID: 7856073025644185276}
-  m_LocalEulerAnglesHint: {x: 0.59, y: 0.256, z: -0.79}
+  m_LocalEulerAnglesHint: {x: 0.253, y: 0.256, z: -0.79}
 --- !u!114 &6692433210694984665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 40
+    FieldOfView: 90
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -212,7 +212,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 40
+  field of view: 90
   orthographic: 0
   orthographic size: 10
   m_Depth: 0
@@ -358,13 +358,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5404465562944968288}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0.34264338, y: -0, z: -0, w: 0.9394655}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7856073025644185276}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 40.076, y: 0, z: 0}
 --- !u!114 &2704984824747590170
 MonoBehaviour:
   m_ObjectHideFlags: 0

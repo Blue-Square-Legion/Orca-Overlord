@@ -283,7 +283,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: b7a52595b9a4b8845be7a88c38a84590,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b7a52595b9a4b8845be7a88c38a84590,
         type: 3}
@@ -314,17 +314,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ce808960ade3c2f4c860c356bb2a1e98, type: 2}
+      objectReference: {fileID: 2100000, guid: cd15e87a72ea45447851319feff2671d, type: 2}
     - target: {fileID: 919132149155446097, guid: b7a52595b9a4b8845be7a88c38a84590,
         type: 3}
       propertyPath: m_Name
-      value: Motor_boat (01)
+      value: Motor Boat
       objectReference: {fileID: 0}
     - target: {fileID: 1380410510977307052, guid: b7a52595b9a4b8845be7a88c38a84590,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: c80ba8c4f78ad54429aa33311f536bdf, type: 2}
+      objectReference: {fileID: 2100000, guid: 93e450883a67c59419cf9b368a2a5201, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

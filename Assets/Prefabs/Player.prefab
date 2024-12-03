@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1016469148805638785}
   - component: {fileID: 5534815349247029181}
   m_Layer: 9
-  m_Name: player
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,8 +32,8 @@ Transform:
   m_GameObject: {fileID: 4962220412519530214}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1926, y: 46.97, z: 1034.961}
-  m_LocalScale: {x: 3, y: 2, z: 5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 200, y: 200, z: 200}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5244164279070539505}
@@ -58,10 +58,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.42
-  m_Height: 10.922485
+  m_Radius: 0.017
+  m_Height: 0.12
   m_Direction: 2
-  m_Center: {x: 0, y: -0.12, z: 4.256897}
+  m_Center: {x: 0, y: 0, z: 0.04}
 --- !u!143 &1363796946141191112
 CharacterController:
   m_ObjectHideFlags: 0
@@ -81,13 +81,13 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 3.13
-  m_Radius: 1.66
+  m_Height: 0
+  m_Radius: 0.02
   m_SlopeLimit: 45
-  m_StepOffset: 0.3
+  m_StepOffset: 0.001
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.31, z: 3.64}
+  m_Center: {x: 0, y: 0, z: 0.04}
 --- !u!114 &2835451735156231555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,7 +177,6 @@ MonoBehaviour:
   patrolBoatPrefab: {fileID: 0}
   fishingBoatPrefab: {fileID: 0}
   scoreText: {fileID: 0}
-  timerText: {fileID: 0}
 --- !u!1 &7427033240973328510
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,7 +205,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2488250277953478998}

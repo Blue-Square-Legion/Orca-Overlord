@@ -39,11 +39,13 @@ public class FishSpawner : MonoBehaviour
 
     private Vector3 _position;
     private float _maxHeight;
+    private GameObject _spawnedFishHolder;
     
     
     private void Awake()
     {
         allFish = new GameObject[numFish];
+        _spawnedFishHolder = new GameObject("Spawned Fish Holder");
     }
 
     // Start is called before the first frame update
@@ -71,6 +73,7 @@ public class FishSpawner : MonoBehaviour
             _position.z += Random.Range(-fishSpawnOffset, fishSpawnOffset);
             
             allFish[i] = Instantiate(fishPrefab, _position, quaternion.identity);
+            allFish[i].transform.parent = _spawnedFishHolder.transform;
         }
     }
 

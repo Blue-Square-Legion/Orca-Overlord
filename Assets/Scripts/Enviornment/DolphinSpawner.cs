@@ -37,13 +37,12 @@ public class DolphinSpawner : MonoBehaviour
 
     private Vector3 _position;
     private float _maxHeight;
-    
+    private GameObject _spawnedDolphinHolder;
     
     private void Awake()
     {
         allDolphins = new GameObject[numDolphins];
-        
-        Instantiate(new GameObject("Sphere"), spawnPoint.transform.position, Quaternion.identity);
+        _spawnedDolphinHolder = new GameObject("Spawned Dolphin Holder");
     }
 
     // Start is called before the first frame update
@@ -71,7 +70,7 @@ public class DolphinSpawner : MonoBehaviour
             _position.z += Random.Range(-dolphinSpawnOffset, dolphinSpawnOffset);
             
             allDolphins[i] = Instantiate(dolphinPrefab, _position, dolphinPrefab.transform.rotation);
-        }
+            allDolphins[i].transform.parent = _spawnedDolphinHolder.transform; }
     }
 
     // Update is called once per frame

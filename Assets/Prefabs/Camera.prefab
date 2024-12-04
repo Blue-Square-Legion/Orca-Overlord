@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damping: {x: 0.1, y: 0.1, z: 0.1}
-  ShoulderOffset: {x: 0.07, y: 3.1, z: -3.59}
+  ShoulderOffset: {x: 0.07, y: 3.1, z: -12}
   VerticalArmLength: 0.4
   CameraSide: 1
   CameraDistance: 10.07
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 90
+    FieldOfView: 60
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
@@ -212,7 +212,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 90
+  field of view: 60
   orthographic: 0
   orthographic size: 10
   m_Depth: 0

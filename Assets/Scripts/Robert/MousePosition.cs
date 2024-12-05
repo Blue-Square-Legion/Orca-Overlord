@@ -30,9 +30,9 @@ public class MousePosition : MonoBehaviour
     void Update()
 
     {
-      //  temp = Player.transform.position;
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+     // temp = Player.transform.position;
+      float horizontalInput = Input.GetAxis("Horizontal");
+      float verticalInput = Input.GetAxis("Vertical");
         if (Input.GetKey(KeyCode.RightArrow))
         {
             Player.transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
@@ -62,13 +62,12 @@ public class MousePosition : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.E))
             Player.transform.Rotate(0f, .3f, 0f);
-
         if (timer1 > 0 && _now)
         {
             Player.transform.Translate(Vector3.back * moveSpeed * Time.deltaTime);
             timer1 -= Time.deltaTime;
-            if (Player.transform.position.z >= 32.0f)
-                Player.transform.position=new Vector3 (Player.transform.position.x, Player.transform.position.y, -7f);
+         //   if (Player.transform.position.z >= 0)
+           //     Player.transform.position=new Vector3 (Player.transform.position.x, Player.transform.position.y, -7f);
             // transform.position = Vector3.MoveTowards(transform.position, cube1.transform.position, speed);
             if (timer1 < 1)
             {
@@ -84,10 +83,10 @@ public class MousePosition : MonoBehaviour
             {
                 Player.transform.Translate(Vector3.back * moveSpeed * Time.deltaTime);
             timer2 -= Time.deltaTime;
-            zee = UnityEngine.Random.Range(1f, 4f);
+            zee = .2f;
             count++;
             if (count == 4)
-                Player.transform.position = new UnityEngine.Vector3(Player.transform.position.x, Player.transform.position.y, Player.transform.position.z - 7f);
+                Player.transform.position = new UnityEngine.Vector3(Player.transform.position.x, Player.transform.position.y, Player.transform.position.z - zee);
             if (timer2<1)
                 {
                     _now = true;
@@ -98,7 +97,6 @@ public class MousePosition : MonoBehaviour
                 }
            
             }
-
         }
 
     }

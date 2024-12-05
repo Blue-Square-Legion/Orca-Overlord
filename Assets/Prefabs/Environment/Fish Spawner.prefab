@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8494e4f8e2fe7044986139a1c686935, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fishPrefab: {fileID: 5197063187477666254, guid: 1849284a2565fca43a6f3d4ed548ce11,
+  fishPrefab: {fileID: 7419688360450002024, guid: 1623342ce8299d74bab1f7772095e920,
     type: 3}
   spawnPoint: {fileID: 5434892500046972734}
   fishSpawnOffset: 10

@@ -44,6 +44,8 @@ public class PlayerController : MonoBehaviour
    [SerializeField] private float gravityBoost = 1.0f;
    
    
+   //Animation
+   private Animator _animator;
    
    private void Awake()
    {
@@ -55,6 +57,11 @@ public class PlayerController : MonoBehaviour
       if (!TryGetComponent(out _controller))
       {
          Debug.LogError("Character Controller Component is Missing.");
+      }
+      
+      if (!TryGetComponent(out _animator))
+      {
+         Debug.LogError("Animator Component is Missing.");
       }
    }
 
@@ -136,7 +143,7 @@ public class PlayerController : MonoBehaviour
 
       if (_currentEnemy && Input.GetMouseButtonDown(0))
       {
-         PerformAttack();
+         _animator.SetTrigger("Attack");
       }
       
    }
@@ -159,11 +166,14 @@ public class PlayerController : MonoBehaviour
       _health.TakeDamage(damage);
    }
    
-   private void PerformAttack() 
+   public void PerformAttack() 
    {
-      Vector3 knockbackDirection = (_currentEnemy.transform.position - transform.position).normalized;
-      knockbackDirection.y = 0;
+      if (_currentEnemy)
+      {
+         Vector3 knockbackDirection = (_currentEnemy.transform.position - transform.position).normalized;
+         //knockbackDirection.y = 0;
 
-      _currentEnemy.GetComponent<Boat>()?.ApplyKnockback(knockbackDirection, _knockbackPower, damage);
+         _currentEnemy.GetComponent<Boat>()?.ApplyKnockback(knockbackDirection, _knockbackPower, damage);
+      }
    }
 }

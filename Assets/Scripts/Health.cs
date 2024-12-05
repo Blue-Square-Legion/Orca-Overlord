@@ -14,6 +14,7 @@ public class Health : MonoBehaviour
     [SerializeField] private float _currentHealth;
     private bool _isDead;
 
+    public Slider HealthBar => healthBar;
     public float MaxHealth => maxHealth;
     public bool IsDead => _isDead;
     

@@ -9,7 +9,7 @@ public class Dolphin : MonoBehaviour
     [SerializeField] private float closenessToPlayer;
     [SerializeField] private float lookAtDistanceThreshold;
     [SerializeField] private float knockbackPower;
-    [SerializeField] private float damage;
+    [SerializeField] private int damage;
     [SerializeField] private float attackCooldown;
     [SerializeField] private float attackRange;
     [SerializeField] private float distanceFromPlayer;

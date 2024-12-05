@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -8,21 +9,28 @@ public class PlayerController : MonoBehaviour
    //Basic Movement
    private CharacterController _controller;
    private Vector3 _playerVelocity;
-   [SerializeField]private bool _isInWater;
+   private bool _isInWater;
    private bool _isAtSurface;
    private float _speed;
    
-   public CharacterController CharacterControllerController => _controller;
    public bool IsInWater => _isInWater;
    public bool IsAtSurface => _isAtSurface;
    
    
    //Health
    private Health _health;
-
+   
    public Health Health => _health;
    
    
+   //Combat
+   [SerializeField] private int damage = 10;
+   private GameObject _currentEnemy;
+   private Boat _boat;
+   [SerializeField] private float _knockbackPower = 10.0f;
+   public int Damage => damage;
+   
+
    //Knockback
    [SerializeField] private GameObject damageEffect;
    private Vector3 _velocity;
@@ -61,6 +69,11 @@ public class PlayerController : MonoBehaviour
       {
          _isAtSurface = true;
       }
+
+      if (other.CompareTag("Enemy"))
+      {
+         _currentEnemy = other.gameObject;
+      }
    }
 
    private void OnTriggerExit(Collider other)
@@ -73,6 +86,11 @@ public class PlayerController : MonoBehaviour
       if (other.CompareTag("WaterSurface"))
       {
          _isAtSurface = false;
+      }
+      
+      if (other.CompareTag("Enemy"))
+      {
+         _currentEnemy = null;
       }
    }
 
@@ -91,7 +109,7 @@ public class PlayerController : MonoBehaviour
             damageEffect.SetActive(false);
             
             _isKnockedBack = false;
-            _velocity = Vector3.zero; // Stop knockback
+            _velocity = Vector3.zero;
          }
       }
       
@@ -115,6 +133,12 @@ public class PlayerController : MonoBehaviour
       }
       
       _controller.Move(_velocity * Time.deltaTime);
+
+      if (_currentEnemy && Input.GetMouseButtonDown(0))
+      {
+         PerformAttack();
+      }
+      
    }
 
    public Vector3 Move()
@@ -124,14 +148,22 @@ public class PlayerController : MonoBehaviour
    }
    
    
-   public void ApplyKnockback(Vector3 direction, float attackPower, float damage) 
+   public void ApplyKnockback(Vector3 direction, float attackPower, int damage) 
    {
       _isKnockedBack = true;
       _knockbackTimer = _knockbackDuration;
-      _velocity = direction * attackPower; // Set knockback velocity
+      _velocity = direction * attackPower;
       
       damageEffect.SetActive(true);
       
       _health.TakeDamage(damage);
+   }
+   
+   private void PerformAttack() 
+   {
+      Vector3 knockbackDirection = (_currentEnemy.transform.position - transform.position).normalized;
+      knockbackDirection.y = 0;
+
+      _currentEnemy.GetComponent<Boat>()?.ApplyKnockback(knockbackDirection, _knockbackPower, damage);
    }
 }

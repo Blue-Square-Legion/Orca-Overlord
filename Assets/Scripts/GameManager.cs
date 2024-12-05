@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private CountdownTimer countdownTimer;
     [SerializeField] private GameObject mainCamera;
 
+    public PlayerController PlayerController => _playerController;
     public CountdownTimer CountdownTimer => countdownTimer;
     public FishSpawner FishSpawner => _fishSpawner;
     public DolphinSpawner DolphinSpawner => _dolphinSpawner;
@@ -65,7 +66,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        
+        Cursor.lockState = CursorLockMode.Confined;
         
         if (_playerController.IsInWater)
         {

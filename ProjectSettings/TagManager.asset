@@ -13,6 +13,8 @@ TagManager:
   - BoatFlipTriggerRight
   - BoatFlipTriggerLeft
   - ShakeTrigger
+  - UI
+  - DolphinSpawner
   layers:
   - Default
   - TransparentFX

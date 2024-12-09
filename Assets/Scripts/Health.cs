@@ -8,12 +8,14 @@ using UnityEngine.UI;
 public class Health : MonoBehaviour
 {
     
-    [SerializeField] private Slider healthBar; // Reference to the Slider
+    [SerializeField] private Slider healthBar;
     [SerializeField] private float maxHealth = 100f;
     
-    private float _currentHealth;
+    [SerializeField] private float _currentHealth;
     private bool _isDead;
 
+    public Slider HealthBar => healthBar;
+    public float MaxHealth => maxHealth;
     public bool IsDead => _isDead;
     
     void Start()
@@ -23,10 +25,10 @@ public class Health : MonoBehaviour
         UpdateHealthBar();
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
         _currentHealth -= damage;
-        _currentHealth = Mathf.Clamp(_currentHealth, 0.0f, maxHealth); // Ensure health doesn't go below 0 or above max
+        _currentHealth = Mathf.Clamp(_currentHealth, 0.0f, maxHealth);
         UpdateHealthBar();
 
         _isDead = _currentHealth == 0.0f;
@@ -43,7 +45,7 @@ public class Health : MonoBehaviour
     {
         if (healthBar)
         {
-            healthBar.value = _currentHealth / maxHealth; // Normalize between 0 and 1
+            healthBar.value = _currentHealth / maxHealth;
         }
     }
 }

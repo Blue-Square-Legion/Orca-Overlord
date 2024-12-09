@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Buoyancy : MonoBehaviour
@@ -10,9 +9,10 @@ public class Buoyancy : MonoBehaviour
     public float airDrag;
     public float airAngularDrag;
     public float floatingPower;
-
+    public float depthThreshold;
+    public float maxDepth;
     public bool randomness = false;
-
+    public float depth;
     public Transform waterSurface;
 
     private bool underWater = false;
@@ -39,12 +39,22 @@ public class Buoyancy : MonoBehaviour
 
         foreach(Transform floater in floaters)
         {
-            float difference = floater.position.y - waterSurface.position.y;
+            depth = waterSurface.position.y - floater.position.y;
 
-            if (difference < 0)
+            if (gameObject.TryGetComponent(out Boat boat))
             {
-                rb.AddForceAtPosition(Vector3.up * floatingPower * randomnessVal, floater.position);
+                if (boat.isFlipped)
+                {
+                    return;
+                }
+            }
+            
+            if (depth > depthThreshold && depth < maxDepth)
+            {
+                rb.AddForceAtPosition(Vector3.up * floatingPower * randomnessVal * depth, floater.position, ForceMode.Force);
+                
                 floatersUnderWater++;
+                
                 if (!underWater)
                 {
                     underWater = true;

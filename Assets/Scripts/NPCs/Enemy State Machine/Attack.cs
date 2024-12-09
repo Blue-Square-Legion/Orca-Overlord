@@ -5,10 +5,10 @@ public class Attack : Follow
     private float _attackCooldown; // Time between attacks
     private float _attackRange; // Distance to trigger attack
     private float _knockbackPower = 10f; // Strength of knockback
-    private float _damage;
+    private int _damage;
     private float _nextAttackTime;
 
-    public Attack(GameObject thisEnemy, GameObject player, float knockbackPower, float damage, float attackRange, float attackCooldown, float closenessToPlayer, float moveSpeed, float neighbourDistance, float rotationSpeed, DolphinSpawner dolphinSpawner) :
+    public Attack(GameObject thisEnemy, GameObject player, float knockbackPower, int damage, float attackRange, float attackCooldown, float closenessToPlayer, float moveSpeed, float neighbourDistance, float rotationSpeed, DolphinSpawner dolphinSpawner) :
         base(thisEnemy, player, closenessToPlayer, moveSpeed, neighbourDistance, rotationSpeed, dolphinSpawner)
     {
         _knockbackPower = knockbackPower;

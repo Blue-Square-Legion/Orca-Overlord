@@ -7,24 +7,28 @@ public class Boat : MonoBehaviour
     [SerializeField] private int scoreIncrementOnFlip = 5;
     
     [Header("Boat Behavior")]
+    [SerializeField] private float moveSpeed;
+    [SerializeField] private float rotationSpeed;
+    [SerializeField] private float playerDetectionDistance;
     [SerializeField] private float uprightStabilizationForce = 10f;
     [SerializeField] private float stabilizationDamping = 2f;
+    [SerializeField] private float tiltThreshold;
+    [SerializeField] private float maxTilt;
     
-    public bool isFlipped;
     private Health _health;
     private Vector3 _velocity;
     private bool _isKnockedBack;
-    private float _knockbackDuration = 0.2f;
-    private float _knockbackTimer;
-    private Rigidbody _rigidbody;
+    private float _knockBackDuration = 0.2f;
+    private float _knockBackTimer;
+    private Rigidbody _rigidBody;
     private float _tiltAngle;
     private float _depth;
-
-    public bool isInWater;
     private bool _stopUpdate;
+    [SerializeField] private float _distanceFromPlayer;
+    private PlayerController _playerController;
     
-    [SerializeField] private float tiltThreshold;
-    [SerializeField] private float maxTilt;
+    [HideInInspector] public bool isFlipped;
+    [HideInInspector] public bool isInWater;
     
     private void Awake()
     {
@@ -33,12 +37,18 @@ public class Boat : MonoBehaviour
             Debug.LogError("Health Component Not Found.");
         }
         
-        if (!TryGetComponent(out _rigidbody))
+        if (!TryGetComponent(out _rigidBody))
         {
             Debug.LogError("Rigid Body Component Not Found.");
         }
     }
-    
+
+
+    private void Start()
+    {
+        _playerController = GameManager.Instance.PlayerController;
+    }
+
     
     private void FixedUpdate()
     {
@@ -47,21 +57,37 @@ public class Boat : MonoBehaviour
             return;
         }
         
+        _distanceFromPlayer = Vector3.Distance(transform.position, _playerController.transform.position);
+
+        if (_distanceFromPlayer < playerDetectionDistance)
+        {
+            Vector3 lookAtDirection = - (_playerController.transform.position - transform.position);
+            lookAtDirection.Normalize();
+
+            Vector3 euler = Quaternion.Slerp(_rigidBody.rotation, Quaternion.LookRotation(lookAtDirection),
+                rotationSpeed * Time.fixedDeltaTime).eulerAngles;
+            euler.x = euler.z = 0;
+            
+            _rigidBody.MoveRotation(Quaternion.Euler(euler));
+            
+            _rigidBody.MovePosition(moveSpeed * Time.fixedDeltaTime * lookAtDirection + _rigidBody.position);
+        }
+        
         if (_isKnockedBack) 
         {
-            _knockbackTimer -= Time.deltaTime;
-            if (_knockbackTimer <= 0) 
+            _knockBackTimer -= Time.deltaTime;
+            if (_knockBackTimer <= 0) 
             {
                 _isKnockedBack = false;
                 _velocity = Vector3.zero;
             }
         }
         
-        _rigidbody.AddForce(_velocity, ForceMode.Impulse);
-        _rigidbody.AddTorque(_velocity*100, ForceMode.Force);
+        _rigidBody.AddForce(_velocity, ForceMode.Impulse);
+        _rigidBody.AddTorque(_velocity*100, ForceMode.Force);
         
         _tiltAngle = Vector3.Angle(transform.up, Vector3.up);
-        _depth = GameManager.Instance.WaterLevel - _rigidbody.transform.position.y;
+        _depth = GameManager.Instance.WaterLevel - _rigidBody.transform.position.y;
 
         if (_tiltAngle > maxTilt || _depth > -2.0f)
         {
@@ -80,10 +106,11 @@ public class Boat : MonoBehaviour
             return;
         }
         
-        _rigidbody.useGravity = !isInWater;
-        if (_rigidbody.useGravity)
+        _rigidBody.useGravity = !isInWater;
+        
+        if (_rigidBody.useGravity)
         {
-            _rigidbody.AddForceAtPosition(Vector3.down * 10000.0f, _rigidbody.position);
+            _rigidBody.AddForceAtPosition(Vector3.down * 10000.0f, _rigidBody.position);
         }
 
         if (_health.IsDead)
@@ -93,10 +120,10 @@ public class Boat : MonoBehaviour
     }
 
     
-    public void ApplyKnockback(Vector3 direction, float attackPower, int damage) 
+    public void ApplyKnockBack(Vector3 direction, float attackPower, int damage) 
     {
         _isKnockedBack = true;
-        _knockbackTimer = _knockbackDuration;
+        _knockBackTimer = _knockBackDuration;
         _velocity = direction.normalized * attackPower;
       
         _health.TakeDamage(damage);
@@ -111,7 +138,7 @@ public class Boat : MonoBehaviour
 
             Vector3 torque = Vector3.Cross(transform.up, Vector3.up) * stabilizationStrength;
 
-            _rigidbody.AddTorque(torque - _rigidbody.angularVelocity * stabilizationDamping, ForceMode.Force);
+            _rigidBody.AddTorque(torque - _rigidBody.angularVelocity * stabilizationDamping, ForceMode.Force);
         }
     }
 
@@ -120,19 +147,8 @@ public class Boat : MonoBehaviour
         ScoreManager.Instance.AddScore(scoreIncrementOnFlip);
         _stopUpdate = true;
         isFlipped = true;
-        _rigidbody.useGravity = true;
-        _rigidbody.mass = 10000;
+        _rigidBody.useGravity = true;
+        _rigidBody.mass = 10000;
         _health.HealthBar.gameObject.SetActive(false);
     }
-    /*private int getMassDecrementStep()
-    {
-        int damage = GameManager.Instance.PlayerController.Damage;
-        float health = _health.MaxHealth;
-        float rbMass = _rigidbody.mass;
-
-        int steps = (int)health / damage;
-        int mass = (int) (rbMass - _actualMass);
-        
-        return mass/steps;
-    }*/
 }

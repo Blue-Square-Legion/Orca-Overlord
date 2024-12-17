@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
    [SerializeField] private int damage = 10;
    private GameObject _currentEnemy;
    private Boat _boat;
-   [SerializeField] private float _knockbackPower = 10.0f;
+   [SerializeField] private float _knockBackPower = 10.0f;
    public int Damage => damage;
    
 
@@ -35,8 +35,8 @@ public class PlayerController : MonoBehaviour
    [SerializeField] private GameObject damageEffect;
    private Vector3 _velocity;
    private bool _isKnockedBack;
-   private float _knockbackDuration = 0.2f;
-   private float _knockbackTimer;
+   private float _knockBackDuration = 0.2f;
+   private float _knockBackTimer;
    
    [SerializeField] private float playerSpeed = .5f;
    [SerializeField] private float boostMultiplier = 1.5f;
@@ -110,8 +110,8 @@ public class PlayerController : MonoBehaviour
       
       if (_isKnockedBack) 
       {
-         _knockbackTimer -= Time.deltaTime;
-         if (_knockbackTimer <= 0) 
+         _knockBackTimer -= Time.deltaTime;
+         if (_knockBackTimer <= 0) 
          {
             damageEffect.SetActive(false);
             
@@ -155,10 +155,10 @@ public class PlayerController : MonoBehaviour
    }
    
    
-   public void ApplyKnockback(Vector3 direction, float attackPower, int damage) 
+   public void ApplyKnockBack(Vector3 direction, float attackPower, int damage) 
    {
       _isKnockedBack = true;
-      _knockbackTimer = _knockbackDuration;
+      _knockBackTimer = _knockBackDuration;
       _velocity = direction * attackPower;
       
       damageEffect.SetActive(true);
@@ -173,7 +173,7 @@ public class PlayerController : MonoBehaviour
          Vector3 knockbackDirection = (_currentEnemy.transform.position - transform.position).normalized;
          //knockbackDirection.y = 0;
 
-         _currentEnemy.GetComponent<Boat>()?.ApplyKnockback(knockbackDirection, _knockbackPower, damage);
+         _currentEnemy.GetComponent<Boat>()?.ApplyKnockBack(knockbackDirection, _knockBackPower, damage);
       }
    }
 }

@@ -67,7 +67,7 @@ public class Idle : State
             }
         }
         
-        ThisEnemy.transform.Translate(Vector3.forward * Time.deltaTime * MoveSpeed);
+        ThisEnemy.transform.Translate(Time.deltaTime * MoveSpeed * Vector3.forward);
         
         Vector3 position = ThisEnemy.transform.position;
         

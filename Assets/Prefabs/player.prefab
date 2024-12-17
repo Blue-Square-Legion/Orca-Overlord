@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2488250277953478998}
-  - component: {fileID: 4185110076260712869}
   - component: {fileID: 1363796946141191112}
   - component: {fileID: 1016469148805638785}
   - component: {fileID: 2835451735156231555}
@@ -39,29 +38,6 @@ Transform:
   - {fileID: 7974178169788999677}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &4185110076260712869
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4962220412519530214}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.017
-  m_Height: 0.12
-  m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 0.04}
 --- !u!143 &1363796946141191112
 CharacterController:
   m_ObjectHideFlags: 0
@@ -129,7 +105,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 0}
   maxHealth: 100
-  _currentHealth: 0
 --- !u!114 &5869336381065118069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,7 +119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canDie: 0
   damage: 10
-  _knockbackPower: 1000
+  _knockBackPower: 10
   damageEffect: {fileID: 0}
   playerSpeed: 30
   boostMultiplier: 5

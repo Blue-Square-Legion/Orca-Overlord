@@ -40,7 +40,7 @@ public class Spear : MonoBehaviour,IGrabbable
             StartCoroutine(StartCoolDown());
             GameObject spear = Instantiate(spearPrefab, spearSpawnPt.position, spearSpawnPt.rotation);
             spear.GetComponent<Rigidbody>().velocity = spearSpawnPt.forward * spearSpeed;
-            spear.GetComponent<Buoyancy>().waterSurface = waterSurface;
+            //spear.GetComponent<Buoyancy>().waterSurface = waterSurface;
         }
 
         enemy.transform.LookAt(player.transform.position);

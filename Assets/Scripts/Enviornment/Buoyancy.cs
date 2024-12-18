@@ -1,94 +1,94 @@
-using System.Collections;
 using UnityEngine;
 
 public class Buoyancy : MonoBehaviour
 {
+    public float waterDensity = 1000f;  // Density of water
+    public float gravity = 9.81f; // Gravity constant
+    public float dragFactor = 0.1f; // Drag factor (resistance in water)
+    public float restoreStrength = 10f; // Strength of the restoring force when the boat tilts
+    public float tiltSensitivity = 0.1f; // Sensitivity of the boat tilt response
+
+    private Rigidbody _rigidbody;
+    private Vector3[] _originalVertices;  // Store original vertices positions for stability
+
+    // Array of Transforms representing the floaters on the object
     public Transform[] floaters;
-    public float underWaterDrag;
-    public float underWaterAngularDrag;
-    public float airDrag;
-    public float airAngularDrag;
-    public float floatingPower;
-    public float depthThreshold;
-    public float maxDepth;
-    public bool randomness = false;
-    public float depth;
-    public Transform waterSurface;
 
-    private bool underWater = false;
-    private int floatersUnderWater;
-    private float randomnessVal = 1f;
-    private Rigidbody rb;
+    private WaterPhysics _waterPhysics; // Reference to PerlinWaves script for wave height calculation
 
-    private void Awake()
+    void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        _rigidbody = GetComponent<Rigidbody>();
+        _waterPhysics = FindObjectOfType<WaterPhysics>();
+
+        // Ensure floaters are set properly in the inspector
     }
 
-    private void Start()
+    void FixedUpdate()
     {
-        if (randomness)
-        {
-            StartCoroutine(SetRandomness());
-        }
+        ApplyForces();
     }
 
-    private void FixedUpdate()
+    void ApplyForces()
     {
-        floatersUnderWater = 0;
+        // Apply buoyancy and forces based on Perlin noise wave heights
+        float totalBuoyancyForce = 0f;
 
-        foreach(Transform floater in floaters)
+        // Calculate the average submersion depth and buoyancy force
+        foreach (Transform floater in floaters)
         {
-            depth = waterSurface.position.y - floater.position.y;
+            Vector3 floaterPosition = floater.position;
+            float waveHeightAtFloater = _waterPhysics.GetWaveHeightAtPosition(floaterPosition.x, floaterPosition.z);
+            float submersionDepth = Mathf.Abs(waveHeightAtFloater - floaterPosition.y);
 
-            if (gameObject.TryGetComponent(out Boat boat))
+            if (submersionDepth > 0)
             {
-                if (boat.isFlipped)
-                {
-                    return;
-                }
-            }
-            
-            if (depth > depthThreshold && depth < maxDepth)
-            {
-                rb.AddForceAtPosition(Vector3.up * floatingPower * randomnessVal * depth, floater.position, ForceMode.Force);
-                
-                floatersUnderWater++;
-                
-                if (!underWater)
-                {
-                    underWater = true;
-                    SwitchState(underWater);
-                }
+                // Calculate buoyancy force: proportional to the submerged depth
+                totalBuoyancyForce += waterDensity * submersionDepth * gravity;
             }
 
+            // Optionally, apply drag based on the velocity of the boat
+            Vector3 dragForce = -_rigidbody.velocity * dragFactor;
+            _rigidbody.AddForce(dragForce, ForceMode.Force);
         }
 
-        if (underWater && floatersUnderWater == 0)
-        {
-            underWater = false;
-            SwitchState(underWater);
-        }
+        // Apply total buoyancy force to the rigidbody
+        _rigidbody.AddForce(Vector3.up * totalBuoyancyForce, ForceMode.Force);
+
+        // Apply restoring torque to simulate tilting
+        ApplyRestoringTorque();
     }
 
-    void SwitchState(bool isUnderWater)
+    void ApplyRestoringTorque()
     {
-        if (isUnderWater)
-        {
-            rb.drag = underWaterDrag;
-            rb.angularDrag = underWaterAngularDrag;
-        }
-        else
-        {
-            rb.drag = airDrag;
-            rb.angularDrag = airAngularDrag;
-        }
+        // Calculate height differences between floaters to simulate tilting
+        Vector3 floater1Pos = floaters[0].position;
+        Vector3 floater2Pos = floaters[1].position;
+        Vector3 floater3Pos = floaters[2].position;
+        Vector3 floater4Pos = floaters[3].position;
+
+        // Calculate height differences between the front and back floaters (pitch)
+        float frontHeight = (GetWaveHeightAtPosition(floater1Pos.x, floater1Pos.z) + GetWaveHeightAtPosition(floater2Pos.x, floater2Pos.z)) / 2;
+        float backHeight = (GetWaveHeightAtPosition(floater3Pos.x, floater3Pos.z) + GetWaveHeightAtPosition(floater4Pos.x, floater4Pos.z)) / 2;
+        float pitchDifference = frontHeight - backHeight;
+
+        // Calculate height differences between the left and right floaters (roll)
+        float leftHeight = (GetWaveHeightAtPosition(floater1Pos.x, floater1Pos.z) + GetWaveHeightAtPosition(floater3Pos.x, floater3Pos.z)) / 2;
+        float rightHeight = (GetWaveHeightAtPosition(floater2Pos.x, floater2Pos.z) + GetWaveHeightAtPosition(floater4Pos.x, floater4Pos.z)) / 2;
+        float rollDifference = leftHeight - rightHeight;
+
+        // Apply torques for pitch and roll based on height differences
+        Vector3 torque = Vector3.zero;
+        torque.x = pitchDifference * restoreStrength;  // Apply pitch torque
+        torque.z = -rollDifference * restoreStrength; // Apply roll torque
+
+        // Apply the calculated torque to the boat
+        _rigidbody.AddTorque(torque, ForceMode.Force);
     }
 
-    private IEnumerator SetRandomness()
+    float GetWaveHeightAtPosition(float x, float z)
     {
-        yield return new WaitForSeconds(.2f);
-        StartCoroutine(SetRandomness());
-        randomnessVal = Random.Range(.5f, 2f);
+        // Get the wave height at a specific position based on Perlin noise (from the PerlinWaves script)
+        return _waterPhysics.GetWaveHeightAtPosition(x, z);
     }
 }

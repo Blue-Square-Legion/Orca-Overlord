@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public class Boat : MonoBehaviour
 {
-    [Header("Score")]
+    [Header("Scoring")]
     [SerializeField] private int scoreIncrementOnFlip = 5;
 
     [Header("Boat Behavior")]
@@ -18,12 +18,6 @@ public class Boat : MonoBehaviour
     [SerializeField] private float stabilizationDamping = 2f;
     [SerializeField] private float tiltThreshold;
     [SerializeField] private float maxTilt;
-
-    [Header("Wave Interaction")]
-    [SerializeField] private float waveFrequency = 1f; 
-    [SerializeField] private float waveSpeed = 1f;
-    [SerializeField] private float waveHeight = 2f;
-    [SerializeField] private float buoyancyFactor = 10f;
 
     private Health _health;
     private NavMeshAgent _navMeshAgent;
@@ -39,8 +33,6 @@ public class Boat : MonoBehaviour
     private bool _isMovingAway;
     private float _distanceFromPlayer;
     private PlayerController _playerController;
-
-    [SerializeField] private MeshFilter waveMesh;
     
     [HideInInspector] public bool isFlipped;
     [HideInInspector] public bool isInWater;
@@ -77,9 +69,7 @@ public class Boat : MonoBehaviour
         
         _distanceFromPlayer = Vector3.Distance(transform.position, _playerController.transform.position);
 
-        float distanceFromPlayer = Vector3.Distance(transform.position, _playerController.transform.position);
-
-        if (distanceFromPlayer < playerDetectionDistance)
+        if (_distanceFromPlayer < playerDetectionDistance)
         {
             _isMovingAway = true;
             MoveAwayFromPlayer();
@@ -111,15 +101,12 @@ public class Boat : MonoBehaviour
         {
             Sink();
         }
-
-        ApplyWaveForces();
-        StabilizeUpright();
+        
+        //StabilizeUpright();
     }
 
     void Update()
     {
-        //PrintDebugInfo();
-        
         _health.HealthBar.gameObject.transform.LookAt(GameManager.Instance.PlayerController.transform);
 
         if (_stopUpdate)
@@ -171,84 +158,26 @@ public class Boat : MonoBehaviour
         _health.HealthBar.gameObject.SetActive(false);
         _navMeshAgent.enabled = false;
     }
-
-    // Apply buoyancy and wave forces based on the boat's position and the wave mesh
-    void ApplyWaveForces()
-    {
-        if (!waveMesh)
-        {
-            return;
-        }
-
-        float waveHeightAtBoat = GetWaveHeight(transform.position);
-        float displacement = waveHeightAtBoat - _rigidBody.position.y;
-        
-        if (displacement > 0)
-        {
-            Vector3 buoyantForce = Vector3.up * displacement * buoyancyFactor;
-            _rigidBody.AddForce(buoyantForce, ForceMode.Force);
-        }
-        
-        Vector3 waveSlope = GetWaveSlope(transform.position);
-        Vector3 waveForce = waveSlope * buoyancyFactor;
-        _rigidBody.AddForce(waveForce, ForceMode.Force);
-    }
-
-    
-    
-    float GetWaveHeight(Vector3 position)
-    {
-        Vector3 localPosition = waveMesh.GameObject().transform.InverseTransformPoint(position);
-
-        float wave = Mathf.Sin(Time.time * waveSpeed + localPosition.x * waveFrequency) *
-                     Mathf.Sin(Time.time * waveSpeed + localPosition.z * waveFrequency);
-
-        return wave * waveHeight;
-    }
-    
-    
-    Vector3 GetWaveSlope(Vector3 position)
-    {
-        float delta = 0.1f;
-
-        float heightX1 = GetWaveHeight(position + new Vector3(delta, 0, 0));
-        float heightX2 = GetWaveHeight(position - new Vector3(delta, 0, 0));
-        float heightZ1 = GetWaveHeight(position + new Vector3(0, 0, delta));
-        float heightZ2 = GetWaveHeight(position - new Vector3(0, 0, delta));
-        
-        float slopeX = (heightX1 - heightX2) / (2 * delta);
-        float slopeZ = (heightZ1 - heightZ2) / (2 * delta);
-
-        return new Vector3(slopeX, 0, slopeZ).normalized;
-    }
     
     
     
     private void MoveAwayFromPlayer()
     {
-        // Calculate direction away from the player
         Vector3 directionAway = (transform.position - _playerController.transform.position).normalized;
-        Vector3 targetPosition = transform.position + directionAway * 10f; // Arbitrary distance ahead
+        Vector3 targetPosition = transform.position + directionAway * 10f;
 
-        // Set NavMeshAgent path to the target position
         _navMeshAgent.SetDestination(targetPosition);
-
-        // Apply movement using Rigidbody
+        
         Vector3 desiredVelocity = _navMeshAgent.desiredVelocity;
         Vector3 horizontalVelocity = new Vector3(desiredVelocity.x, 0, desiredVelocity.z);
         _rigidBody.AddForce(horizontalVelocity.normalized * moveSpeed, ForceMode.Acceleration);
 
-        // Face the movement direction
-        if (horizontalVelocity != Vector3.zero)
+        if (horizontalVelocity == Vector3.zero)
         {
-            Quaternion targetRotation = Quaternion.LookRotation(horizontalVelocity);
-            _rigidBody.MoveRotation(Quaternion.Slerp(transform.rotation, targetRotation, Time.fixedDeltaTime * 5f));
+            return;
         }
-    }
-
-    void PrintDebugInfo()
-    {
-        Debug.Log("Tilt Angle - " + _tiltAngle);
-        Debug.Log("Depth - " + _depth);
+        
+        Quaternion targetRotation = Quaternion.LookRotation(horizontalVelocity);
+        _rigidBody.MoveRotation(Quaternion.Slerp(transform.rotation, targetRotation, Time.fixedDeltaTime * 5f));
     }
 }

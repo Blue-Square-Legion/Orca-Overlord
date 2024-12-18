@@ -67,6 +67,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         Cursor.lockState = CursorLockMode.Confined;
+        Cursor.lockState = CursorLockMode.Locked;
         
         if (_playerController.IsInWater)
         {

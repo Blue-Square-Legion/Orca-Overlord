@@ -4,11 +4,5 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/Robert/TutorialAndMusic.unity
-    guid: a5de0aaa22f47284fa058a88381d751d
-  - enabled: 1
-    path: Assets/Scenes/Robert/BoatFlip.unity
-    guid: c4c3a2bd847d3fb4a88d2830b9ed9071
+  m_Scenes: []
   m_configObjects: {}

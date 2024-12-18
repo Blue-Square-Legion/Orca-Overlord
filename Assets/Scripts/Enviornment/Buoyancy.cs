@@ -6,7 +6,6 @@ public class Buoyancy : MonoBehaviour
     public float gravity = 9.81f; // Gravity constant
     public float dragFactor = 0.1f; // Drag factor (resistance in water)
     public float restoreStrength = 10f; // Strength of the restoring force when the boat tilts
-    public float tiltSensitivity = 0.1f; // Sensitivity of the boat tilt response
 
     private Rigidbody _rigidbody;
     private Vector3[] _originalVertices;  // Store original vertices positions for stability
@@ -16,11 +15,13 @@ public class Buoyancy : MonoBehaviour
 
     private WaterPhysics _waterPhysics; // Reference to PerlinWaves script for wave height calculation
 
+    private float _waterLevel;
+    
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
         _waterPhysics = FindObjectOfType<WaterPhysics>();
-
+        _waterLevel = GameManager.Instance.WaterLevel;
         // Ensure floaters are set properly in the inspector
     }
 
@@ -39,7 +40,7 @@ public class Buoyancy : MonoBehaviour
         {
             Vector3 floaterPosition = floater.position;
             float waveHeightAtFloater = _waterPhysics.GetWaveHeightAtPosition(floaterPosition.x, floaterPosition.z);
-            float submersionDepth = Mathf.Abs(waveHeightAtFloater - floaterPosition.y);
+            float submersionDepth = waveHeightAtFloater - floaterPosition.y - _waterLevel;
 
             if (submersionDepth > 0)
             {
@@ -61,22 +62,38 @@ public class Buoyancy : MonoBehaviour
 
     void ApplyRestoringTorque()
     {
+        /*Floater Organization
+         0 1
+         2 3
+         */
+        
         // Calculate height differences between floaters to simulate tilting
-        Vector3 floater1Pos = floaters[0].position;
-        Vector3 floater2Pos = floaters[1].position;
-        Vector3 floater3Pos = floaters[2].position;
-        Vector3 floater4Pos = floaters[3].position;
+        if (floaters.Length <= 0)
+        {
+            return;
+        }
+        
+        Vector3 floater0Pos = floaters[0].position;
+        Vector3 floater1Pos = floaters[1].position;
+        Vector3 floater2Pos = floaters[2].position;
+        Vector3 floater3Pos = floaters[3].position;
 
         // Calculate height differences between the front and back floaters (pitch)
-        float frontHeight = (GetWaveHeightAtPosition(floater1Pos.x, floater1Pos.z) + GetWaveHeightAtPosition(floater2Pos.x, floater2Pos.z)) / 2;
-        float backHeight = (GetWaveHeightAtPosition(floater3Pos.x, floater3Pos.z) + GetWaveHeightAtPosition(floater4Pos.x, floater4Pos.z)) / 2;
+        float frontHeight = (GetWaveHeightAtPosition(floater0Pos.x, floater0Pos.z) + GetWaveHeightAtPosition(floater1Pos.x, floater1Pos.z)) / 2;
+        
+        float backHeight = (GetWaveHeightAtPosition(floater2Pos.x, floater2Pos.z) + GetWaveHeightAtPosition(floater3Pos.x, floater3Pos.z)) / 2;
+        
         float pitchDifference = frontHeight - backHeight;
 
+        
         // Calculate height differences between the left and right floaters (roll)
-        float leftHeight = (GetWaveHeightAtPosition(floater1Pos.x, floater1Pos.z) + GetWaveHeightAtPosition(floater3Pos.x, floater3Pos.z)) / 2;
-        float rightHeight = (GetWaveHeightAtPosition(floater2Pos.x, floater2Pos.z) + GetWaveHeightAtPosition(floater4Pos.x, floater4Pos.z)) / 2;
+        float leftHeight = (GetWaveHeightAtPosition(floater0Pos.x, floater0Pos.z) + GetWaveHeightAtPosition(floater2Pos.x, floater2Pos.z)) / 2;
+        
+        float rightHeight = (GetWaveHeightAtPosition(floater1Pos.x, floater1Pos.z) + GetWaveHeightAtPosition(floater3Pos.x, floater3Pos.z)) / 2;
+        
         float rollDifference = leftHeight - rightHeight;
 
+        
         // Apply torques for pitch and roll based on height differences
         Vector3 torque = Vector3.zero;
         torque.x = pitchDifference * restoreStrength;  // Apply pitch torque
@@ -88,7 +105,6 @@ public class Buoyancy : MonoBehaviour
 
     float GetWaveHeightAtPosition(float x, float z)
     {
-        // Get the wave height at a specific position based on Perlin noise (from the PerlinWaves script)
         return _waterPhysics.GetWaveHeightAtPosition(x, z);
     }
 }

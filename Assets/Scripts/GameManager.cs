@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,7 +10,8 @@ public class GameManager : MonoBehaviour
     private PlayerController _playerController;
     private FishSpawner _fishSpawner;
     private DolphinSpawner _dolphinSpawner;
-    private float _waterLevel;
+    
+    [SerializeField] private float waterLevel;
     
     [SerializeField] private CountdownTimer countdownTimer;
     [SerializeField] private GameObject mainCamera;
@@ -18,7 +20,7 @@ public class GameManager : MonoBehaviour
     public CountdownTimer CountdownTimer => countdownTimer;
     public FishSpawner FishSpawner => _fishSpawner;
     public DolphinSpawner DolphinSpawner => _dolphinSpawner;
-    public float WaterLevel => _waterLevel;
+    public float WaterLevel => waterLevel;
     
     public static GameManager Instance
     {
@@ -43,15 +45,15 @@ public class GameManager : MonoBehaviour
             Debug.LogError("Player Controller Component not found!");
         }
         
-        GameObject water = GameObject.FindGameObjectWithTag("Water");
+        /*GameObject water = GameObject.FindGameObjectWithTag("Water");
         if (water)
         {
-            _waterLevel = water.transform.position.y;
+            waterLevel = water.transform.position.y;
         }
         else
         {
             Debug.LogError("Water not found.");
-        }
+        }*/
 
         if (!GameObject.FindGameObjectWithTag("FishSpawner").TryGetComponent(out _fishSpawner))
         {

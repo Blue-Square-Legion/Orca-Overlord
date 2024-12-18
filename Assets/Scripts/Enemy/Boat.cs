@@ -12,7 +12,6 @@ public class Boat : MonoBehaviour
     [Header("Boat Behavior")]
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotationSpeed;
-    [SerializeField] private float escapePositionOffset;
     [SerializeField] private float playerDetectionDistance;
     [SerializeField] private float uprightStabilizationForce = 10f;
     [SerializeField] private float stabilizationDamping = 2f;
@@ -49,7 +48,7 @@ public class Boat : MonoBehaviour
             Debug.LogError("Rigid Body Component Not Found.");
         }
 
-        if (!TryGetComponent(out _navMeshAgent))
+        if (!transform.parent.TryGetComponent(out _navMeshAgent))
         {
             Debug.LogError("NavMesh Agent Component Not Found.");
         }
@@ -58,6 +57,8 @@ public class Boat : MonoBehaviour
     private void Start()
     {
         _playerController = GameManager.Instance.PlayerController;
+        _navMeshAgent.updatePosition = false;
+        _navMeshAgent.updateRotation = false;
     }
 
     private void FixedUpdate()
@@ -77,7 +78,7 @@ public class Boat : MonoBehaviour
         else
         {
             _isMovingAway = false;
-            _navMeshAgent.ResetPath();
+            _navMeshAgent?.ResetPath();
             _rigidBody.velocity = Vector3.zero;
         }
 
@@ -95,14 +96,13 @@ public class Boat : MonoBehaviour
         _rigidBody.AddTorque(_velocity * 100, ForceMode.Force);
 
         _tiltAngle = Vector3.Angle(transform.up, Vector3.up);
+        
         _depth = GameManager.Instance.WaterLevel - _rigidBody.transform.position.y;
 
         if (_tiltAngle > maxTilt || _depth > 15)
         {
             Sink();
         }
-        
-        //StabilizeUpright();
     }
 
     void Update()
@@ -114,6 +114,15 @@ public class Boat : MonoBehaviour
             return;
         }
 
+        _navMeshAgent.nextPosition = _rigidBody.position;
+        
+        if (_navMeshAgent.velocity.magnitude > 0.1f)
+        {
+            Vector3 direction = _navMeshAgent.velocity.normalized;
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            _rigidBody.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+        }
+        
         _rigidBody.useGravity = !isInWater;
 
         if (_rigidBody.useGravity)
@@ -136,18 +145,6 @@ public class Boat : MonoBehaviour
         _health.TakeDamage(damage);
     }
 
-    void StabilizeUpright()
-    {
-        if (_tiltAngle > tiltThreshold && _tiltAngle < maxTilt)
-        {
-            float stabilizationStrength = Mathf.InverseLerp(tiltThreshold, maxTilt, _tiltAngle) * uprightStabilizationForce;
-
-            Vector3 torque = Vector3.Cross(transform.up, Vector3.up) * stabilizationStrength;
-
-            _rigidBody.AddTorque(torque - _rigidBody.angularVelocity * stabilizationDamping, ForceMode.Force);
-        }
-    }
-
     private void Sink()
     {
         ScoreManager.Instance.AddScore(scoreIncrementOnFlip);
@@ -164,7 +161,7 @@ public class Boat : MonoBehaviour
     private void MoveAwayFromPlayer()
     {
         Vector3 directionAway = (transform.position - _playerController.transform.position).normalized;
-        Vector3 targetPosition = transform.position + directionAway * 10f;
+        Vector3 targetPosition = transform.position + directionAway * 50f;
 
         _navMeshAgent.SetDestination(targetPosition);
         

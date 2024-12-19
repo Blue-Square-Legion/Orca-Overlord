@@ -75,8 +75,8 @@ Material:
     - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
-    - _DeepWaterColor: {r: 0.052331768, g: 0.50452685, b: 0.5283019, a: 0}
-    - _ShallowWaterColor: {r: 0.5690637, g: 0.8532265, b: 0.8679245, a: 0}
+    - _DeepWaterColor: {r: 0.023529414, g: 0.4039216, b: 0.6392157, a: 0}
+    - _ShallowWaterColor: {r: 0.03137255, g: 0.54901963, b: 0.6901961, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &6271875263247597016
 MonoBehaviour:

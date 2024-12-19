@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scenes/hellfire/Combat.unity.meta
 guid: fe6d8f5cfd16b664d91e06eb92fb6490
+========
+guid: 30804708da236634abafec521553c3e5
+folderAsset: yes
+>>>>>>>> RonaldBoatFlip:Assets/Scenes/Ronald.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

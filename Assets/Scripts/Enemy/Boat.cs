@@ -69,6 +69,8 @@ public class Boat : MonoBehaviour
         }
         
         _distanceFromPlayer = Vector3.Distance(transform.position, _playerController.transform.position);
+        
+        // Debug.Log(_distanceFromPlayer);?
 
         if (_distanceFromPlayer < playerDetectionDistance)
         {

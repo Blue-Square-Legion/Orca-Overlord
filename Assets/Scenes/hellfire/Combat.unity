@@ -1500,6 +1500,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 156546839}
     m_Modifications:
+    - target: {fileID: 1017353928711056166, guid: 896da980d5b3745dd84260970371ecb5,
+        type: 3}
+      propertyPath: m_Mass
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1017353928711056166, guid: 896da980d5b3745dd84260970371ecb5,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3096353537300889324, guid: 896da980d5b3745dd84260970371ecb5,
         type: 3}
       propertyPath: m_AnchorMax.x

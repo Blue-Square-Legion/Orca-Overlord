@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scenes/Template.unity.meta
+<<<<<<< Updated upstream
+guid: a4a61515716724d3eb9f3d0f077cb9dc
+=======
+guid: 3467c19c032ce5f4ab48167e8c43545a
+>>>>>>> Stashed changes
+========
 guid: 39f8ba2edf6564c458c6e1759548f951
+>>>>>>>> RonaldBoatFlip:Assets/Scenes/Ronald/RonaldNewTerrain.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

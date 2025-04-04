@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6905165543430979613}
   - component: {fileID: 1994614588557026924}
   - component: {fileID: 5555425613062266827}
+  - component: {fileID: 5125941827078779662}
   m_Layer: 0
   m_Name: Portal
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2658785, y: 0.2658785, z: 0.2658785}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -4845,3 +4846,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shrinkDuration: 3
   shrinkScale: {x: 1, y: 1, z: 1}
+--- !u!65 &5125941827078779662
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7736999421517484133}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 7.7027106, y: 12.562608, z: 9.771422}
+  m_Center: {x: -0.4503902, y: -1.018696, z: -0.2798412}

@@ -7,7 +7,7 @@ public class Portal : MonoBehaviour
 {
 
     public float shrinkDuration = 3.0f; //Time taken to shrink
-    public Vector3 shrinkScale = new Vector3(1.0f, 1.0f, 1.0f); //Final size before teleport
+    public Vector3 shrinkScale = new Vector3(0.1f, 0.1f, 0.1f); //Final size before teleport
     private bool isTeleporting = false; //Prevent multiple triggers
 
     private Vector3 initialScale;

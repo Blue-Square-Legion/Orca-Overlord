@@ -71,11 +71,11 @@ public class PlayerMain : MonoBehaviour,IHealth
 
         if (isGrounded)
         {
-            rb.drag = groundDrag;
+            rb.linearDamping = groundDrag;
         }
         else
         {
-            rb.drag = 0f;
+            rb.linearDamping = 0f;
         }
     }
 
@@ -127,7 +127,7 @@ public class PlayerMain : MonoBehaviour,IHealth
             rb.AddForce(direction.normalized * speed * waterMultiplier, ForceMode.Force);
 
             rotDir = Quaternion.Euler(cam.transform.eulerAngles.x, cam.transform.eulerAngles.y, cam.transform.eulerAngles.z);
-            rb.velocity *= direction.normalized.magnitude;
+            rb.linearVelocity *= direction.normalized.magnitude;
         }
 
         transform.rotation = Quaternion.Slerp(transform.rotation, rotDir, rotationSpeed);
@@ -141,7 +141,7 @@ public class PlayerMain : MonoBehaviour,IHealth
 
     private void Jump()
     {
-        rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+        rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
         rb.AddForce(transform.up * jumpForce,ForceMode.Impulse);
     }
 
@@ -152,12 +152,12 @@ public class PlayerMain : MonoBehaviour,IHealth
 
     private void LimitSpeed()
     {
-        Vector3 flatVelocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+        Vector3 flatVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
 
         if(flatVelocity.magnitude > speed)
         {
             Vector3 LimitedVelocity = flatVelocity.normalized * speed;
-            rb.velocity = new Vector3(LimitedVelocity.x, rb.velocity.y, LimitedVelocity.z);
+            rb.linearVelocity = new Vector3(LimitedVelocity.x, rb.linearVelocity.y, LimitedVelocity.z);
         }
     }
 

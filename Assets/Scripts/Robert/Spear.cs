@@ -39,7 +39,7 @@ public class Spear : MonoBehaviour,IGrabbable
         {
             StartCoroutine(StartCoolDown());
             GameObject spear = Instantiate(spearPrefab, spearSpawnPt.position, spearSpawnPt.rotation);
-            spear.GetComponent<Rigidbody>().velocity = spearSpawnPt.forward * spearSpeed;
+            spear.GetComponent<Rigidbody>().linearVelocity = spearSpawnPt.forward * spearSpeed;
             //spear.GetComponent<Buoyancy>().waterSurface = waterSurface;
         }
 

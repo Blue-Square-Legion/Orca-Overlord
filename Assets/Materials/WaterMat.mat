@@ -23,6 +23,7 @@ Material:
     RenderType: Transparent
   disabledShaderPasses:
   - DepthOnly
+  - MOTIONVECTORS
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
@@ -78,6 +79,7 @@ Material:
     - _DeepWaterColor: {r: 0.023529414, g: 0.4039216, b: 0.6392157, a: 0}
     - _ShallowWaterColor: {r: 0.03137255, g: 0.54901963, b: 0.6901961, a: 0}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!114 &6271875263247597016
 MonoBehaviour:
   m_ObjectHideFlags: 11
@@ -90,4 +92,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 7
+  version: 10

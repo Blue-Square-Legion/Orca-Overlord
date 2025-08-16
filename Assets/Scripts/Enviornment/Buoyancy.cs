@@ -49,7 +49,7 @@ public class Buoyancy : MonoBehaviour
             }
 
             // Optionally, apply drag based on the velocity of the boat
-            Vector3 dragForce = -_rigidbody.velocity * dragFactor;
+            Vector3 dragForce = -_rigidbody.linearVelocity * dragFactor;
             _rigidbody.AddForce(dragForce, ForceMode.Force);
         }
 
